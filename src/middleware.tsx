@@ -8,12 +8,25 @@ import { isStaticPath } from "./middleware/isStatic";
 import { TokenManagerEdge } from "./lib/security-edge";
 import { FETCHY_GITHUB } from "./constants";
 import { FETCHY_API_KEY, STAGE } from "./conf";
+import { routing } from "./i18n/routing";
+import createMiddleware from "next-intl/middleware";
+
+const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = ipAddress(request);
   const { country, flag } = geolocation(request);
   const securityManager = new TokenManagerEdge();
+  // Use next-intl's middleware to ensure locale routing/redirects happen,
+  const response = intlMiddleware(request);
+  const locale = response.headers.get(
+    "x-middleware-request-x-next-intl-locale"
+  );
+  const tools = toolsSource
+    .getTools()
+    .sortBy("isAvailable", "desc", "boolean")
+    .sortBy("isNew");
 
   if (request.method === "OPTIONS") {
     return NextResponse.next();
@@ -42,13 +55,20 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(FETCHY_GITHUB, request.url));
   }
 
-  const tools = toolsSource.getTools();
-
-  if (pathname === "/tools" && tools.length > 0 && tools[0].url) {
-    return NextResponse.redirect(new URL(tools[0].url, request.url));
+  if (
+    (pathname === `/tools` ||
+      pathname === `/tool` ||
+      pathname === `/${locale}/tools` ||
+      pathname === `/${locale}/tool`) &&
+    tools.length > 0 &&
+    tools[0].url
+  ) {
+    return NextResponse.redirect(
+      new URL(tools[0].url.replace("/:locale", ""), request.url)
+    );
   }
 
-  if (pathname === "/home") {
+  if (pathname === "/home" || pathname === `/${locale}/home`) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
@@ -91,9 +111,10 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  const response = NextResponse.next({ headers });
+  // then apply our custom headers/cookies on the resulting response.
+  headers.forEach((value, key) => response.headers.set(key, value));
 
-  if (pathname.startsWith("/tool")) {
+  if (pathname.includes("/tool/")) {
     const resp = await axios.post(
       new URL("/security/session/create", request.nextUrl.origin).toString(),
       { key: FETCHY_API_KEY },
@@ -119,5 +140,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: "/((?!security|api|trpc|_next|_vercel|.*\\..*).*)",
 };

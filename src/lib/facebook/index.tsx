@@ -2,6 +2,7 @@ import { BadRequest } from "@/lib/exceptions";
 import { fetchFromFbGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
 import { USER_AGENT } from "@/constants";
+import { getTranslations } from "next-intl/server";
 
 export function extractFacebookRedirectedUrl(fullUrl: string) {
   try {
@@ -27,16 +28,17 @@ export function extractFacebookRedirectedUrl(fullUrl: string) {
 
 const facebookVideoIdStoredKeys = ["story_fbid"];
 
-export const getContentFbId = ({
+export const getContentFbId = async ({
   url,
   html,
 }: {
   url: string;
   html?: string;
-}): {
+}): Promise<{
   type: "video" | "story";
   contentId: string;
-} => {
+}> => {
+  const t = await getTranslations("errors");
   const videoRegex = /\/(?:videos|reel|watch)(?:\/?)(?:\?v=)?(\d+)/;
   const storyRegex = /stories\/(\d+)/;
   const postRegex = /\/posts\/(pfbid[^/?]+)/i;
@@ -44,15 +46,12 @@ export const getContentFbId = ({
   let contentId: any;
 
   if (!url) {
-    throw new BadRequest("Facebook URL was not provided");
+    throw new BadRequest(t("invalid_url"), 400);
   }
 
   // Check for post URLs first
   const postCheck = url.match(postRegex);
-  if (postCheck)
-    throw new BadRequest(
-      "We currently don't support extracting content from Facebook posts. This feature will be available soon."
-    );
+  if (postCheck) throw new BadRequest(t("facebook_not_supported_content"), 400);
 
   // video handler
   const videoCheck = url.match(videoRegex);
@@ -105,13 +104,14 @@ export const getContentFbId = ({
     }
   }
 
-  throw new BadRequest("Content not found or private.", 404);
+  throw new BadRequest(t("private_or_not_exist"), 404);
 };
 
 export const fetchFBContentJson = async (
   url: string,
   timeout: number = 5000
 ) => {
+  const t = await getTranslations("errors");
   try {
     const { url: resolvedUrl, html } = await resolveRedirectUrl({
       url,
@@ -128,7 +128,7 @@ export const fetchFBContentJson = async (
     });
 
     const orgUrl = extractFacebookRedirectedUrl(resolvedUrl);
-    const urlDet = getContentFbId({ url: orgUrl, html });
+    const urlDet = await getContentFbId({ url: orgUrl, html });
 
     const contentJson = await fetchFromFbGraphQL(
       urlDet.type,
@@ -139,10 +139,8 @@ export const fetchFBContentJson = async (
 
     if (contentJson) return contentJson;
 
-    throw new BadRequest("Content not found or private.", 404);
+    throw new BadRequest(t("private_or_not_exist"), 404);
   } catch (error: any) {
-    throw new BadRequest(
-      error.message || "An error occurred while fetching content"
-    );
+    throw new BadRequest(error.message || t("an_error_occurred"));
   }
 };

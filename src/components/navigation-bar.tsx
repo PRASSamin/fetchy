@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Link } from "./link";
 import {
   NavigationMenu,
@@ -19,8 +19,17 @@ import { Button } from "./ui/button";
 import { Home, Menu } from "lucide-react";
 import { PRAS_GITHUB } from "@/constants";
 import { tools as toolsList } from "@/lib/tools/source";
+import { useLocale } from "next-intl";
+import { useTranslations } from "use-intl";
+import { usePathname } from "@/i18n/navigation";
 
 export default function Navigation({ className = "" }) {
+  const lang = useLocale();
+  const t = useTranslations("NavigationBar");
+  const rawT = useTranslations();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [sideBarOpen, setSideBarOpen] = useState(false);
   const tools = toolsList
     .getTools()
     .sortBy("isAvailable", "desc", "boolean")
@@ -47,7 +56,12 @@ export default function Navigation({ className = "" }) {
       ringColor: "ring-pink-400/60",
     },
   ];
-  const router = useRouter();
+
+  useEffect(() => {
+    if (sideBarOpen) {
+      setSideBarOpen(false);
+    }
+  }, [pathname]);
 
   return (
     <Fragment>
@@ -78,9 +92,13 @@ export default function Navigation({ className = "" }) {
 
             <div className="flex gap-2">
               {/* Mobile Menu */}
-              <Sheet>
+              <Sheet open={sideBarOpen} onOpenChange={setSideBarOpen}>
                 <SheetTrigger asChild className="md:hidden">
-                  <Button variant="ghost">
+                  <Button
+                    variant="ghost"
+                    size={"icon"}
+                    className="[&_svg]:size-5"
+                  >
                     <Menu />
                   </Button>
                 </SheetTrigger>
@@ -97,7 +115,7 @@ export default function Navigation({ className = "" }) {
                         <div className="bg-cyan-600/20 rounded p-1">
                           <Home className="text-cyan-400 w-5 h-5" />
                         </div>
-                        {"Home"}
+                        {rawT("home")}
                       </div>
                     </Link>
                     {tools.map((tool, index) => {
@@ -110,11 +128,13 @@ export default function Navigation({ className = "" }) {
                           onClick={() => {
                             if (isDisabled) {
                               toast.info(
-                                "This tool is not available right now."
+                                rawT("not_available_warning", {
+                                  type: "tool",
+                                })
                               );
                               return;
                             }
-                            router.push(tool.url);
+                            router.push(tool.url.replace("/:lang", ""));
                           }}
                           className={`relative block space-y-1 rounded-lg p-4 bg-[#1a1a1a] text-white transition-all duration-200 border border-white/5 cursor-pointer w-full ${
                             isDisabled
@@ -133,19 +153,23 @@ export default function Navigation({ className = "" }) {
                                   tool.isHot ? "bg-orange-500" : "bg-purple-600"
                                 }`}
                               >
-                                {tool.isHot ? "HOT" : "NEW"}
+                                {tool.isHot
+                                  ? rawT("hot").toUpperCase()
+                                  : rawT("new").toUpperCase()}
                               </span>
                             )}
                             {tool.isAvailable === "coming" && (
                               <span
                                 className={`text-[10px] font-bold uppercase px-2 rounded-full bg-blue-500`}
                               >
-                                {"SOON"}
+                                {rawT("soon").toUpperCase()}
                               </span>
                             )}
                           </div>
                           <p className="line-clamp-2 text-sm text-muted-foreground text-left">
-                            {tool.description}
+                            {typeof tool.description === "object"
+                              ? tool.description[lang]
+                              : tool.description}
                           </p>
                         </button>
                       );
@@ -155,10 +179,10 @@ export default function Navigation({ className = "" }) {
                     <div className="relative col-span-1 md:col-span-2 w-full min-h-[220px] rounded-xl bg-gradient-to-tl from-cyan-600/60 via-cyan-700/50 to-transparent p-4 flex flex-col justify-between backdrop-blur-md border border-cyan-600/30 shadow-lg shadow-cyan-700/20 text-white overflow-hidden">
                       <div className="w-full h-full">
                         <h3 className="text-xl font-extrabold bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent tracking-wide">
-                          Follow Us
+                          {t("follow_us")}
                         </h3>
                         <p className="text-sm text-cyan-100 mb-20 max-w-[360px]">
-                          Stay updated with our latest and greatest.
+                          {t("follow_us_description")}
                         </p>
 
                         <div className="grid grid-cols-3">
@@ -198,11 +222,11 @@ export default function Navigation({ className = "" }) {
                 href="/"
                 className="hidden md:block group h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
               >
-                Home{" "}
+                {rawT("home")}{" "}
               </Link>
               <NavigationMenuItem className="hidden md:block">
                 <NavigationMenuTrigger className="bg-transparent cursor-pointer">
-                  Tools
+                  {rawT("tools")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-[#151515] shadow-xl max-h-[90vh] overflow-auto show-scrollbar">
                   <ul className="grid w-[400px] gap-2.5 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
@@ -216,11 +240,11 @@ export default function Navigation({ className = "" }) {
                           onClick={() => {
                             if (isDisabled) {
                               toast.info(
-                                "This tool is not available right now."
+                                rawT("not_available_warning", { type: "tool" })
                               );
                               return;
                             }
-                            router.push(tool.url);
+                            router.push(tool.url.replace("/:lang", ""));
                           }}
                           className={`relative block space-y-1 rounded-lg p-4 bg-[#1a1a1a] text-white transition-all duration-200 border border-white/5 cursor-pointer ${
                             isDisabled
@@ -236,19 +260,23 @@ export default function Navigation({ className = "" }) {
                                   tool.isHot ? "bg-orange-500" : "bg-purple-600"
                                 }`}
                               >
-                                {tool.isHot ? "HOT" : "NEW"}
+                                {tool.isHot
+                                  ? rawT("hot").toUpperCase()
+                                  : rawT("new").toUpperCase()}
                               </span>
                             )}
                             {tool.isAvailable === "coming" && (
                               <span
                                 className={`text-[10px] font-bold uppercase px-2 rounded-full bg-blue-500`}
                               >
-                                {"SOON"}
+                                {rawT("soon").toUpperCase()}
                               </span>
                             )}
                           </div>
                           <p className="line-clamp-2 text-sm text-muted-foreground">
-                            {tool.description}
+                            {typeof tool.description === "object"
+                              ? tool.description[lang]
+                              : tool.description}
                           </p>
                         </NavigationMenuLink>
                       );
@@ -256,10 +284,10 @@ export default function Navigation({ className = "" }) {
                     <div className="relative col-span-1 md:col-span-2 w-full min-h-[220px] rounded-xl bg-gradient-to-tl from-cyan-600/60 via-cyan-700/50 to-transparent px-6 py-6 flex flex-col justify-between backdrop-blur-md border border-cyan-600/30 shadow-lg shadow-cyan-700/40 text-white overflow-hidden">
                       <div className="w-full">
                         <h3 className="text-xl font-extrabold bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent tracking-wide">
-                          Follow Us
+                          {t("follow_us")}
                         </h3>
                         <p className="text-sm text-cyan-100 mb-16 max-w-[360px]">
-                          Stay updated with our latest and greatest.
+                          {t("follow_us_description")}
                         </p>
 
                         <div className="grid grid-cols-3">
@@ -279,7 +307,7 @@ export default function Navigation({ className = "" }) {
                         </div>
                       </div>
 
-                      {/* Spaceship Image - absolute positioned */}
+                      {/* Spaceship Image */}
                       <div className="absolute bottom-0 right-0 -mb-10 -mr-10 pointer-events-none drop-shadow-lg">
                         <Image
                           src="/spaceship.png"

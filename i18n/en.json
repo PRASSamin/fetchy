@@ -1,0 +1,315 @@
+{
+  "metatags": {
+    "root": {
+      "title": "Fetchy - Ultimate Video Downloader",
+      "description": "Fetchy - The ultimate free video downloader for everyone. Download high-quality videos and photos from Instagram, Facebook, and etc with one click. Free, easy, and efficient!"
+    },
+    "404": {
+      "title": "404 | Page Not Found"
+    },
+    "tools": { "title": "{platform} Downloader | Fetchy" }
+  },
+  "_home": {
+    "title": "Download Anything, Anywhere, Anytime.",
+    "description": "Fetchy is your all in one video downloader fast, clean, and watermark free. Download anything, from any platform, effortlessly.",
+    "compatibility": "Compatibility",
+    "compatibility_description": "Built to support your favorite platforms. Fast, seamless, and always expanding.",
+    "lightning_fast": "Lightning Fast",
+    "lightning_fast_description": "Fetchy delivers content at warp speed. No delays. Just pure performance.",
+    "testimonials_title": "What People Are Saying",
+    "testimonials_description": "Don't just take our word for it. Here's what our users say about their experience.",
+    "review_us_on": "Review us on",
+    "faq_title": "Frequently Asked Questions",
+    "faq_description": "Quick answers to common questions about Fetchy.",
+    "faqs": [
+      {
+        "question": "What makes Fetchy better than other video downloaders?",
+        "answer": "Most downloaders are super basic, they choke on Facebook stories or Instagram carousels. Fetchy handles Instagram reels, multi-photo posts, TikTok slideshows, and even Facebook stories like a champ. Lightweight, fast, and built with real love."
+      },
+      {
+        "question": "Can I use Fetchy as a Facebook Story Downloader?",
+        "answer": "Hell yes! Fetchy isn't just another downloader, it actually supports Facebook story downloads, including those that most tools can't touch. Just paste the story link and let Fetchy work its magic."
+      },
+      {
+        "question": "Can I download private or expired stories?",
+        "answer": "Nah, we play fair. Fetchy only works with public and active content. No creepy stuff. We respect user privacy and platform rules."
+      },
+      {
+        "question": "Is it free? Will there be annoying ads?",
+        "answer": "100% free. No subscriptions, no popups from hell. Just one clean banner ad to keep the server lights on, your UX stays smooth as silk."
+      },
+      {
+        "question": "Is it legal to download videos from Instagram, Facebook, or TikTok?",
+        "answer": "It depends how you use it. Fetchy is meant for personal use only, like saving your own content or public stuff you have permission to grab. Always respect creators and terms of service."
+      },
+      {
+        "question": "Why don’t you charge for this?",
+        "answer": "Fetchy’s a passion project — built for learning, sharing, and helping people. We believe in giving back. But hey, if you vibe with it, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>drop a star on GitHub 💖</strong></a>"
+      }
+    ]
+  },
+
+  "_tools": {
+    "title": "Download Anything from {platform}",
+    "description": "Fast, secure, and watermark free downloads for all your favorite content",
+    "platform_url": "{platform} URL",
+    "paste_link": "Paste link",
+    "example": "Example: {url}",
+    "ready_to_download": "Ready to download",
+    "available_formats": "Available Formats",
+    "live_formats": "Live Formats",
+    "has_audio": "Has Audio",
+    "has_watermark": "Has Watermark",
+    "render": "Render",
+    "live": "Live",
+    "live_stream_info": "Live Stream Info",
+    "live_stream_info_message": "This is a <b>live stream</b> and cannot be downloaded directly. You can try again after the stream ends to access the VOD.",
+    "dash_copied_message": "DASH URL has been copied to clipboard.",
+    "_instagram": {
+      "faqs": [
+        {
+          "question": "Can I download Instagram Reels with Fetchy?",
+          "answer": "Absolutely! Just paste the Reel link into Fetchy and hit download. No watermarks, no quality loss, no BS."
+        },
+        {
+          "question": "Does Fetchy work with Instagram post videos?",
+          "answer": "Yup! Fetchy supports downloading videos from standard Instagram posts, including single videos and carousel video posts."
+        },
+        {
+          "question": "Can I download Instagram stories with Fetchy?",
+          "answer": "Currently, Fetchy does not support story downloads. We're working on adding it in a future update stay tuned!"
+        },
+        {
+          "question": "Is Fetchy free for Instagram downloads?",
+          "answer": "100% free. No paywalls, no subscriptions. Fetchy is open source and always free to use."
+        },
+        {
+          "question": "Does Fetchy add watermarks to Instagram videos?",
+          "answer": "Never. All Instagram videos downloaded through Fetchy come clean no watermarks or branding."
+        },
+        {
+          "question": "Do I need to log into Instagram to use Fetchy?",
+          "answer": "Nope! You can download public Instagram content without logging in. Just paste the link and go."
+        },
+        {
+          "question": "Can I use Fetchy on mobile to download Instagram Reels?",
+          "answer": "Yes! Fetchy is fully responsive and optimized for mobile browsers. Works like a charm on any device."
+        },
+        {
+          "question": "How do I copy an Instagram link to use with Fetchy?",
+          "answer": "Tap the three dots on the post or reel, select 'Copy Link', then paste it into Fetchy. Easy peasy."
+        },
+        {
+          "question": "Can Fetchy download private Instagram videos?",
+          "answer": "No. For privacy reasons, Fetchy only supports public content. Private videos require access and are not downloadable through Fetchy."
+        },
+        {
+          "question": "Is Fetchy safe for Instagram downloads?",
+          "answer": "Definitely. Fetchy doesn’t collect any personal info and doesn’t ask for your Instagram login. It’s clean, secure, and open source."
+        },
+        {
+          "question": "Can I download multiple Instagram videos?",
+          "answer": "Yes, one by one. Just paste each link and download. Batch support isn’t available yet, but it's on our roadmap."
+        },
+        {
+          "question": "Can I contribute to Fetchy’s Instagram downloader?",
+          "answer": "Totally! Head over to our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to contribute, suggest features, or report bugs."
+        },
+        {
+          "question": "What content types does Fetchy support from Instagram?",
+          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
+        }
+      ],
+      "about": {
+        "title": "Download Instagram Reels, Posts & More with Fetchy",
+        "parts": {
+          "p1": "Whether it's a viral reel, a carousel post, or a high quality video, <b>Fetchy</b> is your go to Instagram content downloader. No watermarks, no sign ups, no sketchy redirects, just paste the link and download.",
+          "p2": "Unlike most tools out there, <b>Fetchy</b> is an open source project focused on <b>speed, simplicity</b>, and reliability. It supports reels, post videos, and more content handling, all with clean, instant downloads.",
+          "p3": "Most Instagram downloaders are packed with popups or make you wait forever. Fetchy is built different, optimized for mobile and desktop links, and designed to skip the nonsense so you get your content fast.",
+          "p4": "Since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to contribute, explore the code, or even run your own instance locally. No ads, no paywalls, just tech that respects you.",
+          "p5": "Whether you’re backing up your content, saving inspirational clips, or downloading videos for offline viewing, Fetchy makes <b>Instagram</b> downloading <b>easy, safe, and open</b>."
+        }
+      }
+    },
+    "_tiktok": {
+      "faqs": [
+        {
+          "question": "Can I download TikTok videos without watermark using Fetchy?",
+          "answer": "Yes! Fetchy removes watermarks from downloaded TikTok videos automatically no extra steps needed."
+        },
+        {
+          "question": "Does Fetchy support downloading TikTok slideshows?",
+          "answer": "Yup! Fetchy fully supports TikTok slideshows. Just copy the post link and paste it in to download."
+        },
+        {
+          "question": "Is Fetchy free for downloading TikTok videos and content?",
+          "answer": "Totally free. No hidden fees, no accounts required. Fetchy is open source and always will be."
+        },
+        {
+          "question": "Do I need a TikTok or Fetchy account to download?",
+          "answer": "Nope! Just paste your link into Fetchy and go. No sign ups or logins ever."
+        },
+        {
+          "question": "Does Fetchy support TikTok playlists or collections?",
+          "answer": "Not yet! TikTok playlist support is on our radar and coming soon. For now, you can download individual posts and videos."
+        },
+        {
+          "question": "Can I use Fetchy to download TikToks on my phone?",
+          "answer": "Definitely. Fetchy is mobile friendly and works smoothly in any modern browser on any device."
+        },
+        {
+          "question": "Is there a limit to how many TikToks I can download?",
+          "answer": "No limits. Download as many TikToks as you want Fetchy’s built for open, unrestricted use."
+        },
+        {
+          "question": "Is Fetchy safe and private to use?",
+          "answer": "Yes! Fetchy doesn’t track you, collect data, or store history. It’s open source and privacy focused."
+        },
+        {
+          "question": "Can I contribute to Fetchy or run my own TikTok downloader?",
+          "answer": "Heck yeah. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to fork, contribute, suggest features, or report bugs."
+        }
+      ],
+      "about": {
+        "title": "Download TikTok Videos, Slideshows & Audios with Fetchy",
+        "parts": {
+          "p1": "Whether it’s a trending <b>video</b>, a vibey <b>slideshow</b>, or an addicting TikTok <b>sound</b>, Fetchy lets you save it instantly. Just paste the link, hit download, and you’re set no watermark, no app install, no login.",
+          "p2": "Unlike clunky TikTok saver sites, Fetchy is an <b>open source</b> project built for <b>speed, simplicity</b>, and privacy. It supports all major content types including public videos, slideshows, and standalone audio tracks.",
+          "p3": "Some newly introduced TikTok features like <b>playlist collections</b> aren’t supported <b>yet</b>, but don’t sweat it we’re actively tracking updates and expanding support fast. Most users already have everything they need.",
+          "p4": "Fetchy’s backend is fine tuned to handle tricky links like <b>shortened URLs, mobile redirects</b>, and even TikTok share URLs from within the app. It just works, no matter where you’re copying from.",
+          "p5": " As always, Fetchy is fully open under the <BSL>BSL 1.1</BSL> license. That means you can fork it, contribute, or even run your own instance locally. No paywalls, no rate limits just pure, community powered downloading.",
+          "p6": "Loved by creators, students, and archivists alike <b>Fetchy</b> is your all in one solution for <b>safe, clean</b>, and <b>hassle free</b> TikTok content saving."
+        }
+      }
+    },
+    "_facebook": {
+      "faqs": [
+        {
+          "question": "Can I download Facebook reels with Fetchy?",
+          "answer": "Absolutely! Just paste the link and you're good to go—no watermark, no fuss."
+        },
+        {
+          "question": "Does Fetchy work on mobile?",
+          "answer": "Yup. It's fully responsive and works smoothly on all modern browsers across devices."
+        },
+        {
+          "question": "Is Fetchy free to use?",
+          "answer": "100%. No hidden fees, no sign-ups. It's open source and always will be."
+        },
+        {
+          "question": "Do I need to sign up to use Fetchy?",
+          "answer": "Nope! Fetchy is completely sign-up free. Just paste your link and download your content instantly."
+        },
+        {
+          "question": "Can Fetchy download private Facebook videos?",
+          "answer": "Currently, Fetchy supports only public Facebook content. We're exploring secure ways to support private media in the future."
+        },
+        {
+          "question": "What type of Facebook links does Fetchy support?",
+          "answer": "Fetchy supports video links, story links, reels, and even shortened or mobile versions of Facebook URLs."
+        },
+        {
+          "question": "Is there a limit to how many downloads I can do?",
+          "answer": "No limits here! Fetchy is built for open use. Download as much content as you need without restrictions."
+        },
+        {
+          "question": "What is the best way to copy Facebook links for Fetchy?",
+          "answer": "On mobile, tap the 'Share' button and then 'Copy Link'. On desktop, copy the URL from the address bar."
+        },
+        {
+          "question": "Is Fetchy safe to use?",
+          "answer": "Definitely. Fetchy is open source and doesn’t collect any personal data. Your usage stays private and secure."
+        },
+        {
+          "question": "Does Fetchy add watermarks?",
+          "answer": "Never. Fetchy ensures your downloaded content is watermark free and untouched."
+        },
+        {
+          "question": "Can I contribute to Fetchy?",
+          "answer": "Yes! Fetchy is open source. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> repo to report issues, suggest features, or contribute code."
+        }
+      ],
+      "about": {
+        "title": "Download Facebook Videos, Stories & More with Fetchy",
+        "parts": {
+          "p1": "Whether it’s a viral video, a story, or a reel, Fetchy is your all in one Facebook content downloader built to handle it all. No watermarks, no slowdowns, no login required, just paste your link and go.",
+          "p2": "Unlike most tools out there, Fetchy is an open source solution built for <b>speed</b>, <b>simplicity</b>, and reliability. It supports most types of content and delivers clean, fast downloads without the junk. Some formats aren’t supported <b>yet</b>, but we’re actively working on it and everything the average user needs is already good to go.",
+          "p3": "Most tools either bombard you with ads or limit what you can save. Fetchy flips the script. It’s clean, efficient, and respects your time. Behind the scenes, our backend is optimized to handle even the most complex Facebook URLs, including shortened links, mobile formats, and redirects.",
+          "p4": "Plus, since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to peek under the hood, contribute to the code, or run it yourself, no paywalls, no subscriptions, just community driven tech for everyone.",
+          "p5": "Perfect for creators, students, and everyday users, Fetchy makes Facebook content downloading <b>effortless</b> and <b>trustworthy</b>."
+        }
+      }
+    },
+    "_youtube": {
+      "title": "YouTube Downloader Coming Soon",
+      "description": "Exciting New Feature Coming Your Way!"
+    },
+    "steps": {
+      "copy": {
+        "title": "Copy the Link",
+        "description": "Go to the content you want to download, tap Share, then Copy Link. Boom, first step done!"
+      },
+      "paste": {
+        "title": "Paste on Fetchy",
+        "description": "Jump back here, paste the copied link into Fetchy’s input, and hit that slick Download button."
+      },
+      "download": {
+        "title": "Download & Enjoy",
+        "description": "Wait just a sec while we fetch it for you. Then download, no watermark, no BS."
+      }
+    }
+  },
+
+  "_404": {
+    "title": "404 Not Found",
+    "description": "Lost in space? Let's get you back to the home planet!",
+    "back_to_home": "Back to Home"
+  },
+
+  "_blogs": {
+    "title": "Latest Writings & Thoughts",
+    "no_blogs": "No blogs found"
+  },
+
+  "NavigationBar": {
+    "follow_us": "Follow Us",
+    "follow_us_description": "Stay updated with our latest and greatest."
+  },
+
+  "Footer": {
+    "description": "The ultimate free video downloader for all your favorite platforms. Fast, clean, and watermark free.",
+    "copyright": "© {year} Fetchy. All Rights Reserved. Built by {name}"
+  },
+
+  "open_source_title": "Built Openly. Shared Boldly.",
+  "open_source_description": {
+    "part1": "Fetchy is proudly open source under the",
+    "part2": "Use it, learn from it, contribute to it, just don't resell it as is. Fair, right?"
+  },
+
+  "errors": {
+    "an_error_occurred": "An error occurred",
+    "download_session_expired": "Session expired, please refresh the page",
+    "url_not_whitelisted": "URL is not whitelisted for this tool. Please enter a valid one.",
+    "url_missing": "Please enter a URL",
+    "paste_failed": "Failed to paste from clipboard",
+    "private_or_not_exist": "Unfortunately, this video may be private or does not exist",
+    "instagram_not_supported_content": "Downloading stories and highlights is not supported yet",
+    "invalid_url": "Invalid URL",
+    "facebook_not_supported_content": "We currently don't support extracting content from Facebook posts. This feature will be available soon."
+  },
+
+  "refresh": "Refresh",
+  "released_by": "Released by",
+  "download": "Download",
+  "close": "Close",
+  "resources": "Resources",
+  "tools": "Tools",
+  "soon": "Soon",
+  "coming_soon": "Coming Soon",
+  "not_available_warning": "This {type} is not available right now.",
+  "not_available": "Not Available",
+  "home": "Home",
+  "new": "New",
+  "hot": "Hot"
+}

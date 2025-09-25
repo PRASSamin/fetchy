@@ -4,8 +4,10 @@ import Moon from "./components/moon";
 import { Link } from "@/components/link";
 import { Home } from "lucide-react";
 import ShootingStars from "./components/shooting-stars";
+import { useTranslations } from "next-intl";
 
 const NotFoundView = () => {
+  const t = useTranslations("_404");
   return (
     <>
       <div
@@ -50,7 +52,7 @@ const NotFoundView = () => {
           >
             <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-2.5 text-white">
               <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              Back to Home
+              {t("back_to_home")}
             </span>
             <span
               className="absolute inset-0 bg-gradient-to-r from-purple-700/50 to-indigo-600/50 
@@ -60,7 +62,7 @@ const NotFoundView = () => {
           </Link>
 
           <p className="text-purple-300/85 text-[15px] leading-relaxed max-w-[280px] font-sans">
-            Lost in space? Let&apos;s get you back to the home planet!
+            {t("description")}
           </p>
         </div>
       </div>

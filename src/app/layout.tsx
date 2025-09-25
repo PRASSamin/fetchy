@@ -12,7 +12,9 @@ import { GoogleAnalytics } from "@/lib/GoogleAnalytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
-import { Metadata } from "next";
+import { NextIntlClientProvider, useLocale, useMessages } from "next-intl";
+import { cookies } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
 const rethink = Rethink_Sans({
   weight: ["400", "800"],
@@ -46,55 +48,59 @@ export const viewport = {
   themeColor: "#09090b",
 };
 
-const title = "Fetchy - Ultimate Video Downloader";
-const description =
-  "Fetchy - The ultimate free video downloader for everyone. Download high-quality videos and photos from Instagram, Facebook, and TikTok with one click. Free, easy, and efficient!";
-
-export const metadata: Metadata = {
-  icons: {
-    icon: [
-      { url: "/favicons/favicon-96x96.png", sizes: "96x96" },
-      { url: "/favicons/favicon-192x192.png", sizes: "192x192" },
-      { url: "/favicons/favicon-512x512.png", sizes: "512x512" },
-      { url: "/favicons/favicon.svg" },
-    ],
-    shortcut: ["/favicons/favicon.svg"],
-    apple: [
-      {
-        url: "/favicons/favicon-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-    ],
-  },
-  manifest: "/favicons/site.webmanifest",
-  publisher: "PRAS",
-  creator: "PRAS",
-  appleWebApp: {
-    title: "Fetchy",
-  },
-  title: title,
-  description: description,
-  openGraph: {
+export async function generateMetadata() {
+  const t = await getTranslations("metatags.root");
+  const title = t("title");
+  const description = t("description");
+  return {
+    icons: {
+      icon: [
+        { url: "/favicons/favicon-96x96.png", sizes: "96x96" },
+        { url: "/favicons/favicon-192x192.png", sizes: "192x192" },
+        { url: "/favicons/favicon-512x512.png", sizes: "512x512" },
+        { url: "/favicons/favicon.svg" },
+      ],
+      shortcut: ["/favicons/favicon.svg"],
+      apple: [
+        {
+          url: "/favicons/favicon-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+      ],
+    },
+    manifest: "/favicons/site.webmanifest",
+    publisher: "PRAS",
+    creator: "PRAS",
+    appleWebApp: {
+      title: "Fetchy",
+    },
     title: title,
     description: description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    creator: "@prassamin78",
-  },
-};
+    openGraph: {
+      title: title,
+      description: description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      creator: "@prassamin78",
+    },
+  };
+}
 
 export default function DefaultRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = useLocale();
+  const messages = useMessages();
+
   return (
     <TooltipProvider>
-      <html lang="en" suppressHydrationWarning className="dark">
+      <html lang={locale} suppressHydrationWarning className="dark">
         <body
           className={cn(
             `antialiased bg-background font-sans !overflow-x-hidden`
@@ -104,7 +110,9 @@ export default function DefaultRootLayout({
             <Progress />
           </Suspense>
           <Toaster />
-          {children}
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
           <Analytics />
           <SpeedInsights />
           <GoogleAnalytics />

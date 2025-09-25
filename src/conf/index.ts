@@ -10,8 +10,8 @@ export const ENABLE_YOUTUBE = false;
 // LOGGER
 export const DOWNLOADER_SESSION_TTL = 120; // 2 minutes
 
-export const SEND_TO_DISCORD = true; // TODO: Enable Discord Logger
-export const ENABLE_LOGGER = true; // TODO: Enable Logger
+export const SEND_TO_DISCORD = false; // TODO: Enable Discord Logger
+export const ENABLE_LOGGER = false; // TODO: Enable Logger
 
 export const LOGGER_CACHE_TTL = 60 * 10; // 10 minutes
 

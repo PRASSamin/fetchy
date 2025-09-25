@@ -1,8 +1,10 @@
 import { BadRequest } from "@/lib/exceptions";
 import { fetchFromGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
+import { getTranslations } from "next-intl/server";
 
-export const getPostId = (url: string) => {
+export const getPostId = async (url: string) => {
+  const t = await getTranslations("errors");
   const postRegex =
     /^https:\/\/(?:www\.)?instagram\.com\/p\/([a-zA-Z0-9_-]+)\/?/;
   const reelRegex =
@@ -11,7 +13,7 @@ export const getPostId = (url: string) => {
   let postId;
 
   if (!url) {
-    throw new BadRequest("Instagram URL was not provided", 400);
+    throw new BadRequest(t("invalid_url"), 400);
   }
 
   const postCheck = url.match(postRegex);
@@ -25,7 +27,7 @@ export const getPostId = (url: string) => {
   }
 
   if (!postId) {
-    throw new BadRequest("Instagram post/reel ID was not found", 400);
+    throw new BadRequest(t("invalid_url"), 400);
   }
 
   return postId;
@@ -35,11 +37,10 @@ export const fetchInstaContentJson = async (
   url: string,
   timeout: number = 0
 ) => {
+  const t = await getTranslations("errors");
+
   if (/\/stories|highlights\//.test(url)) {
-    throw new BadRequest(
-      "Downloading stories and highlights is not supported yet",
-      400
-    );
+    throw new BadRequest(t("instagram_not_supported_content"), 400);
   }
 
   const orgUrl = await resolveRedirectUrl({
@@ -55,10 +56,10 @@ export const fetchInstaContentJson = async (
     },
   });
 
-  const postId = getPostId(orgUrl.url);
+  const postId = await getPostId(orgUrl.url);
 
   const apiJson = await fetchFromGraphQL(postId, orgUrl.url, timeout);
   if (apiJson) return apiJson;
 
-  throw new BadRequest("Video link for this post is not public.");
+  throw new BadRequest(t("private_or_not_exist"), 404);
 };

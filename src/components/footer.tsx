@@ -11,8 +11,11 @@ import { PRAS_GITHUB } from "@/constants";
 import { cn } from "@/utils";
 import { tools } from "@/lib/tools/source";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Footer = ({ className }: { className?: string }) => {
+  const t = useTranslations("Footer");
+  const rawT = useTranslations();
   const toolLinks = tools
     .getTools()
     .sortBy("isHot", "desc")
@@ -48,21 +51,20 @@ const Footer = ({ className }: { className?: string }) => {
               />
             </Link>
             <p className="text-neutral-400 text-sm max-w-xs">
-              The ultimate free video downloader for all your favorite
-              platforms. Fast, clean, and watermark-free.
+              {t("description")}
             </p>
           </div>
 
           {/* Tools Section */}
           <div className="col-span-1">
             <h3 className="font-semibold text-neutral-200 mb-4 tracking-wide">
-              Tools
+              {rawT("tools")}
             </h3>
             <ul className="space-y-3">
               {toolLinks.map((tool) => (
                 <li key={tool.title}>
                   <Link
-                    href={tool.url}
+                    href={tool.url.replace("/:lang", "")}
                     className="text-neutral-400 hover:text-purple-300 transition-colors text-sm"
                   >
                     {tool.title}
@@ -75,7 +77,7 @@ const Footer = ({ className }: { className?: string }) => {
           {/* Resources Section */}
           <div className="col-span-1">
             <h3 className="font-semibold text-neutral-200 mb-4 tracking-wide">
-              Resources
+              {rawT("resources")}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -93,17 +95,21 @@ const Footer = ({ className }: { className?: string }) => {
         <hr className="my-10 border-neutral-800" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-neutral-500 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} Fetchy. All Rights Reserved. Built by{" "}
-            <Link
-              href={"https://pras.me/"}
-              target="_blank"
-              className="font-semibold hover:underline text-purple-400"
-            >
-              PRAS
-            </Link>
-            .
-          </p>
+          <p
+            className="text-neutral-500 text-sm text-center md:text-left"
+            dangerouslySetInnerHTML={{
+              __html: t("copyright", {
+                year: new Date().getFullYear(),
+                name: `<a
+                    href="https://pras.me/"
+                    target="_blank"
+                    class="font-semibold hover:underline text-purple-400"
+                  >
+                    PRAS
+                  </a>`,
+              }),
+            }}
+          ></p>
           <div className="social flex items-center justify-center gap-5 text-neutral-500">
             <Link
               href={PRAS_GITHUB}

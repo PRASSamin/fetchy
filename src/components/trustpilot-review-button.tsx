@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef, FC } from "react";
 import { Link } from "./link";
 import { cn } from "@/utils";
+import { useTranslations } from "next-intl";
 
 interface TrustpilotReviewProps extends ComponentPropsWithoutRef<"div"> {
   containerProps?: Omit<ComponentPropsWithoutRef<typeof Link>, "href">;
@@ -17,6 +18,7 @@ const TrustpilotReview: FC<TrustpilotReviewProps> = ({
     containerProps || {};
   const { className: ambientGlowClassName, ...ambientGlowPropsRest } =
     ambientGlowProps || {};
+  const t = useTranslations("_home");
   return (
     <Link
       href="https://www.trustpilot.com/review/gofetchy.app"
@@ -45,7 +47,7 @@ const TrustpilotReview: FC<TrustpilotReviewProps> = ({
         )}
         {...props}
       >
-        Review us on
+        {t("review_us_on")}
         <svg
           viewBox="0 0 126 31"
           xmlns="http://www.w3.org/2000/svg"

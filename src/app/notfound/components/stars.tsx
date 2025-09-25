@@ -3,7 +3,6 @@ import { tools as tList } from "@/lib/tools/source";
 
 const Stars = React.memo(() => {
   const toolsIconsList = tList.getTools().map((tool) => tool.icon);
-
   return (
     <>
       {[...Array(40)].map((_, index) => {
