@@ -117,7 +117,7 @@
         },
         {
           "question": "What content types does Fetchy support from Instagram?",
-          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories are not supported yet."
+          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
         }
       ],
       "about": {

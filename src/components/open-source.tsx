@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { BSL_1_1, PRAS_GITHUB } from "@/constants";
 
 const OpenSource = ({ className }: { className?: string }) => {
-  const t = useTranslations();
+  const t = useTranslations("OpenSource");
   const LINKS = {
     license: {
       url: BSL_1_1,
@@ -30,21 +30,25 @@ const OpenSource = ({ className }: { className?: string }) => {
       </div>
 
       <h2 className="text-3xl md:text-4xl font-bold mb-4 font-montserrat tracking-tight bg-gradient-to-l from-emerald-500 to-white text-transparent bg-clip-text">
-        {t("open_source_title")}
+        {t("title")}
       </h2>
 
-      <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base mb-10 leading-relaxed">
-        {t("open_source_description.part1")}{" "}
-        <a
-          href={LINKS.license.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold underline underline-offset-2 hover:text-foreground transition"
-        >
-          {LINKS.license.text}{" "}
-        </a>
-        {t("open_source_description.part2")}
-      </p>
+      <p
+        className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base mb-10 leading-relaxed"
+        dangerouslySetInnerHTML={{
+          __html: t.markup("description", {
+            a: (c) =>
+              `<a
+                href="${LINKS.license.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold underline underline-offset-2 hover:text-foreground transition"
+              >
+              ${LINKS.license.text}
+              </a>`,
+          }),
+        }}
+      ></p>
 
       <span className="text-sm text-muted-foreground tracking-wide uppercase block pt-10">
         {t("released_by")}

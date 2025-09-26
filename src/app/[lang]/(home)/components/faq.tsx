@@ -6,6 +6,7 @@ import { useMessages, useTranslations } from "next-intl";
 
 const FAQ = () => {
   const t = useTranslations("_home");
+  const rawT = useTranslations();
   const messages = useMessages();
 
   return (
@@ -14,7 +15,7 @@ const FAQ = () => {
         <div className="flex flex-col">
           <div className="mb-10 text-center">
             <h2 className="bg-gradient-to-r from-foreground to-purple-600 text-transparent bg-clip-text inline-block text-3xl md:text-4xl font-bold mb-1 font-montserrat">
-              {t("faq_title")}
+              {rawT("faq")}
             </h2>
             <p
               style={{

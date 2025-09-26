@@ -1,4 +1,4 @@
-import { locales } from "@/i18n/routing";
+import { LOCALES } from "@/constants";
 import { Frontmatter } from "@/lib/tools/frontmatter";
 import { FC, SVGProps } from "react";
 import z from "zod";
@@ -22,7 +22,7 @@ export const config = {
     description: z
       .object(
         Object.fromEntries(
-          locales.map((locale) => [locale, z.string().optional()])
+          LOCALES.map((locale) => [locale, z.string().optional()])
         ) as z.ZodRawShape
       )
       .optional()

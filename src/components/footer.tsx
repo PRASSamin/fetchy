@@ -22,6 +22,39 @@ const Footer = ({ className }: { className?: string }) => {
     .sortBy("isNew", "desc")
     .slice(0, 5);
 
+  const SOCIAL_LINKS = [
+    {
+      Icon: <GitHub fontSize="small" />,
+      href: PRAS_GITHUB,
+      className: "hover:text-white",
+    },
+    {
+      Icon: <LinkedIn fontSize="small" />,
+      href: "https://www.linkedin.com/in/pras-samin-826421270/",
+      className: "hover:text-blue-500",
+    },
+    {
+      Icon: <Instagram fontSize="small" />,
+      href: "https://www.instagram.com/imprassamin/",
+      className: "hover:text-pink-500",
+    },
+    {
+      Icon: <Facebook fontSize="small" />,
+      href: "https://www.facebook.com/prassamin7/",
+      className: "hover:text-blue-600",
+    },
+    {
+      Icon: <Twitter fontSize="small" />,
+      href: "https://x.com/prassamin78/",
+      className: "hover:text-white",
+    },
+    {
+      Icon: <Gmail size={20} />,
+      href: "mailto:prassamin@gmail.com",
+      className: "hover:grayscale-0 grayscale",
+    },
+  ];
+
   return (
     <footer
       className={cn(
@@ -111,48 +144,19 @@ const Footer = ({ className }: { className?: string }) => {
             }}
           ></p>
           <div className="social flex items-center justify-center gap-5 text-neutral-500">
-            <Link
-              href={PRAS_GITHUB}
-              target="_blank"
-              className="hover:text-white transition-colors"
-            >
-              <GitHub fontSize="small" />
-            </Link>
-            <Link
-              href={"https://www.linkedin.com/in/pras-samin-826421270/"}
-              target="_blank"
-              className="hover:text-blue-500 transition-colors"
-            >
-              <LinkedIn fontSize="small" />
-            </Link>
-            <Link
-              href={"https://www.instagram.com/imprassamin/"}
-              target="_blank"
-              className="hover:text-pink-500 transition-colors"
-            >
-              <Instagram fontSize="small" />
-            </Link>
-            <Link
-              href={"https://www.facebook.com/prassamin7/"}
-              target="_blank"
-              className="hover:text-blue-600 transition-colors"
-            >
-              <Facebook fontSize="small" />
-            </Link>
-            <Link
-              href={"https://x.com/prassamin78/"}
-              target="_blank"
-              className="hover:text-white transition-colors"
-            >
-              <Twitter fontSize="small" />
-            </Link>
-            <Link
-              href={"mailto:prassamin@gmail.com"}
-              target="_blank"
-              className="hover:grayscale-0 grayscale transition-all duration-300"
-            >
-              <Gmail size={20} />
-            </Link>
+            {SOCIAL_LINKS.map((link) => (
+              <Link
+                href={link.href}
+                target="_blank"
+                className={cn(
+                  link.className,
+                  "transition-all duration-300 flex"
+                )}
+                key={link.href}
+              >
+                {link.Icon}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

@@ -226,7 +226,9 @@ const FBLiveResultView = ({
 
                               <div className="space-y-1">
                                 <p className="text-white font-medium">
-                                  DASH URL
+                                  {t("platform_url", {
+                                    platform: "DASH",
+                                  })}
                                 </p>
                                 <div className="flex items-center gap-2">
                                   <code className="flex-1 p-3 bg-neutral-800/60 rounded-md text-xs text-white font-mono backdrop-blur-sm border border-neutral-700/30 truncate">

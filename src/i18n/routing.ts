@@ -1,23 +1,9 @@
+import { LOCALES } from "@/constants";
 import { defineRouting } from "next-intl/routing";
-
-export const locales = [
-  "en", // English
-  "id", // Indonesian
-  "ar", // Arabic
-  "pt-BR", // Portuguese (Brazil)
-  "es", // Spanish
-  "fr", // French
-  "hi", // Hindi
-  "ru", // Russian
-  "bn", // Bengali
-  "de", // German
-  "fa", // Persian
-  "ja", // Japanese
-];
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales,
+  locales: LOCALES,
 
   localeCookie: {
     name: "locale",

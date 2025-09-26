@@ -8,6 +8,7 @@ import {
 import { cn } from "@/utils";
 import { fluid } from "@/utils/fluid";
 import { FETCHY_GITHUB } from "@/constants";
+import { useTranslations } from "next-intl";
 
 const DownloaderFAQ: React.FC<
   React.HTMLAttributes<HTMLDivElement> & {
@@ -17,11 +18,10 @@ const DownloaderFAQ: React.FC<
     }[];
   }
 > = ({ faqs, className, ...props }) => {
+  const t = useTranslations();
   return (
     <div {...props} className={cn("flex flex-col mt-14", className)}>
-      <h3 className="text-3xl mb-6 text-white font-montserrat">
-        Frequently Asked Questions
-      </h3>
+      <h3 className="text-3xl mb-6 text-white font-montserrat">{t("faq")}</h3>
       <div className="space-y-4 text-neutral-300">
         <Accordion
           type="multiple"

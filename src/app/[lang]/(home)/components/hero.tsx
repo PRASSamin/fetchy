@@ -116,12 +116,13 @@ const HeroSection = () => {
               lineHeight: fluid("2.5rem", "4.5rem") as string,
             }}
             className="font-bold font-manrope leading-tight"
-          >
-            <span className="bg-gradient-to-r from-[#7837d1] to-[#cba6ff] text-transparent bg-clip-text">
-              Fetchy,
-            </span>{" "}
-            {t("title")}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: t.markup("title", {
+                span: (c) =>
+                  `<span class="bg-gradient-to-r from-[#7837d1] to-[#cba6ff] text-transparent bg-clip-text">${c}</span>`,
+              }),
+            }}
+          ></h1>
           <p
             style={{
               fontSize: fluid("0.875rem", "1.125rem") as string,
@@ -146,7 +147,7 @@ const HeroSection = () => {
     hover:scale-[1.03]
     active:scale-[0.98]"
             >
-              Get Started
+              {t("get_started")}
             </Button>
             {transitions(
               (style, item) =>

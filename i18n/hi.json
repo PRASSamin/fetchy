@@ -19,8 +19,9 @@
     "testimonials_title": "What People Are Saying",
     "testimonials_description": "Don't just take our word for it. Here's what our users say about their experience.",
     "review_us_on": "Review us on",
-    "faq_description": "Quick answers to common questions about Fetchy.",
     "get_started": "Get Started",
+    "faq": "Frequently Asked Questions",
+    "faq_description": "Quick answers to common questions about Fetchy.",
     "faqs": [
       {
         "question": "What makes Fetchy better than other video downloaders?",
@@ -117,7 +118,7 @@
         },
         {
           "question": "What content types does Fetchy support from Instagram?",
-          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories are not supported yet."
+          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
         }
       ],
       "about": {
