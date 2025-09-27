@@ -4,7 +4,7 @@ import NProgress from "nprogress";
 
 import { addBasePath } from "next/dist/client/add-base-path";
 import React from "react";
-import { useLocale } from "next-intl";
+import { LOCALES } from "@/constants/locales";
 
 function getURL(href: string) {
   return new URL(addBasePath(href), location.href);
@@ -15,7 +15,7 @@ function isModifiedEvent(
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 ) {
   const eventTarget = event.currentTarget;
-  const target = eventTarget.getAttribute("target");
+  const target = eventTarget?.getAttribute("target");
   return (
     (target && target !== "_self") ||
     event.metaKey ||
@@ -27,7 +27,6 @@ function isModifiedEvent(
 }
 
 export function shouldTriggerStartEvent(
-  locale: string,
   href: string,
   clickEvent?: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 ) {
@@ -35,11 +34,20 @@ export function shouldTriggerStartEvent(
   const target = getURL(href);
   if (clickEvent && isModifiedEvent(clickEvent)) return false; // modified events: fallback to browser behaviour
   if (current.origin !== target.origin) return false; // external URL
+  // Strip any supported locale prefix from both current pathname (passed from hook)
+  // and target pathname before comparing. This avoids false differences due to locale segment.
+  const stripLocale = (path: string) => {
+    for (const loc of LOCALES) {
+      const prefix = `/${loc}`;
+      if (path === prefix) return "/";
+      if (path.startsWith(prefix + "/")) return path.slice(prefix.length) || "/";
+    }
+    return path;
+  };
+  const currentPath = stripLocale(current.pathname);
+  const targetPath = stripLocale(target.pathname);
   if (
-    current.pathname.replace(`/${locale}`, "") ===
-      target.pathname.replace(`/${locale}`, "") &&
-    current.search.replace(`/${locale}`, "") ===
-      target.search.replace(`/${locale}`, "")
+    currentPath === targetPath
   )
     return false; // same URL
 
@@ -51,14 +59,13 @@ export const Link = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof NextLink>
 >(({ onClick, href, ...props }, ref) => {
   const useLink = href && (href as string).startsWith("/");
-  const locale = useLocale();
   if (!useLink) return <a href={href as string} onClick={onClick} {...props} />;
 
   return (
     <NextLink
       href={href as any}
       onClick={(event) => {
-        if (shouldTriggerStartEvent(locale, href as string, event))
+        if (shouldTriggerStartEvent(href as string, event))
           NProgress.start();
         if (onClick) onClick(event);
       }}

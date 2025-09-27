@@ -22,9 +22,9 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const t = await getTranslations("_404");
+  const t = await getTranslations("metatags.404");
   return metatag({
-    title: t("metatag.title"),
+    title: t("title"),
     url: null as unknown as string,
     robots: "noindex, nofollow",
   });

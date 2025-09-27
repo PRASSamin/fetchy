@@ -12,13 +12,13 @@
   "related_applications": [],
   "icons": [
     {
-      "src": "/favicon-512x512.png",
+      "src": "/favicons/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/favicon-512x512-maskable.png",
+      "src": "/favicons/favicon-512x512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

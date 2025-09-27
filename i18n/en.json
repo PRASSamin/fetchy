@@ -310,6 +310,8 @@
   "coming_soon": "Coming Soon",
   "not_available_warning": "This {type} is not available right now.",
   "not_available": "Not Available",
+  "locale_switcher_title": "Select Language",
+  "locale_switcher_description": "Select your preferred language",
   "home": "Home",
   "new": "New",
   "hot": "Hot"

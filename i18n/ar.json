@@ -312,6 +312,8 @@
   "coming_soon": "قريباً جداً",
   "not_available_warning": "هذا الـ {type} غير متاح في الوقت الحالي.",
   "not_available": "غير متاح",
+  "locale_switcher_title": "اختيار اللغة",
+  "locale_switcher_description": "اختر لغتك المفضلة",
   "home": "الرئيسية",
   "new": "جديد",
   "hot": "شائع"

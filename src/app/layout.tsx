@@ -91,13 +91,13 @@ export async function generateMetadata() {
   };
 }
 
-export default function DefaultRootLayout({
+export default async function DefaultRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = useLocale();
-  const messages = useMessages();
+  const store = await cookies();
+  const locale = store.get("locale")?.value || "en";
 
   return (
     <TooltipProvider>
@@ -116,10 +116,10 @@ export default function DefaultRootLayout({
             <Progress />
           </Suspense>
           <Toaster />
-          <DirectionProvider dir={locale === "ar" || locale === "fa" ? "rtl" : "ltr"}>
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
+          <DirectionProvider
+            dir={locale === "ar" || locale === "fa" ? "rtl" : "ltr"}
+          >
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
           </DirectionProvider>
           <Analytics />
           <SpeedInsights />

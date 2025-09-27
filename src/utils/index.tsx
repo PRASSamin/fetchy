@@ -249,3 +249,11 @@ export const formatedTime = (time: Date | string) => {
     }
   }
 };
+
+export function getFlag(code: string) {
+  const codePoints = code
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}

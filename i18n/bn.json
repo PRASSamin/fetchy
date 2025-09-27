@@ -310,6 +310,8 @@
   "coming_soon": "খুব শীঘ্রই আসছে",
   "not_available_warning": "এই {type} টি আপাতত পাওয়া যাচ্ছে না।",
   "not_available": "পাওয়া যাচ্ছে না",
+  "locale_switcher_title": "ভাষা নির্বাচন করুন",
+  "locale_switcher_description": "আপনার পছন্দের ভাষা নির্বাচন করুন",
   "home": "হোম",
   "new": "নতুন",
   "hot": "ভাইরাল"
