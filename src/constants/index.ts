@@ -17,18 +17,3 @@ export const FETCHY_GITHUB = `${PRAS_GITHUB}/fetchy`;
 export const FETCHY_BASE_URL = "https://gofetchy.app";
 
 export const ADMIN_AUTH_COOKIE = "__FETCHY_ADMIN_AUTH__";
-
-export const LOCALES = [
-  "en", // English
-  "id", // Indonesian
-  "ar", // Arabic
-  "pt-BR", // Portuguese (Brazil)
-  "es", // Spanish
-  "fr", // French
-  "hi", // Hindi
-  "ru", // Russian
-  "bn", // Bengali
-  "de", // German
-  "fa", // Persian
-  "ja", // Japanese
-];

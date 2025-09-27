@@ -22,6 +22,7 @@ import { tools as toolsList } from "@/lib/tools/source";
 import { useLocale } from "next-intl";
 import { useTranslations } from "use-intl";
 import { usePathname } from "@/i18n/navigation";
+import { useDirection } from "@/hooks/useDir";
 
 export default function Navigation({ className = "" }) {
   const lang = useLocale();
@@ -30,6 +31,7 @@ export default function Navigation({ className = "" }) {
   const router = useRouter();
   const pathname = usePathname();
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const dir = useDirection();
   const tools = toolsList
     .getTools()
     .sortBy("isAvailable", "desc", "boolean")
@@ -72,7 +74,9 @@ export default function Navigation({ className = "" }) {
         )}
       >
         <NavigationMenu className="mx-auto">
-          <NavigationMenuList className="h-16 px-4 w-screen flex justify-between">
+          <NavigationMenuList
+            className={cn("h-16 px-4 w-screen flex justify-between")}
+          >
             <NavigationMenuItem className="font-bold flex h-full py-2">
               <Link
                 rel="noreferrer noope1ner"
@@ -103,6 +107,7 @@ export default function Navigation({ className = "" }) {
                   </Button>
                 </SheetTrigger>
                 <SheetContent
+                  side={dir === "rtl" ? "left" : "right"}
                   closeShow={false}
                   className="h-full flex flex-col border-muted/70"
                 >
@@ -298,7 +303,7 @@ export default function Navigation({ className = "" }) {
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label={social.label}
-                              className={`w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-900/30 backdrop-blur-sm border border-cyan-700/60 transition duration-300 shadow-sm hover:shadow-lg hover:scale-110 focus:outline-none focus:ring-4 focus:ring-cyan-500 focus:ring-opacity-50 ${social.ringColor} ring-offset-2 ring-offset-cyan-900`}
+                              className={`w-14 h-14 flex items-center justify-center rounded-lg bg-cyan-900/30 backdrop-blur-sm border border-cyan-700/60 transition duration-300 shadow-sm hover:shadow-lg hover:scale-110 focus:outline-none focus:ring-4 focus:ring-cyan-500 focus:ring-opacity-50 z-10 ${social.ringColor} ring-offset-2 ring-offset-cyan-900`}
                               title={social.label}
                             >
                               {social.icon}

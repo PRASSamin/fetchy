@@ -21,7 +21,7 @@ const YoutubeDownloaderView = () => {
                 fontSize: fluid("2.25rem", "3rem") as string,
                 lineHeight: fluid("2.5rem", "3rem") as string,
               }}
-              className="mb-4 font-semibold font-manrope text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-400"
+              className="mb-4 font-semibold font-manrope text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-400 !leading-[1.2]"
             >
               {t("title")}
             </h1>

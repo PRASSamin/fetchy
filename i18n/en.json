@@ -245,6 +245,7 @@
       "description": "Exciting New Feature Coming Your Way!"
     },
     "steps": {
+      "title": "How to Use Fetchy",
       "copy": {
         "title": "Copy the Link",
         "description": "Go to the content you want to download, tap Share, then Copy Link. Boom, first step done!"

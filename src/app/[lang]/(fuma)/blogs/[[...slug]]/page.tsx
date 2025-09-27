@@ -26,7 +26,10 @@ export default async function Page(props: {
   const blog = page.data;
 
   return (
-    <div className="flex flex-col gap-10 min-h-[calc(100vh-64px-50px)]">
+    <div
+      className="flex flex-col gap-10 min-h-[calc(100vh-64px-50px)]"
+      dir="ltr"
+    >
       <DocsPage
         container={{
           className: "!pt-0",
@@ -112,7 +115,7 @@ export async function generateMetadata(props: {
   if (!page) notFound();
 
   const url = new URL(headersList.get("x-current-url") || "").toString();
-  
+
   return metatag({
     title: `${page.data.title} | Fetchy`,
     url,

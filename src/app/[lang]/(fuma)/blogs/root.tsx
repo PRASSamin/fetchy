@@ -35,7 +35,7 @@ const BlogRootPage = () => {
           </h1>
         </div>
         {blogs.length > 0 ? (
-          <div className="flex flex-col">
+          <div className="flex flex-col" dir="auto">
             {blogs.map(({ data: blog, url }, index) => {
               return (
                 <Link

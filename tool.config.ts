@@ -1,4 +1,4 @@
-import { LOCALES } from "@/constants";
+import { LOCALES } from "@/constants/locales";
 import { Frontmatter } from "@/lib/tools/frontmatter";
 import { FC, SVGProps } from "react";
 import z from "zod";

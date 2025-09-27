@@ -113,7 +113,7 @@ const FBStoryResultView = ({
                   <div className="absolute rounded-lg inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
 
                   {/* Avatar and Text */}
-                  <div className="absolute top-2 left-2 flex items-center gap-1 p-1 overflow-hidden w-full">
+                  <div className="absolute top-2 ltr:left-2 rtl:right-2 flex items-center gap-1 p-1 overflow-hidden w-full">
                     <a
                       href={data?.owner?.profile_url}
                       target="_blank"

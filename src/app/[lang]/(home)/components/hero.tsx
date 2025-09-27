@@ -10,8 +10,11 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { FETCHY_GITHUB } from "@/constants";
 import { fluid } from "@/utils/fluid";
 import { useTranslations } from "next-intl";
+import { useDirection } from "@/hooks/useDir";
 
 const Tag = ({ label, color }: { label: string; color: string }) => {
+  const dir = useDirection();
+  const isRTL = dir === "rtl";
   const bgMap = {
     purple: "bg-purple-600/80",
     orange: "bg-orange-500/80",
@@ -22,7 +25,7 @@ const Tag = ({ label, color }: { label: string; color: string }) => {
 
   return (
     <div
-      className={`absolute top-1 right-1 px-2 py-0.5 rounded-full text-[10px] uppercase font-bold ${
+      className={`absolute top-1 rtl:left-1 ltr:right-1 px-2 py-0.5 rounded-full text-[10px] uppercase font-bold ${
         bgMap[color as keyof typeof bgMap] ?? "bg-white/20"
       }`}
     >
@@ -38,6 +41,8 @@ const HeroSection = () => {
   const popupWrapperRef = useRef<HTMLDivElement | null>(null);
   const t = useTranslations("_home");
   const rawT = useTranslations();
+  const dir = useDirection();
+  const isRTL = dir === "rtl";
   const toolList = tools
     .getTools()
     .sortBy("isAvailable", "desc", "boolean")
@@ -52,7 +57,7 @@ const HeroSection = () => {
   });
 
   const [popupPosition, setPopupPosition] = useState({
-    left: "0px",
+    x: "0px",
     top: "100%",
   });
 
@@ -79,21 +84,28 @@ const HeroSection = () => {
     const popupRect = popupRef.current.getBoundingClientRect();
 
     const spaceRight = window.innerWidth - wrapperRect.left;
+    const spaceLeft = wrapperRect.right;
     const spaceBottom = window.innerHeight - wrapperRect.bottom;
 
-    let left = "0px";
+    let x = "0px";
     let top = "100%";
 
-    if (spaceRight < popupRect.width) {
-      left = `-${popupRect.width - wrapperRect.width}px`;
+    if (isRTL) {
+      if (spaceLeft < popupRect.width) {
+        x = `-${popupRect.width - wrapperRect.width}px`;
+      }
+    } else {
+      if (spaceRight < popupRect.width) {
+        x = `-${popupRect.width - wrapperRect.width}px`;
+      }
     }
 
     if (spaceBottom < popupRect.height + 10) {
       top = `-${popupRect.height + 10}px`;
     }
 
-    setPopupPosition({ left, top });
-  }, [isChoiceOpen]);
+    setPopupPosition({ x, top });
+  }, [isChoiceOpen, isRTL]);
 
   return (
     <section
@@ -157,7 +169,7 @@ const HeroSection = () => {
                     style={{
                       ...style,
                       position: "absolute",
-                      left: popupPosition.left,
+                      [isRTL ? "right" : "left"]: popupPosition.x,
                       top: popupPosition.top,
                       marginTop:
                         popupPosition.top === "100%" ? "5px" : undefined,
@@ -240,7 +252,7 @@ const HeroSection = () => {
     })}`}
           >
             Star on GitHub
-            <GitHub className="ml-2 w-5 h-5" />
+            <GitHub className={`${isRTL ? "mr-2" : "ml-2"} w-5 h-5`} />
           </a>
         </div>
       </div>

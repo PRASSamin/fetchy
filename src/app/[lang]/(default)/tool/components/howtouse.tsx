@@ -25,6 +25,7 @@ const HowToUseFetchy: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       title: t("copy.title"),
       description: t("copy.description"),
       border: "hover:border-purple-600/30",
+      numberClass: "group-hover:text-purple-600/30",
     },
     {
       icon: (
@@ -39,6 +40,7 @@ const HowToUseFetchy: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       title: t("paste.title"),
       description: t("paste.description"),
       border: "hover:border-rose-500/30",
+      numberClass: "group-hover:text-rose-500/30",
     },
     {
       icon: (
@@ -53,13 +55,14 @@ const HowToUseFetchy: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       title: t("download.title"),
       description: t("download.description"),
       border: "hover:border-emerald-500/30",
+      numberClass: "group-hover:text-emerald-500/30",
     },
   ];
 
   return (
     <div {...props} className={cn("flex flex-col mt-10", className)}>
       <h2 className="text-3xl text-white mb-5 font-montserrat">
-        How to Use Fetchy
+        {t("title")}
       </h2>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -74,7 +77,12 @@ const HowToUseFetchy: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
               step.border
             )}
           >
-            <span className="absolute -right-2 -bottom-6 text-9xl font-rethink font-extrabold text-neutral-900 z-0 select-none [text-shadow:-0.3px_0_rgba(85,85,85,0.8),0_0.3px_rgba(85,85,85,0.8),0.3px_0_rgba(85,85,85,0.8),0_-0.3px_rgba(85,85,85,0.8)]">
+            <span
+              className={cn(
+                "absolute ltr:-right-2 rtl:-left-2 -bottom-6 text-9xl font-rethink font-extrabold text-neutral-900 z-0 select-none [text-shadow:-0.3px_0_rgba(85,85,85,0.8),0_0.3px_rgba(85,85,85,0.8),0.3px_0_rgba(85,85,85,0.8),0_-0.3px_rgba(85,85,85,0.8)] transition-all",
+                step.numberClass
+              )}
+            >
               {index + 1}
             </span>
 

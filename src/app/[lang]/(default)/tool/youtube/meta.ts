@@ -6,8 +6,8 @@ export const frontmatter = {
   icon_size: 30,
   icon_color: "#FF0000",
   isHot: false,
-  description: "Coming soon",
+  description: { en: "Coming soon" },
   isAvailable: "coming",
   isNew: false,
-  updatedAt: "2025-09-25T18:55:54.353Z",
+  updatedAt: "2025-09-26T17:29:01.326Z",
 };

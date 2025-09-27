@@ -15,6 +15,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { NextIntlClientProvider, useLocale, useMessages } from "next-intl";
 import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
+import { DirectionProvider } from "@/hooks/useDir";
 
 const rethink = Rethink_Sans({
   weight: ["400", "800"],
@@ -100,7 +101,12 @@ export default function DefaultRootLayout({
 
   return (
     <TooltipProvider>
-      <html lang={locale} suppressHydrationWarning className="dark">
+      <html
+        lang={locale}
+        dir={locale === "ar" || locale === "fa" ? "rtl" : "ltr"}
+        suppressHydrationWarning
+        className="dark"
+      >
         <body
           className={cn(
             `antialiased bg-background font-sans !overflow-x-hidden`
@@ -110,9 +116,11 @@ export default function DefaultRootLayout({
             <Progress />
           </Suspense>
           <Toaster />
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+          <DirectionProvider dir={locale === "ar" || locale === "fa" ? "rtl" : "ltr"}>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </DirectionProvider>
           <Analytics />
           <SpeedInsights />
           <GoogleAnalytics />

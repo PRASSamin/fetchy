@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { fluid } from "@/utils/fluid";
 import { useTranslations } from "next-intl";
+import { useDirection } from "@/hooks/useDir";
 
 const EXAMPLE_URLS = {
   instagram: {
@@ -37,6 +38,7 @@ const DownloadTool = ({
   onDataReady: (data: any) => void;
   onProcessingCalculated: (time: string) => void;
 }) => {
+  const dir = useDirection();
   const { isValid } = useWhitelisted(whitelisted);
   const [url, setUrl] = useState("");
   const urlRef = useRef(url);
@@ -154,7 +156,11 @@ const DownloadTool = ({
               </h2>
 
               <div className="relative mb-4">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                <div
+                  className={
+                    "absolute inset-y-0 ltr:left-0 rtl:right-0 flex items-center ltr:pl-4 rtl:pr-4 pointer-events-none"
+                  }
+                >
                   <Link size={20} className="text-neutral-400" />
                 </div>
                 <input
@@ -164,7 +170,7 @@ const DownloadTool = ({
                   className="w-full bg-neutral-800/50 border border-neutral-700/50 rounded-lg py-3 pl-12 pr-14 text-white focus:outline-none focus:ring-2 focus:ring-[#7837d1] focus:border-transparent transition-all placeholder:text-sm"
                   placeholder={`https://${EXAMPLE_URLS[platform].placeholder}`}
                 />
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-500 text-xs font-mono">
+                <div className="absolute ltr:right-3 rtl:left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-xs font-mono">
                   {url.length ? "⌘ + X" : "⌘ + V"}
                 </div>
               </div>
