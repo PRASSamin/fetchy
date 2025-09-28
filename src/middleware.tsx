@@ -10,19 +10,28 @@ import { FETCHY_GITHUB } from "./constants";
 import { FETCHY_API_KEY, STAGE } from "./conf";
 import { routing } from "./i18n/routing";
 import createMiddleware from "next-intl/middleware";
-
-const intlMiddleware = createMiddleware(routing);
+import { LOCALES_INFO } from "./constants/locales";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = ipAddress(request);
   const { country, flag } = geolocation(request);
   const securityManager = new TokenManagerEdge();
+
+  // Locale logic
+  const matchedLocale = LOCALES_INFO.find((loc) =>
+    loc.countries.includes(country ?? "")
+  );
+  const defaultLocale = matchedLocale?.locale ?? "en";
+
   // Use next-intl's middleware to ensure locale routing/redirects happen,
+  const intlMiddleware = createMiddleware({ ...routing, defaultLocale });
   const response = intlMiddleware(request);
+
   const locale = response.headers.get(
     "x-middleware-request-x-next-intl-locale"
   );
+
   const tools = toolsSource
     .getTools()
     .sortBy("isAvailable", "desc", "boolean")

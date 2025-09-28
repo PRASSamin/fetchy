@@ -24,5 +24,5 @@ export const frontmatter = {
   },
   isAvailable: ENABLE_FACEBOOK,
   isNew: false,
-  updatedAt: "2025-09-28T11:24:07.662Z",
+  updatedAt: "2025-09-28T14:40:00.019Z",
 };
