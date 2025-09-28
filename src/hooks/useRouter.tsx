@@ -20,7 +20,7 @@ export const useRouter = () => {
     href?: string,
     options?: NavigationOptions
   ) => {
-    if (!options?.force && href && !shouldTriggerStartEvent(locale)) return;
+    if (!options?.force && href && !shouldTriggerStartEvent(href)) return;
     NProgress.start();
     await fn();
   };

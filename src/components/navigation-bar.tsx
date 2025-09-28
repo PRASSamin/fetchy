@@ -14,7 +14,7 @@ import { cn } from "@/utils";
 import { toast } from "sonner";
 import { useRouter } from "@/hooks/useRouter";
 import { Facebook, GitHub, Instagram } from "@mui/icons-material";
-import { Sheet, SheetContent, SheetFooter, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { Home, Menu } from "lucide-react";
 import { PRAS_GITHUB } from "@/constants";
@@ -111,6 +111,7 @@ export default function Navigation({ className = "" }) {
                 closeShow={false}
                 className="h-full flex flex-col border-muted/70"
               >
+                <SheetTitle className="sr-only">Menu</SheetTitle>
                 <div className="w-full h-full flex flex-col gap-2 overflow-y-auto show-scrollbar">
                   <Link
                     href={"/"}
@@ -180,8 +181,12 @@ export default function Navigation({ className = "" }) {
                     );
                   })}
                 </div>
-                <SheetFooter>
-                  <div className="relative col-span-1 md:col-span-2 w-full min-h-[220px] rounded-xl bg-gradient-to-tl from-cyan-600/60 via-cyan-700/50 to-transparent p-4 flex flex-col justify-between backdrop-blur-md border border-cyan-600/30 shadow-lg shadow-cyan-700/20 text-white overflow-hidden">
+                <SheetFooter className="flex sm:flex-col gap-2 relative">
+                  <LocaleSwitcher
+                    inSheet
+                    className="absolute top-0 right-0 bg-background rounded-full border-l border-b border-cyan-600/50 z-20 hover:bg-background m-0"
+                  />
+                  <div className="col-span-1 md:col-span-2 w-full min-h-[220px] rounded-xl rounded-tr-3xl bg-gradient-to-tr from-cyan-600/60 via-cyan-700/50 to-transparent p-4 flex flex-col justify-between backdrop-blur-md border border-cyan-600/30 shadow-lg shadow-cyan-700/20 text-white overflow-hidden">
                     <div className="w-full h-full">
                       <h3 className="text-xl font-extrabold bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent tracking-wide">
                         {t("follow_us")}
@@ -229,6 +234,7 @@ export default function Navigation({ className = "" }) {
             >
               {rawT("home")}{" "}
             </Link>
+
             <NavigationMenuItem className="hidden md:block">
               <NavigationMenuTrigger className="bg-transparent cursor-pointer">
                 {rawT("tools")}
@@ -327,7 +333,9 @@ export default function Navigation({ className = "" }) {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <LocaleSwitcher />
+            <div className="hidden md:block">
+              <LocaleSwitcher />
+            </div>
           </div>
         </NavigationMenuList>
       </NavigationMenu>
