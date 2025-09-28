@@ -1,317 +1,319 @@
 {
   "metatags": {
     "root": {
-      "title": "Fetchy - Ultimate Video Downloader",
-      "description": "Fetchy - The ultimate free video downloader for everyone. Download high-quality videos and photos from Instagram, Facebook, and etc with one click. Free, easy, and efficient!"
+      "title": "Fetchy - 究極の動画ダウンローダー",
+      "description": "Fetchy - 誰もが使える究極の無料動画ダウンローダー。Instagram、Facebookなどから高品質な動画や写真をワンクリックでダウンロード。無料、簡単、そして効率的！"
     },
     "404": {
-      "title": "404 | Page Not Found"
+      "title": "404 | ページが見つかりません"
     },
-    "tools": { "title": "{platform} Downloader | Fetchy" }
+    "tools": { "title": "{platform} ダウンローダー | Fetchy" }
   },
   "_home": {
-    "title": "Download Anything, Anywhere, Anytime.",
-    "description": "Fetchy is your all in one video downloader fast, clean, and watermark free. Download anything, from any platform, effortlessly.",
-    "compatibility": "Compatibility",
-    "compatibility_description": "Built to support your favorite platforms. Fast, seamless, and always expanding.",
-    "lightning_fast": "Lightning Fast",
-    "lightning_fast_description": "Fetchy delivers content at warp speed. No delays. Just pure performance.",
-    "testimonials_title": "What People Are Saying",
-    "testimonials_description": "Don't just take our word for it. Here's what our users say about their experience.",
-    "review_us_on": "Review us on",
-    "get_started": "Get Started",
-    "faq": "Frequently Asked Questions",
-    "faq_description": "Quick answers to common questions about Fetchy.",
+    "title": "<span>Fetchy,</span> いつでも、どこでも、何でもダウンロード。",
+    "description": "Fetchyは、高速、クリーン、ウォーターマークなしのオールインワン動画ダウンローダーです。どのプラットフォームからでも、手軽に何でもダウンロードできます。",
+    "compatibility": "互換性",
+    "compatibility_description": "お気に入りのプラットフォームをサポートするために構築されました。高速でシームレス、常に拡張中です。",
+    "lightning_fast": "超高速",
+    "lightning_fast_description": "Fetchyはワープスピードでコンテンツを配信します。遅延なし。純粋なパフォーマンスです。",
+    "testimonials_title": "お客様の声",
+    "testimonials_description": "私たちの言葉だけでなく、ユーザーが体験についてどう言っているかをご紹介します。",
+    "review_us_on": "レビューはこちら",
+    "get_started": "始める",
+    "faq": "よくある質問",
+    "faq_description": "Fetchyに関する一般的な質問への簡単な回答。",
     "faqs": [
       {
-        "question": "What makes Fetchy better than other video downloaders?",
-        "answer": "Most downloaders are super basic, they choke on Facebook stories or Instagram carousels. Fetchy handles Instagram reels, multi-photo posts, TikTok slideshows, and even Facebook stories like a champ. Lightweight, fast, and built with real love."
+        "question": "Fetchyが他の動画ダウンローダーより優れている点は何ですか？",
+        "answer": "ほとんどのダウンローダーは非常に基本的なもので、FacebookのストーリーやInstagramのカルーセルで機能しなくなります。Fetchyは、Instagramリール、複数枚の写真投稿、TikTokのスライドショー、さらにはFacebookのストーリーでさえも完璧に処理します。軽量、高速、そして真の愛を込めて作られています。"
       },
       {
-        "question": "Can I use Fetchy as a Facebook Story Downloader?",
-        "answer": "Hell yes! Fetchy isn't just another downloader, it actually supports Facebook story downloads, including those that most tools can't touch. Just paste the story link and let Fetchy work its magic."
+        "question": "FetchyをFacebookストーリーダウンローダーとして使用できますか？",
+        "answer": "はい、もちろんです！Fetchyは単なるダウンローダーではなく、ほとんどのツールが対応できないFacebookストーリーのダウンロードも実際にサポートしています。ストーリーのリンクを貼り付けて、Fetchyに魔法をかけさせてください。"
       },
       {
-        "question": "Can I download private or expired stories?",
-        "answer": "Nah, we play fair. Fetchy only works with public and active content. No creepy stuff. We respect user privacy and platform rules."
+        "question": "プライベートまたは期限切れのストーリーをダウンロードできますか？",
+        "answer": "いいえ、私たちはフェアにプレイします。Fetchyは公開されているアクティブなコンテンツでのみ機能します。不気味な行為はしません。私たちはユーザーのプライバシーとプラットフォームのルールを尊重します。"
       },
       {
-        "question": "Is it free? Will there be annoying ads?",
-        "answer": "100% free. No subscriptions, no popups from hell. Just one clean banner ad to keep the server lights on, your UX stays smooth as silk."
+        "question": "無料ですか？迷惑な広告はありますか？",
+        "answer": "100%無料です。サブスクリプションなし、地獄のようなポップアップもなし。サーバーを稼働させ続けるためのクリーンなバナー広告が1つあるだけで、UXは絹のように滑らかです。"
       },
       {
-        "question": "Is it legal to download videos from Instagram, Facebook, or TikTok?",
-        "answer": "It depends how you use it. Fetchy is meant for personal use only, like saving your own content or public stuff you have permission to grab. Always respect creators and terms of service."
+        "question": "Instagram、Facebook、TikTokから動画をダウンロードするのは合法ですか？",
+        "answer": "それはあなたの使い方次第です。Fetchyは、自分のコンテンツを保存したり、取得する許可のある公開コンテンツを保存したりするなど、**個人的な使用のみ**を目的としています。常にクリエイターと利用規約を尊重してください。"
       },
       {
-        "question": "Why don’t you charge for this?",
-        "answer": "Fetchy’s a passion project — built for learning, sharing, and helping people. We believe in giving back. But hey, if you vibe with it, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>drop a star on GitHub 💖</strong></a>"
+        "question": "なぜこれを無料で提供しているのですか？",
+        "answer": "Fetchyは情熱的なプロジェクトです — 学習、共有、そして人助けのために作られました。私たちは恩返しを信じています。もし気に入っていただけたら、<a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>GitHubでスターをお願いします 💖</strong></a>"
       }
     ]
   },
 
   "_tools": {
-    "title": "Download Anything from {platform}",
-    "description": "Fast, secure, and watermark free downloads for all your favorite content",
-    "platform_url": "{platform} URL",
-    "paste_link": "Paste link",
-    "example": "Example: {url}",
-    "ready_to_download": "Ready to download",
-    "available_formats": "Available Formats",
-    "live_formats": "Live Formats",
-    "has_audio": "Has Audio",
-    "has_watermark": "Has Watermark",
-    "render": "Render",
-    "live": "Live",
-    "live_stream_info": "Live Stream Info",
-    "live_stream_info_message": "This is a <b>live stream</b> and cannot be downloaded directly. You can try again after the stream ends to access the VOD.",
-    "dash_copied_message": "DASH URL has been copied to clipboard.",
+    "title": "{platform} から何でもダウンロード",
+    "description": "お気に入りのすべてのコンテンツを、高速、安全、ウォーターマークなしでダウンロード",
+    "platform_url": "{platform} のURL",
+    "paste_link": "リンクを貼り付け",
+    "example": "例: {url}",
+    "ready_to_download": "ダウンロード準備完了",
+    "available_formats": "利用可能なフォーマット",
+    "live_formats": "ライブフォーマット",
+    "has_audio": "音声あり",
+    "has_watermark": "ウォーターマークあり",
+    "render": "レンダリング",
+    "live": "ライブ",
+    "live_stream_info": "ライブストリーム情報",
+    "live_stream_info_message": "これは<b>ライブストリーム</b>であり、直接ダウンロードすることはできません。ストリーム終了後にもう一度試して、VODにアクセスしてください。",
+    "dash_copied_message": "DASH URLがクリップボードにコピーされました。",
     "_instagram": {
       "faqs": [
         {
-          "question": "Can I download Instagram Reels with Fetchy?",
-          "answer": "Absolutely! Just paste the Reel link into Fetchy and hit download. No watermarks, no quality loss, no BS."
+          "question": "FetchyでInstagramリールをダウンロードできますか？",
+          "answer": "もちろんです！リールのリンクをFetchyに貼り付けて、ダウンロードを押すだけ。ウォーターマークなし、品質の低下なし、面倒なことは一切ありません。"
         },
         {
-          "question": "Does Fetchy work with Instagram post videos?",
-          "answer": "Yup! Fetchy supports downloading videos from standard Instagram posts, including single videos and carousel video posts."
+          "question": "FetchyはInstagram投稿動画で動作しますか？",
+          "answer": "はい！Fetchyは、単一の動画やカルーセル動画投稿を含む、標準的なInstagram投稿からの動画ダウンロードをサポートしています。"
         },
         {
-          "question": "Can I download Instagram stories with Fetchy?",
-          "answer": "Currently, Fetchy does not support story downloads. We're working on adding it in a future update stay tuned!"
+          "question": "FetchyでInstagramストーリーをダウンロードできますか？",
+          "answer": "現在、Fetchyはストーリーのダウンロードをサポートしていません。今後のアップデートで追加できるように取り組んでいますので、ご期待ください！"
         },
         {
-          "question": "Is Fetchy free for Instagram downloads?",
-          "answer": "100% free. No paywalls, no subscriptions. Fetchy is open source and always free to use."
+          "question": "InstagramのダウンロードにFetchyは無料ですか？",
+          "answer": "100%無料です。ペイウォールなし、サブスクリプションなし。Fetchyはオープンソースであり、常に無料で利用できます。"
         },
         {
-          "question": "Does Fetchy add watermarks to Instagram videos?",
-          "answer": "Never. All Instagram videos downloaded through Fetchy come clean no watermarks or branding."
+          "question": "FetchyはInstagram動画にウォーターマークを追加しますか？",
+          "answer": "決して追加しません。Fetchyを通じてダウンロードされたすべてのInstagram動画は、ウォーターマークやブランド表示なしでクリーンです。"
         },
         {
-          "question": "Do I need to log into Instagram to use Fetchy?",
-          "answer": "Nope! You can download public Instagram content without logging in. Just paste the link and go."
+          "question": "Fetchyを使用するためにInstagramにログインする必要がありますか？",
+          "answer": "いいえ！ログインせずに公開されているInstagramコンテンツをダウンロードできます。リンクを貼り付けて、すぐに利用できます。"
         },
         {
-          "question": "Can I use Fetchy on mobile to download Instagram Reels?",
-          "answer": "Yes! Fetchy is fully responsive and optimized for mobile browsers. Works like a charm on any device."
+          "question": "モバイルでFetchyを使用してInstagramリールをダウンロードできますか？",
+          "answer": "はい！Fetchyは完全にレスポンシブで、モバイルブラウザ向けに最適化されています。どのデバイスでも完璧に動作します。"
         },
         {
-          "question": "How do I copy an Instagram link to use with Fetchy?",
-          "answer": "Tap the three dots on the post or reel, select 'Copy Link', then paste it into Fetchy. Easy peasy."
+          "question": "Fetchyで使用するためにInstagramのリンクをコピーするにはどうすればよいですか？",
+          "answer": "投稿またはリールの三点リーダーをタップし、「リンクをコピー」を選択してから、Fetchyに貼り付けます。とても簡単です。"
         },
         {
-          "question": "Can Fetchy download private Instagram videos?",
-          "answer": "No. For privacy reasons, Fetchy only supports public content. Private videos require access and are not downloadable through Fetchy."
+          "question": "FetchyはプライベートなInstagram動画をダウンロードできますか？",
+          "answer": "できません。プライバシー上の理由から、Fetchyは公開コンテンツのみをサポートしています。プライベート動画にはアクセスが必要であり、Fetchyを通じてダウンロードすることはできません。"
         },
         {
-          "question": "Is Fetchy safe for Instagram downloads?",
-          "answer": "Definitely. Fetchy doesn’t collect any personal info and doesn’t ask for your Instagram login. It’s clean, secure, and open source."
+          "question": "InstagramのダウンロードにFetchyは安全ですか？",
+          "answer": "間違いなく。Fetchyは個人情報を収集せず、Instagramのログインを要求することもありません。クリーンで安全、そしてオープンソースです。"
         },
         {
-          "question": "Can I download multiple Instagram videos?",
-          "answer": "Yes, one by one. Just paste each link and download. Batch support isn’t available yet, but it's on our roadmap."
+          "question": "複数のInstagram動画をダウンロードできますか？",
+          "answer": "はい、一つずつであれば可能です。各リンクを貼り付けてダウンロードしてください。一括サポートはまだ利用できませんが、ロードマップに含まれています。"
         },
         {
-          "question": "Can I contribute to Fetchy’s Instagram downloader?",
-          "answer": "Totally! Head over to our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to contribute, suggest features, or report bugs."
+          "question": "FetchyのInstagramダウンローダーに貢献できますか？",
+          "answer": "もちろんです！機能の提案やバグの報告、または貢献するには、<a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a>にアクセスしてください。"
         },
         {
-          "question": "What content types does Fetchy support from Instagram?",
-          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
+          "question": "FetchyがInstagramからサポートしているコンテンツの種類は何ですか？",
+          "answer": "現在、Fetchyはリール、通常の投稿動画、およびカルーセル動画/画像をサポートしています。ストーリーとプライベートコンテンツはまだサポートされていません。"
         }
       ],
       "about": {
-        "title": "Download Instagram Reels, Posts & More with Fetchy",
+        "title": "FetchyでInstagramリール、投稿などをダウンロード",
         "parts": {
-          "p1": "Whether it's a viral reel, a carousel post, or a high quality video, <b>Fetchy</b> is your go to Instagram content downloader. No watermarks, no sign ups, no sketchy redirects, just paste the link and download.",
-          "p2": "Unlike most tools out there, <b>Fetchy</b> is an open source project focused on <b>speed, simplicity</b>, and reliability. It supports reels, post videos, and more content handling, all with clean, instant downloads.",
-          "p3": "Most Instagram downloaders are packed with popups or make you wait forever. Fetchy is built different, optimized for mobile and desktop links, and designed to skip the nonsense so you get your content fast.",
-          "p4": "Since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to contribute, explore the code, or even run your own instance locally. No ads, no paywalls, just tech that respects you.",
-          "p5": "Whether you’re backing up your content, saving inspirational clips, or downloading videos for offline viewing, Fetchy makes <b>Instagram</b> downloading <b>easy, safe, and open</b>."
+          "p1": "バイラルなリール、カルーセル投稿、高品質な動画のいずれであっても、<b>Fetchy</b>は頼りになるInstagramコンテンツダウンローダーです。ウォーターマークなし、サインアップなし、怪しいリダイレクトなし、リンクを貼り付けてダウンロードするだけです。",
+          "p2": "世の中のほとんどのツールとは異なり、<b>Fetchy</b>は<b>速度、シンプルさ</b>、信頼性に焦点を当てたオープンソースプロジェクトです。リール、投稿動画、その他のコンテンツ処理をサポートし、すべてクリーンで即座にダウンロードできます。",
+          "p3": "ほとんどのInstagramダウンローダーはポップアップで溢れているか、永遠に待たされます。Fetchyは異なって構築されており、モバイルおよびデスクトップのリンク向けに最適化され、無駄を省いてコンテンツをすばやく取得できるように設計されています。",
+          "p4": "Fetchyは<BSL>BSL 1.1</BSL>ライセンスの下でオープンソースであるため、貢献したり、コードを探索したり、ローカルで独自のインスタンスを実行したりすることが自由にできます。広告なし、ペイウォールなし、あなたを尊重する技術です。",
+          "p5": "コンテンツのバックアップ、インスピレーションクリップの保存、オフライン視聴用の動画ダウンロードなど、Fetchyは<b>Instagram</b>のダウンロードを<b>簡単、安全、そしてオープン</b>にします。"
         }
       }
     },
     "_tiktok": {
       "faqs": [
         {
-          "question": "Can I download TikTok videos without watermark using Fetchy?",
-          "answer": "Yes! Fetchy removes watermarks from downloaded TikTok videos automatically no extra steps needed."
+          "question": "Fetchyを使用してウォーターマークなしでTikTok動画をダウンロードできますか？",
+          "answer": "はい！FetchyはダウンロードされたTikTok動画からウォーターマークを自動的に削除します。追加の手順は必要ありません。"
         },
         {
-          "question": "Does Fetchy support downloading TikTok slideshows?",
-          "answer": "Yup! Fetchy fully supports TikTok slideshows. Just copy the post link and paste it in to download."
+          "question": "FetchyはTikTokスライドショーのダウンロードをサポートしていますか？",
+          "answer": "はい！FetchyはTikTokスライドショーを完全にサポートしています。投稿リンクをコピーして貼り付けるだけでダウンロードできます。"
         },
         {
-          "question": "Is Fetchy free for downloading TikTok videos and content?",
-          "answer": "Totally free. No hidden fees, no accounts required. Fetchy is open source and always will be."
+          "question": "TikTok動画とコンテンツのダウンロードにFetchyは無料ですか？",
+          "answer": "完全に無料です。隠れた料金なし、アカウントの必要なし。Fetchyはオープンソースであり、常に無料です。"
         },
         {
-          "question": "Do I need a TikTok or Fetchy account to download?",
-          "answer": "Nope! Just paste your link into Fetchy and go. No sign ups or logins ever."
+          "question": "ダウンロードするためにTikTokまたはFetchyアカウントが必要ですか？",
+          "answer": "いいえ！リンクをFetchyに貼り付けて進むだけです。サインアップやログインは一切ありません。"
         },
         {
-          "question": "Does Fetchy support TikTok playlists or collections?",
-          "answer": "Not yet! TikTok playlist support is on our radar and coming soon. For now, you can download individual posts and videos."
+          "question": "FetchyはTikTokのプレイリストやコレクションをサポートしていますか？",
+          "answer": "まだです！TikTokのプレイリストサポートはロードマップにあり、近日中に登場します。今のところ、個々の投稿と動画をダウンロードできます。"
         },
         {
-          "question": "Can I use Fetchy to download TikToks on my phone?",
-          "answer": "Definitely. Fetchy is mobile friendly and works smoothly in any modern browser on any device."
+          "question": "携帯電話でFetchyを使用してTikTokをダウンロードできますか？",
+          "answer": "もちろんです。Fetchyはモバイルフレンドリーで、どのデバイスのどの最新ブラウザでもスムーズに動作します。"
         },
         {
-          "question": "Is there a limit to how many TikToks I can download?",
-          "answer": "No limits. Download as many TikToks as you want Fetchy’s built for open, unrestricted use."
+          "question": "ダウンロードできるTikTokの数に制限はありますか？",
+          "answer": "制限はありません。必要なだけ多くのTikTokをダウンロードしてください。Fetchyはオープンで無制限の使用のために構築されています。"
         },
         {
-          "question": "Is Fetchy safe and private to use?",
-          "answer": "Yes! Fetchy doesn’t track you, collect data, or store history. It’s open source and privacy focused."
+          "question": "Fetchyは安全でプライベートに使用できますか？",
+          "answer": "はい！Fetchyはあなたを追跡したり、データを収集したり、履歴を保存したりしません。オープンソースでプライバシーに焦点を当てています。"
         },
         {
-          "question": "Can I contribute to Fetchy or run my own TikTok downloader?",
-          "answer": "Heck yeah. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to fork, contribute, suggest features, or report bugs."
+          "question": "Fetchyに貢献したり、独自のTikTokダウンローダーを実行したりできますか？",
+          "answer": "はい、もちろんです。<a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a>にアクセスして、フォーク、貢献、機能の提案、またはバグの報告を行ってください。"
         }
       ],
       "about": {
-        "title": "Download TikTok Videos, Slideshows & Audios with Fetchy",
+        "title": "FetchyでTikTok動画、スライドショー、オーディオをダウンロード",
         "parts": {
-          "p1": "Whether it’s a trending <b>video</b>, a vibey <b>slideshow</b>, or an addicting TikTok <b>sound</b>, Fetchy lets you save it instantly. Just paste the link, hit download, and you’re set no watermark, no app install, no login.",
-          "p2": "Unlike clunky TikTok saver sites, Fetchy is an <b>open source</b> project built for <b>speed, simplicity</b>, and privacy. It supports all major content types including public videos, slideshows, and standalone audio tracks.",
-          "p3": "Some newly introduced TikTok features like <b>playlist collections</b> aren’t supported <b>yet</b>, but don’t sweat it we’re actively tracking updates and expanding support fast. Most users already have everything they need.",
-          "p4": "Fetchy’s backend is fine tuned to handle tricky links like <b>shortened URLs, mobile redirects</b>, and even TikTok share URLs from within the app. It just works, no matter where you’re copying from.",
-          "p5": " As always, Fetchy is fully open under the <BSL>BSL 1.1</BSL> license. That means you can fork it, contribute, or even run your own instance locally. No paywalls, no rate limits just pure, community powered downloading.",
-          "p6": "Loved by creators, students, and archivists alike <b>Fetchy</b> is your all in one solution for <b>safe, clean</b>, and <b>hassle free</b> TikTok content saving."
+          "p1": "トレンドの<b>動画</b>、雰囲気のある<b>スライドショー</b>、または中毒性のあるTikTokの<b>サウンド</b>のいずれであっても、Fetchyを使用すると即座に保存できます。リンクを貼り付け、ダウンロードを押すだけで完了です。ウォーターマークなし、アプリのインストールなし、ログインなし。",
+          "p2": "扱いにくいTikTokセーバーサイトとは異なり、Fetchyは<b>速度、シンプルさ</b>、およびプライバシーのために構築された<b>オープンソース</b>プロジェクトです。公開動画、スライドショー、スタンドアロンのオーディオトラックを含むすべての主要なコンテンツタイプをサポートしています。",
+          "p3": "<b>プレイリストコレクション</b>など、新しく導入されたTikTokの機能の一部は<b>まだ</b>サポートされていませんが、ご心配なく。私たちは積極的にアップデートを追跡し、サポートを迅速に拡大しています。ほとんどのユーザーはすでに必要なすべてを持っています。",
+          "p4": "Fetchyのバックエンドは、<b>短縮URL、モバイルリダイレクト</b>、さらにはアプリ内からのTikTok共有URLなど、厄介なリンクを処理するために微調整されています。どこからコピーしても、動作します。",
+          "p5": "いつものように、Fetchyは<BSL>BSL 1.1</BSL>ライセンスの下で完全に公開されています。つまり、フォークしたり、貢献したり、ローカルで独自のインスタンスを実行したりすることが自由にできます。ペイウォールなし、レート制限なし、純粋なコミュニティ主導のダウンロードです。",
+          "p6": "クリエイター、学生、そしてアーカイブ担当者に愛されている<b>Fetchy</b>は、<b>安全、クリーン</b>、そして<b>手間のかからない</b>TikTokコンテンツ保存のためのオールインワンソリューションです。"
         }
       }
     },
     "_facebook": {
       "faqs": [
         {
-          "question": "Can I download Facebook reels with Fetchy?",
-          "answer": "Absolutely! Just paste the link and you're good to go—no watermark, no fuss."
+          "question": "FetchyでFacebookリールをダウンロードできますか？",
+          "answer": "もちろんです！リンクを貼り付けるだけで準備完了です。ウォーターマークなし、手間なしです。"
         },
         {
-          "question": "Does Fetchy work on mobile?",
-          "answer": "Yup. It's fully responsive and works smoothly on all modern browsers across devices."
+          "question": "Fetchyはモバイルで動作しますか？",
+          "answer": "はい。完全にレスポンシブで、すべてのデバイスの最新のブラウザでスムーズに動作します。"
         },
         {
-          "question": "Is Fetchy free to use?",
-          "answer": "100%. No hidden fees, no sign-ups. It's open source and always will be."
+          "question": "Fetchyは無料で使用できますか？",
+          "answer": "100%無料です。隠れた料金なし、サインアップなし。オープンソースであり、常にそうあり続けます。"
         },
         {
-          "question": "Do I need to sign up to use Fetchy?",
-          "answer": "Nope! Fetchy is completely sign-up free. Just paste your link and download your content instantly."
+          "question": "Fetchyを使用するためにサインアップする必要がありますか？",
+          "answer": "いいえ！Fetchyは完全にサインアップ不要です。リンクを貼り付けて、コンテンツを即座にダウンロードしてください。"
         },
         {
-          "question": "Can Fetchy download private Facebook videos?",
-          "answer": "No. Fetchy only supports public Facebook content and will never introduce a private media downloader. we respect user privacy and platform rules."
+          "question": "FetchyはプライベートなFacebook動画をダウンロードできますか？",
+          "answer": "できません。Fetchyは公開されているFacebookコンテンツのみをサポートし、プライベートメディアダウンローダーを導入することは決してありません。私たちはユーザーのプライバシーとプラットフォームのルールを尊重します。"
         },
         {
-          "question": "What type of Facebook links does Fetchy support?",
-          "answer": "Fetchy supports video links, story links, reels, and even shortened or mobile versions of Facebook URLs."
+          "question": "Fetchyはどのような種類のFacebookリンクをサポートしていますか？",
+          "answer": "Fetchyは、動画リンク、ストーリーリンク、リール、さらには短縮された、またはモバイルバージョンのFacebook URLもサポートしています。"
         },
         {
-          "question": "Is there a limit to how many downloads I can do?",
-          "answer": "No limits here! Fetchy is built for open use. Download as much content as you need without restrictions."
+          "question": "ダウンロードできる数に制限はありますか？",
+          "answer": "ここに制限はありません！Fetchyはオープンな使用のために構築されています。制限なしに必要なだけ多くのコンテンツをダウンロードしてください。"
         },
         {
-          "question": "What is the best way to copy Facebook links for Fetchy?",
-          "answer": "On mobile, tap the 'Share' button and then 'Copy Link'. On desktop, copy the URL from the address bar."
+          "question": "FetchyでFacebookリンクをコピーする最良の方法は何ですか？",
+          "answer": "モバイルでは、「共有」ボタンをタップしてから「リンクをコピー」します。デスクトップでは、アドレスバーからURLをコピーします。"
         },
         {
-          "question": "Is Fetchy safe to use?",
-          "answer": "Definitely. Fetchy is open source and doesn’t collect any personal data. Your usage stays private and secure."
+          "question": "Fetchyは安全に使用できますか？",
+          "answer": "間違いなく。Fetchyはオープンソースであり、個人データを収集しません。あなたの利用はプライベートで安全に保たれます。"
         },
         {
-          "question": "Does Fetchy add watermarks?",
-          "answer": "Never. Fetchy ensures your downloaded content is watermark free and untouched."
+          "question": "Fetchyはウォーターマークを追加しますか？",
+          "answer": "決して追加しません。Fetchyはダウンロードされたコンテンツがウォーターマークなしで、そのままの状態であることを保証します。"
         },
         {
-          "question": "Can I contribute to Fetchy?",
-          "answer": "Yes! Fetchy is open source. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> repo to report issues, suggest features, or contribute code."
+          "question": "Fetchyに貢献できますか？",
+          "answer": "はい！Fetchyはオープンソースです。問題の報告、機能の提案、またはコードへの貢献を行うには、<a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a>リポジトリにアクセスしてください。"
         }
       ],
       "about": {
-        "title": "Download Facebook Videos, Stories & More with Fetchy",
+        "title": "FetchyでFacebook動画、ストーリーなどをダウンロード",
         "parts": {
-          "p1": "Whether it’s a viral video, a story, or a reel, Fetchy is your all in one Facebook content downloader built to handle it all. No watermarks, no slowdowns, no login required, just paste your link and go.",
-          "p2": "Unlike most tools out there, Fetchy is an open source solution built for <b>speed</b>, <b>simplicity</b>, and reliability. It supports most types of content and delivers clean, fast downloads without the junk. Some formats aren’t supported <b>yet</b>, but we’re actively working on it and everything the average user needs is already good to go.",
-          "p3": "Most tools either bombard you with ads or limit what you can save. Fetchy flips the script. It’s clean, efficient, and respects your time. Behind the scenes, our backend is optimized to handle even the most complex Facebook URLs, including shortened links, mobile formats, and redirects.",
-          "p4": "Plus, since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to peek under the hood, contribute to the code, or run it yourself, no paywalls, no subscriptions, just community driven tech for everyone.",
-          "p5": "Perfect for creators, students, and everyday users, Fetchy makes Facebook content downloading <b>effortless</b> and <b>trustworthy</b>."
+          "p1": "バイラルな動画、ストーリー、リールのいずれであっても、Fetchyはすべてを処理するために構築されたオールインワンのFacebookコンテンツダウンローダーです。ウォーターマークなし、速度低下なし、ログイン不要、リンクを貼り付けてすぐに利用できます。",
+          "p2": "世の中のほとんどのツールとは異なり、Fetchyは<b>速度</b>、<b>シンプルさ</b>、信頼性のために構築されたオープンソースソリューションです。ほとんどの種類のコンテンツをサポートし、余計なものなしでクリーンで高速なダウンロードを提供します。一部のフォーマットは<b>まだ</b>サポートされていませんが、私たちは積極的に取り組んでおり、平均的なユーザーが必要とするすべてはすでに利用可能です。",
+          "p3": "ほとんどのツールは広告であなたを攻撃するか、保存できるものを制限します。Fetchyは脚本を覆します。クリーンで効率的で、あなたの時間を尊重します。舞台裏では、私たちのバックエンドは、短縮リンク、モバイルフォーマット、リダイレクトなど、最も複雑なFacebook URLでも処理するように最適化されています。",
+          "p4": "さらに、Fetchyは<BSL>BSL 1.1</BSL>ライセンスの下でオープンソースであるため、あなたは内部を覗いたり、コードに貢献したり、自分で実行したりすることが自由にできます。ペイウォールなし、サブスクリプションなし、すべての人々のためのコミュニティ主導のテクノロジーです。",
+          "p5": "クリエイター、学生、そして日常のユーザーに最適です。FetchyはFacebookコンテンツのダウンロードを<b>楽に</b>、そして<b>信頼できる</b>ものにします。"
         }
       }
     },
     "_youtube": {
-      "title": "YouTube Downloader Coming Soon",
-      "description": "Exciting New Feature Coming Your Way!"
+      "title": "YouTubeダウンローダーは近日公開",
+      "description": "エキサイティングな新機能がまもなく登場します！"
     },
     "steps": {
-      "title": "How to Use Fetchy",
+      "title": "Fetchyの使い方",
       "copy": {
-        "title": "Copy the Link",
-        "description": "Go to the content you want to download, tap Share, then Copy Link. Boom, first step done!"
+        "title": "リンクをコピー",
+        "description": "ダウンロードしたいコンテンツに移動し、「共有」をタップしてから「リンクをコピー」します。これで最初のステップが完了です！"
       },
       "paste": {
-        "title": "Paste on Fetchy",
-        "description": "Jump back here, paste the copied link into Fetchy’s input, and hit that slick Download button."
+        "title": "Fetchyに貼り付け",
+        "description": "ここに戻り、コピーしたリンクをFetchyの入力欄に貼り付け、そのおしゃれな「ダウンロード」ボタンを押します。"
       },
       "download": {
-        "title": "Download & Enjoy",
-        "description": "Wait just a sec while we fetch it for you. Then download, no watermark, no BS."
+        "title": "ダウンロードして楽しむ",
+        "description": "コンテンツを取得するまで少しお待ちください。その後、ウォーターマークなし、面倒なことは一切なしでダウンロードできます。"
       }
     }
   },
 
   "_404": {
-    "title": "404 Not Found",
-    "description": "Lost in space? Let's get you back to the home planet!",
-    "back_to_home": "Back to Home"
+    "title": "404 見つかりません",
+    "description": "宇宙で迷子になりましたか？ホームプラネットに戻りましょう！",
+    "back_to_home": "ホームに戻る"
   },
 
   "_blogs": {
-    "title": "Latest Writings & Thoughts",
-    "no_blogs": "No blogs found"
+    "title": "最新の記事と考察",
+    "no_blogs": "ブログは見つかりませんでした"
   },
 
   "NavigationBar": {
-    "follow_us": "Follow Us",
-    "follow_us_description": "Stay updated with our latest and greatest."
+    "follow_us": "フォローしてください",
+    "follow_us_description": "私たちの最新かつ最高の情報で更新を続けてください。"
   },
 
   "Footer": {
-    "description": "The ultimate free video downloader for all your favorite platforms. Fast, clean, and watermark free.",
-    "copyright": "© {year} Fetchy. All Rights Reserved. Built by {name}"
+    "description": "お気に入りのすべてのプラットフォームに対応する究極の無料動画ダウンローダー。高速、クリーン、ウォーターマークなし。",
+    "copyright": "© {year} Fetchy. 全著作権所有。 {name} によって構築"
   },
 
   "OpenSource": {
-    "title": "Built Openly. Shared Boldly.",
-    "description": "Fetchy is proudly open source under the <a>BSL 1.1</a>. Use it, learn from it, contribute to it, just don't resell it as is. Fair, right?",
-    "released_by": "Released by"
+    "title": "オープンに構築。大胆に共有。",
+    "description": "Fetchyは<a>BSL 1.1</a>の下で誇りを持ってオープンソースです。使用し、学び、貢献してください。ただし、そのまま転売しないでください。公平ですよね？",
+    "released_by": "リリース元"
   },
 
   "errors": {
-    "an_error_occurred": "An error occurred",
-    "download_session_expired": "Session expired, please refresh the page",
-    "url_not_whitelisted": "URL is not whitelisted for this tool. Please enter a valid one.",
-    "url_missing": "Please enter a URL",
-    "paste_failed": "Failed to paste from clipboard",
-    "private_or_not_exist": "Unfortunately, this video may be private or does not exist",
-    "instagram_not_supported_content": "Downloading stories and highlights is not supported yet",
-    "invalid_url": "Invalid URL",
-    "facebook_not_supported_content": "We currently don't support extracting content from Facebook posts. This feature will be available soon."
+    "an_error_occurred": "エラーが発生しました",
+    "download_session_expired": "セッションの有効期限が切れました。ページを更新してください",
+    "url_not_whitelisted": "このツールではURLがホワイトリストに登録されていません。有効なURLを入力してください。",
+    "url_missing": "URLを入力してください",
+    "paste_failed": "クリップボードからの貼り付けに失敗しました",
+    "private_or_not_exist": "残念ながら、この動画は非公開であるか、存在しない可能性があります",
+    "instagram_not_supported_content": "ストーリーとハイライトのダウンロードはまだサポートされていません",
+    "invalid_url": "無効なURL",
+    "facebook_not_supported_content": "現在、Facebookの投稿からコンテンツを抽出することはサポートしていません。この機能は近日中に利用可能になります。"
   },
 
-  "faq": "Frequently Asked Questions",
-  "refresh": "Refresh",
-  "download": "Download",
-  "close": "Close",
-  "resources": "Resources",
-  "tools": "Tools",
-  "soon": "Soon",
-  "coming_soon": "Coming Soon",
-  "not_available_warning": "This {type} is not available right now.",
-  "not_available": "Not Available",
-  "home": "Home",
-  "new": "New",
-  "hot": "Hot"
+  "faq": "よくある質問",
+  "refresh": "更新",
+  "download": "ダウンロード",
+  "close": "閉じる",
+  "resources": "リソース",
+  "tools": "ツール",
+  "soon": "まもなく",
+  "coming_soon": "近日公開",
+  "not_available_warning": "この{type}は現在利用できません。",
+  "not_available": "利用できません",
+  "locale_switcher_title": "言語を選択",
+  "locale_switcher_description": "ご希望の言語を選択してください",
+  "home": "ホーム",
+  "new": "新規",
+  "hot": "人気"
 }

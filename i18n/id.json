@@ -1,317 +1,319 @@
 {
   "metatags": {
     "root": {
-      "title": "Fetchy - Ultimate Video Downloader",
-      "description": "Fetchy - The ultimate free video downloader for everyone. Download high-quality videos and photos from Instagram, Facebook, and etc with one click. Free, easy, and efficient!"
+      "title": "Fetchy - Pengunduh Video Terbaik",
+      "description": "Fetchy - Pengunduh video gratis terbaik untuk semua orang. Unduh video dan foto berkualitas tinggi dari Instagram, Facebook, dll. dengan satu klik. Gratis, mudah, dan efisien!"
     },
     "404": {
-      "title": "404 | Page Not Found"
+      "title": "404 | Halaman Tidak Ditemukan"
     },
-    "tools": { "title": "{platform} Downloader | Fetchy" }
+    "tools": { "title": "Pengunduh {platform} | Fetchy" }
   },
   "_home": {
-    "title": "Download Anything, Anywhere, Anytime.",
-    "description": "Fetchy is your all in one video downloader fast, clean, and watermark free. Download anything, from any platform, effortlessly.",
-    "compatibility": "Compatibility",
-    "compatibility_description": "Built to support your favorite platforms. Fast, seamless, and always expanding.",
-    "lightning_fast": "Lightning Fast",
-    "lightning_fast_description": "Fetchy delivers content at warp speed. No delays. Just pure performance.",
-    "testimonials_title": "What People Are Saying",
-    "testimonials_description": "Don't just take our word for it. Here's what our users say about their experience.",
-    "review_us_on": "Review us on",
-    "get_started": "Get Started",
-    "faq": "Frequently Asked Questions",
-    "faq_description": "Quick answers to common questions about Fetchy.",
+    "title": "<span>Fetchy,</span> Unduh Apa Saja, Di Mana Saja, Kapan Saja.",
+    "description": "Fetchy adalah pengunduh video lengkap Anda: cepat, bersih, dan bebas tanda air. Unduh apa saja, dari platform mana pun, dengan mudah.",
+    "compatibility": "Kompatibilitas",
+    "compatibility_description": "Dibangun untuk mendukung platform favorit Anda. Cepat, mulus, dan selalu berkembang.",
+    "lightning_fast": "Sangat Cepat",
+    "lightning_fast_description": "Fetchy mengirimkan konten dengan kecepatan tinggi. Tanpa penundaan. Hanya performa murni.",
+    "testimonials_title": "Apa Kata Mereka",
+    "testimonials_description": "Jangan hanya percaya kata-kata kami. Inilah yang dikatakan pengguna kami tentang pengalaman mereka.",
+    "review_us_on": "Ulas kami di",
+    "get_started": "Mulai",
+    "faq": "Pertanyaan yang Sering Diajukan",
+    "faq_description": "Jawaban cepat untuk pertanyaan umum tentang Fetchy.",
     "faqs": [
       {
-        "question": "What makes Fetchy better than other video downloaders?",
-        "answer": "Most downloaders are super basic, they choke on Facebook stories or Instagram carousels. Fetchy handles Instagram reels, multi-photo posts, TikTok slideshows, and even Facebook stories like a champ. Lightweight, fast, and built with real love."
+        "question": "Apa yang membuat Fetchy lebih baik daripada pengunduh video lainnya?",
+        "answer": "Kebanyakan pengunduh sangat dasar, mereka 'tersedak' pada Stories Facebook atau Carousel Instagram. Fetchy menangani Reels Instagram, postingan multi-foto, Slideshow TikTok, dan bahkan Stories Facebook dengan sangat baik. Ringan, cepat, dan dibuat dengan cinta sejati."
       },
       {
-        "question": "Can I use Fetchy as a Facebook Story Downloader?",
-        "answer": "Hell yes! Fetchy isn't just another downloader, it actually supports Facebook story downloads, including those that most tools can't touch. Just paste the story link and let Fetchy work its magic."
+        "question": "Bisakah saya menggunakan Fetchy sebagai Pengunduh Story Facebook?",
+        "answer": "Tentu saja! Fetchy bukan hanya pengunduh biasa, ia benar-benar mendukung pengunduhan Story Facebook, termasuk yang tidak bisa dijangkau oleh sebagian besar alat. Cukup tempel tautan Story dan biarkan Fetchy melakukan keajaibannya."
       },
       {
-        "question": "Can I download private or expired stories?",
-        "answer": "Nah, we play fair. Fetchy only works with public and active content. No creepy stuff. We respect user privacy and platform rules."
+        "question": "Bisakah saya mengunduh Story pribadi atau yang sudah kedaluwarsa?",
+        "answer": "Tidak, kami bermain adil. Fetchy hanya berfungsi dengan konten publik dan aktif. Tidak ada hal-hal menyeramkan. Kami menghormati privasi pengguna dan aturan platform."
       },
       {
-        "question": "Is it free? Will there be annoying ads?",
-        "answer": "100% free. No subscriptions, no popups from hell. Just one clean banner ad to keep the server lights on, your UX stays smooth as silk."
+        "question": "Apakah ini gratis? Akankah ada iklan yang mengganggu?",
+        "answer": "100% gratis. Tanpa langganan, tanpa pop-up yang menjengkelkan. Hanya satu iklan banner bersih untuk menjaga server tetap menyala, UX Anda tetap mulus seperti sutra."
       },
       {
-        "question": "Is it legal to download videos from Instagram, Facebook, or TikTok?",
-        "answer": "It depends how you use it. Fetchy is meant for personal use only, like saving your own content or public stuff you have permission to grab. Always respect creators and terms of service."
+        "question": "Apakah legal mengunduh video dari Instagram, Facebook, atau TikTok?",
+        "answer": "Itu tergantung bagaimana Anda menggunakannya. Fetchy dimaksudkan untuk penggunaan pribadi saja, seperti menyimpan konten Anda sendiri atau konten publik yang Anda memiliki izin untuk mengambilnya. Selalu hormati kreator dan ketentuan layanan."
       },
       {
-        "question": "Why don’t you charge for this?",
-        "answer": "Fetchy’s a passion project — built for learning, sharing, and helping people. We believe in giving back. But hey, if you vibe with it, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>drop a star on GitHub 💖</strong></a>"
+        "question": "Mengapa Anda tidak membebankan biaya untuk ini?",
+        "answer": "Fetchy adalah proyek penuh gairah — dibangun untuk belajar, berbagi, dan membantu orang. Kami percaya pada 'memberi kembali'. Tapi hei, jika Anda menyukainya, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>berikan bintang di GitHub 💖</strong></a>"
       }
     ]
   },
 
   "_tools": {
-    "title": "Download Anything from {platform}",
-    "description": "Fast, secure, and watermark free downloads for all your favorite content",
-    "platform_url": "{platform} URL",
-    "paste_link": "Paste link",
-    "example": "Example: {url}",
-    "ready_to_download": "Ready to download",
-    "available_formats": "Available Formats",
-    "live_formats": "Live Formats",
-    "has_audio": "Has Audio",
-    "has_watermark": "Has Watermark",
+    "title": "Unduh Apa Saja dari {platform}",
+    "description": "Unduhan cepat, aman, dan bebas tanda air untuk semua konten favorit Anda",
+    "platform_url": "URL {platform}",
+    "paste_link": "Tempel tautan",
+    "example": "Contoh: {url}",
+    "ready_to_download": "Siap diunduh",
+    "available_formats": "Format Tersedia",
+    "live_formats": "Format Langsung",
+    "has_audio": "Ada Audio",
+    "has_watermark": "Ada Tanda Air",
     "render": "Render",
-    "live": "Live",
-    "live_stream_info": "Live Stream Info",
-    "live_stream_info_message": "This is a <b>live stream</b> and cannot be downloaded directly. You can try again after the stream ends to access the VOD.",
-    "dash_copied_message": "DASH URL has been copied to clipboard.",
+    "live": "Langsung",
+    "live_stream_info": "Info Streaming Langsung",
+    "live_stream_info_message": "Ini adalah <b>streaming langsung</b> dan tidak dapat diunduh secara langsung. Anda dapat mencoba lagi setelah streaming berakhir untuk mengakses VOD.",
+    "dash_copied_message": "URL DASH telah disalin ke clipboard.",
     "_instagram": {
       "faqs": [
         {
-          "question": "Can I download Instagram Reels with Fetchy?",
-          "answer": "Absolutely! Just paste the Reel link into Fetchy and hit download. No watermarks, no quality loss, no BS."
+          "question": "Bisakah saya mengunduh Instagram Reels dengan Fetchy?",
+          "answer": "Tentu saja! Cukup tempel tautan Reel ke Fetchy dan tekan unduh. Tanpa tanda air, tanpa kehilangan kualitas, tanpa basa-basi."
         },
         {
-          "question": "Does Fetchy work with Instagram post videos?",
-          "answer": "Yup! Fetchy supports downloading videos from standard Instagram posts, including single videos and carousel video posts."
+          "question": "Apakah Fetchy berfungsi dengan video postingan Instagram?",
+          "answer": "Ya! Fetchy mendukung pengunduhan video dari postingan Instagram standar, termasuk video tunggal dan postingan video carousel."
         },
         {
-          "question": "Can I download Instagram stories with Fetchy?",
-          "answer": "Currently, Fetchy does not support story downloads. We're working on adding it in a future update stay tuned!"
+          "question": "Bisakah saya mengunduh Story Instagram dengan Fetchy?",
+          "answer": "Saat ini, Fetchy tidak mendukung pengunduhan Story. Kami sedang berupaya menambahkannya di pembaruan mendatang—nantikan terus!"
         },
         {
-          "question": "Is Fetchy free for Instagram downloads?",
-          "answer": "100% free. No paywalls, no subscriptions. Fetchy is open source and always free to use."
+          "question": "Apakah Fetchy gratis untuk unduhan Instagram?",
+          "answer": "100% gratis. Tanpa biaya tersembunyi, tanpa langganan. Fetchy adalah open source dan selalu gratis digunakan."
         },
         {
-          "question": "Does Fetchy add watermarks to Instagram videos?",
-          "answer": "Never. All Instagram videos downloaded through Fetchy come clean no watermarks or branding."
+          "question": "Apakah Fetchy menambahkan tanda air ke video Instagram?",
+          "answer": "Tidak pernah. Semua video Instagram yang diunduh melalui Fetchy datang bersih tanpa tanda air atau branding."
         },
         {
-          "question": "Do I need to log into Instagram to use Fetchy?",
-          "answer": "Nope! You can download public Instagram content without logging in. Just paste the link and go."
+          "question": "Apakah saya perlu masuk ke Instagram untuk menggunakan Fetchy?",
+          "answer": "Tidak! Anda dapat mengunduh konten Instagram publik tanpa masuk. Cukup tempel tautannya dan mulai."
         },
         {
-          "question": "Can I use Fetchy on mobile to download Instagram Reels?",
-          "answer": "Yes! Fetchy is fully responsive and optimized for mobile browsers. Works like a charm on any device."
+          "question": "Bisakah saya menggunakan Fetchy di ponsel untuk mengunduh Instagram Reels?",
+          "answer": "Ya! Fetchy sepenuhnya responsif dan dioptimalkan untuk browser seluler. Berfungsi dengan baik di perangkat apa pun."
         },
         {
-          "question": "How do I copy an Instagram link to use with Fetchy?",
-          "answer": "Tap the three dots on the post or reel, select 'Copy Link', then paste it into Fetchy. Easy peasy."
+          "question": "Bagaimana cara menyalin tautan Instagram untuk digunakan dengan Fetchy?",
+          "answer": "Ketuk tiga titik pada postingan atau reel, pilih 'Salin Tautan', lalu tempelkan ke Fetchy. Sangat mudah."
         },
         {
-          "question": "Can Fetchy download private Instagram videos?",
-          "answer": "No. For privacy reasons, Fetchy only supports public content. Private videos require access and are not downloadable through Fetchy."
+          "question": "Bisakah Fetchy mengunduh video Instagram pribadi?",
+          "answer": "Tidak. Karena alasan privasi, Fetchy hanya mendukung konten publik. Video pribadi memerlukan akses dan tidak dapat diunduh melalui Fetchy."
         },
         {
-          "question": "Is Fetchy safe for Instagram downloads?",
-          "answer": "Definitely. Fetchy doesn’t collect any personal info and doesn’t ask for your Instagram login. It’s clean, secure, and open source."
+          "question": "Apakah Fetchy aman untuk unduhan Instagram?",
+          "answer": "Pasti. Fetchy tidak mengumpulkan info pribadi apa pun dan tidak meminta login Instagram Anda. Ini bersih, aman, dan open source."
         },
         {
-          "question": "Can I download multiple Instagram videos?",
-          "answer": "Yes, one by one. Just paste each link and download. Batch support isn’t available yet, but it's on our roadmap."
+          "question": "Bisakah saya mengunduh beberapa video Instagram?",
+          "answer": "Ya, satu per satu. Cukup tempel setiap tautan dan unduh. Dukungan batch belum tersedia, tetapi ada di peta jalan kami."
         },
         {
-          "question": "Can I contribute to Fetchy’s Instagram downloader?",
-          "answer": "Totally! Head over to our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to contribute, suggest features, or report bugs."
+          "question": "Bisakah saya berkontribusi pada pengunduh Instagram Fetchy?",
+          "answer": "Tentu saja! Kunjungi <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> kami untuk berkontribusi, menyarankan fitur, atau melaporkan bug."
         },
         {
-          "question": "What content types does Fetchy support from Instagram?",
-          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
+          "question": "Jenis konten apa yang didukung Fetchy dari Instagram?",
+          "answer": "Saat ini, Fetchy mendukung Reels, video postingan reguler, dan video/gambar carousel. Story dan konten pribadi belum didukung."
         }
       ],
       "about": {
-        "title": "Download Instagram Reels, Posts & More with Fetchy",
+        "title": "Unduh Reels, Postingan & Lainnya dari Instagram dengan Fetchy",
         "parts": {
-          "p1": "Whether it's a viral reel, a carousel post, or a high quality video, <b>Fetchy</b> is your go to Instagram content downloader. No watermarks, no sign ups, no sketchy redirects, just paste the link and download.",
-          "p2": "Unlike most tools out there, <b>Fetchy</b> is an open source project focused on <b>speed, simplicity</b>, and reliability. It supports reels, post videos, and more content handling, all with clean, instant downloads.",
-          "p3": "Most Instagram downloaders are packed with popups or make you wait forever. Fetchy is built different, optimized for mobile and desktop links, and designed to skip the nonsense so you get your content fast.",
-          "p4": "Since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to contribute, explore the code, or even run your own instance locally. No ads, no paywalls, just tech that respects you.",
-          "p5": "Whether you’re backing up your content, saving inspirational clips, or downloading videos for offline viewing, Fetchy makes <b>Instagram</b> downloading <b>easy, safe, and open</b>."
+          "p1": "Baik itu reel viral, postingan carousel, atau video berkualitas tinggi, <b>Fetchy</b> adalah pengunduh konten Instagram andalan Anda. Tanpa tanda air, tanpa pendaftaran, tanpa pengalihan mencurigakan, cukup tempel tautan dan unduh.",
+          "p2": "Tidak seperti kebanyakan alat di luar sana, <b>Fetchy</b> adalah proyek open source yang berfokus pada <b>kecepatan, kesederhanaan</b>, dan keandalan. Mendukung Reels, video postingan, dan penanganan konten lainnya, semuanya dengan unduhan bersih dan instan.",
+          "p3": "Sebagian besar pengunduh Instagram dipenuhi pop-up atau membuat Anda menunggu selamanya. Fetchy dibangun berbeda, dioptimalkan untuk tautan seluler dan desktop, dan dirancang untuk melewati hal-hal yang tidak perlu sehingga Anda mendapatkan konten Anda dengan cepat.",
+          "p4": "Karena Fetchy adalah open source di bawah lisensi <BSL>BSL 1.1</BSL>, Anda bebas untuk berkontribusi, menjelajahi kode, atau bahkan menjalankan instance Anda sendiri secara lokal. Tanpa iklan, tanpa biaya tersembunyi, hanya teknologi yang menghormati Anda.",
+          "p5": "Baik Anda mencadangkan konten Anda, menyimpan klip inspirasi, atau mengunduh video untuk dilihat secara offline, Fetchy membuat pengunduhan <b>Instagram</b> menjadi <b>mudah, aman, dan terbuka</b>."
         }
       }
     },
     "_tiktok": {
       "faqs": [
         {
-          "question": "Can I download TikTok videos without watermark using Fetchy?",
-          "answer": "Yes! Fetchy removes watermarks from downloaded TikTok videos automatically no extra steps needed."
+          "question": "Bisakah saya mengunduh video TikTok tanpa tanda air menggunakan Fetchy?",
+          "answer": "Ya! Fetchy secara otomatis menghapus tanda air dari video TikTok yang diunduh — tidak perlu langkah tambahan."
         },
         {
-          "question": "Does Fetchy support downloading TikTok slideshows?",
-          "answer": "Yup! Fetchy fully supports TikTok slideshows. Just copy the post link and paste it in to download."
+          "question": "Apakah Fetchy mendukung pengunduhan Slideshow TikTok?",
+          "answer": "Ya! Fetchy sepenuhnya mendukung Slideshow TikTok. Cukup salin tautan postingan dan tempelkan untuk mengunduh."
         },
         {
-          "question": "Is Fetchy free for downloading TikTok videos and content?",
-          "answer": "Totally free. No hidden fees, no accounts required. Fetchy is open source and always will be."
+          "question": "Apakah Fetchy gratis untuk mengunduh video dan konten TikTok?",
+          "answer": "Sangat gratis. Tanpa biaya tersembunyi, tanpa akun yang diperlukan. Fetchy adalah open source dan akan selalu begitu."
         },
         {
-          "question": "Do I need a TikTok or Fetchy account to download?",
-          "answer": "Nope! Just paste your link into Fetchy and go. No sign ups or logins ever."
+          "question": "Apakah saya memerlukan akun TikTok atau Fetchy untuk mengunduh?",
+          "answer": "Tidak! Cukup tempel tautan Anda ke Fetchy dan mulai. Tidak pernah ada pendaftaran atau login."
         },
         {
-          "question": "Does Fetchy support TikTok playlists or collections?",
-          "answer": "Not yet! TikTok playlist support is on our radar and coming soon. For now, you can download individual posts and videos."
+          "question": "Apakah Fetchy mendukung Playlist atau Koleksi TikTok?",
+          "answer": "Belum! Dukungan Playlist TikTok ada di radar kami dan akan segera hadir. Untuk saat ini, Anda dapat mengunduh postingan dan video individual."
         },
         {
-          "question": "Can I use Fetchy to download TikToks on my phone?",
-          "answer": "Definitely. Fetchy is mobile friendly and works smoothly in any modern browser on any device."
+          "question": "Bisakah saya menggunakan Fetchy untuk mengunduh TikTok di ponsel saya?",
+          "answer": "Pasti. Fetchy ramah seluler dan berfungsi dengan lancar di browser modern apa pun di perangkat apa pun."
         },
         {
-          "question": "Is there a limit to how many TikToks I can download?",
-          "answer": "No limits. Download as many TikToks as you want Fetchy’s built for open, unrestricted use."
+          "question": "Apakah ada batasan berapa banyak TikTok yang dapat saya unduh?",
+          "answer": "Tidak ada batasan. Unduh sebanyak mungkin TikTok yang Anda inginkan — Fetchy dibuat untuk penggunaan terbuka dan tidak terbatas."
         },
         {
-          "question": "Is Fetchy safe and private to use?",
-          "answer": "Yes! Fetchy doesn’t track you, collect data, or store history. It’s open source and privacy focused."
+          "question": "Apakah Fetchy aman dan pribadi untuk digunakan?",
+          "answer": "Ya! Fetchy tidak melacak Anda, mengumpulkan data, atau menyimpan riwayat. Ini adalah open source dan fokus pada privasi."
         },
         {
-          "question": "Can I contribute to Fetchy or run my own TikTok downloader?",
-          "answer": "Heck yeah. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to fork, contribute, suggest features, or report bugs."
+          "question": "Bisakah saya berkontribusi pada Fetchy atau menjalankan pengunduh TikTok saya sendiri?",
+          "answer": "Tentu saja. Kunjungi <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> kami untuk mem-fork, berkontribusi, menyarankan fitur, atau melaporkan bug."
         }
       ],
       "about": {
-        "title": "Download TikTok Videos, Slideshows & Audios with Fetchy",
+        "title": "Unduh Video, Slideshow & Audio TikTok dengan Fetchy",
         "parts": {
-          "p1": "Whether it’s a trending <b>video</b>, a vibey <b>slideshow</b>, or an addicting TikTok <b>sound</b>, Fetchy lets you save it instantly. Just paste the link, hit download, and you’re set no watermark, no app install, no login.",
-          "p2": "Unlike clunky TikTok saver sites, Fetchy is an <b>open source</b> project built for <b>speed, simplicity</b>, and privacy. It supports all major content types including public videos, slideshows, and standalone audio tracks.",
-          "p3": "Some newly introduced TikTok features like <b>playlist collections</b> aren’t supported <b>yet</b>, but don’t sweat it we’re actively tracking updates and expanding support fast. Most users already have everything they need.",
-          "p4": "Fetchy’s backend is fine tuned to handle tricky links like <b>shortened URLs, mobile redirects</b>, and even TikTok share URLs from within the app. It just works, no matter where you’re copying from.",
-          "p5": " As always, Fetchy is fully open under the <BSL>BSL 1.1</BSL> license. That means you can fork it, contribute, or even run your own instance locally. No paywalls, no rate limits just pure, community powered downloading.",
-          "p6": "Loved by creators, students, and archivists alike <b>Fetchy</b> is your all in one solution for <b>safe, clean</b>, and <b>hassle free</b> TikTok content saving."
+          "p1": "Baik itu <b>video</b> yang sedang tren, <b>slideshow</b> yang asyik, atau <b>suara</b> TikTok yang membuat ketagihan, Fetchy memungkinkan Anda menyimpannya secara instan. Cukup tempel tautannya, tekan unduh, dan selesai—tanpa tanda air, tanpa instal aplikasi, tanpa login.",
+          "p2": "Tidak seperti situs penghemat TikTok yang canggung, Fetchy adalah proyek <b>open source</b> yang dibangun untuk <b>kecepatan, kesederhanaan</b>, dan privasi. Mendukung semua jenis konten utama termasuk video publik, slideshow, dan trek audio mandiri.",
+          "p3": "Beberapa fitur TikTok yang baru diperkenalkan seperti <b>koleksi playlist</b> <b>belum</b> didukung, tetapi jangan khawatir—kami secara aktif melacak pembaruan dan memperluas dukungan dengan cepat. Sebagian besar pengguna sudah memiliki semua yang mereka butuhkan.",
+          "p4": "Backend Fetchy disetel dengan baik untuk menangani tautan yang rumit seperti <b>URL yang dipersingkat, pengalihan seluler</b>, dan bahkan URL berbagi TikTok dari dalam aplikasi. Itu berfungsi, tidak peduli dari mana Anda menyalin.",
+          "p5": "Seperti biasa, Fetchy sepenuhnya terbuka di bawah lisensi <BSL>BSL 1.1</BSL>. Itu berarti Anda dapat mem-fork-nya, berkontribusi, atau bahkan menjalankan instance Anda sendiri secara lokal. Tanpa biaya tersembunyi, tanpa batasan tarif—hanya pengunduhan murni yang didukung komunitas.",
+          "p6": "Dicintai oleh kreator, pelajar, dan arsiparis, <b>Fetchy</b> adalah solusi lengkap Anda untuk menyimpan konten TikTok yang <b>aman, bersih</b>, dan <b>bebas repot</b>."
         }
       }
     },
     "_facebook": {
       "faqs": [
         {
-          "question": "Can I download Facebook reels with Fetchy?",
-          "answer": "Absolutely! Just paste the link and you're good to go—no watermark, no fuss."
+          "question": "Bisakah saya mengunduh Reels Facebook dengan Fetchy?",
+          "answer": "Tentu saja! Cukup tempel tautannya dan Anda siap—tanpa tanda air, tanpa keributan."
         },
         {
-          "question": "Does Fetchy work on mobile?",
-          "answer": "Yup. It's fully responsive and works smoothly on all modern browsers across devices."
+          "question": "Apakah Fetchy berfungsi di ponsel?",
+          "answer": "Ya. Ini sepenuhnya responsif dan berfungsi dengan lancar di semua browser modern di berbagai perangkat."
         },
         {
-          "question": "Is Fetchy free to use?",
-          "answer": "100%. No hidden fees, no sign-ups. It's open source and always will be."
+          "question": "Apakah Fetchy gratis digunakan?",
+          "answer": "100%. Tanpa biaya tersembunyi, tanpa pendaftaran. Ini open source dan akan selalu begitu."
         },
         {
-          "question": "Do I need to sign up to use Fetchy?",
-          "answer": "Nope! Fetchy is completely sign-up free. Just paste your link and download your content instantly."
+          "question": "Apakah saya perlu mendaftar untuk menggunakan Fetchy?",
+          "answer": "Tidak! Fetchy sepenuhnya bebas pendaftaran. Cukup tempel tautan Anda dan unduh konten Anda secara instan."
         },
         {
-          "question": "Can Fetchy download private Facebook videos?",
-          "answer": "No. Fetchy only supports public Facebook content and will never introduce a private media downloader. we respect user privacy and platform rules."
+          "question": "Bisakah Fetchy mengunduh video Facebook pribadi?",
+          "answer": "Tidak. Fetchy hanya mendukung konten Facebook publik dan tidak akan pernah memperkenalkan pengunduh media pribadi. Kami menghormati privasi pengguna dan aturan platform."
         },
         {
-          "question": "What type of Facebook links does Fetchy support?",
-          "answer": "Fetchy supports video links, story links, reels, and even shortened or mobile versions of Facebook URLs."
+          "question": "Jenis tautan Facebook apa yang didukung Fetchy?",
+          "answer": "Fetchy mendukung tautan video, tautan Story, Reels, dan bahkan versi URL Facebook yang dipersingkat atau seluler."
         },
         {
-          "question": "Is there a limit to how many downloads I can do?",
-          "answer": "No limits here! Fetchy is built for open use. Download as much content as you need without restrictions."
+          "question": "Apakah ada batasan berapa banyak unduhan yang dapat saya lakukan?",
+          "answer": "Tidak ada batasan di sini! Fetchy dibangun untuk penggunaan terbuka. Unduh sebanyak mungkin konten yang Anda butuhkan tanpa batasan."
         },
         {
-          "question": "What is the best way to copy Facebook links for Fetchy?",
-          "answer": "On mobile, tap the 'Share' button and then 'Copy Link'. On desktop, copy the URL from the address bar."
+          "question": "Apa cara terbaik untuk menyalin tautan Facebook untuk Fetchy?",
+          "answer": "Di ponsel, ketuk tombol 'Bagikan' lalu 'Salin Tautan'. Di desktop, salin URL dari bilah alamat."
         },
         {
-          "question": "Is Fetchy safe to use?",
-          "answer": "Definitely. Fetchy is open source and doesn’t collect any personal data. Your usage stays private and secure."
+          "question": "Apakah Fetchy aman digunakan?",
+          "answer": "Pasti. Fetchy adalah open source dan tidak mengumpulkan data pribadi apa pun. Penggunaan Anda tetap pribadi dan aman."
         },
         {
-          "question": "Does Fetchy add watermarks?",
-          "answer": "Never. Fetchy ensures your downloaded content is watermark free and untouched."
+          "question": "Apakah Fetchy menambahkan tanda air?",
+          "answer": "Tidak pernah. Fetchy memastikan konten yang Anda unduh bebas tanda air dan tidak tersentuh."
         },
         {
-          "question": "Can I contribute to Fetchy?",
-          "answer": "Yes! Fetchy is open source. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> repo to report issues, suggest features, or contribute code."
+          "question": "Bisakah saya berkontribusi pada Fetchy?",
+          "answer": "Ya! Fetchy adalah open source. Kunjungi repo <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> kami untuk melaporkan masalah, menyarankan fitur, atau berkontribusi kode."
         }
       ],
       "about": {
-        "title": "Download Facebook Videos, Stories & More with Fetchy",
+        "title": "Unduh Video, Story & Lainnya dari Facebook dengan Fetchy",
         "parts": {
-          "p1": "Whether it’s a viral video, a story, or a reel, Fetchy is your all in one Facebook content downloader built to handle it all. No watermarks, no slowdowns, no login required, just paste your link and go.",
-          "p2": "Unlike most tools out there, Fetchy is an open source solution built for <b>speed</b>, <b>simplicity</b>, and reliability. It supports most types of content and delivers clean, fast downloads without the junk. Some formats aren’t supported <b>yet</b>, but we’re actively working on it and everything the average user needs is already good to go.",
-          "p3": "Most tools either bombard you with ads or limit what you can save. Fetchy flips the script. It’s clean, efficient, and respects your time. Behind the scenes, our backend is optimized to handle even the most complex Facebook URLs, including shortened links, mobile formats, and redirects.",
-          "p4": "Plus, since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to peek under the hood, contribute to the code, or run it yourself, no paywalls, no subscriptions, just community driven tech for everyone.",
-          "p5": "Perfect for creators, students, and everyday users, Fetchy makes Facebook content downloading <b>effortless</b> and <b>trustworthy</b>."
+          "p1": "Baik itu video viral, Story, atau Reel, Fetchy adalah pengunduh konten Facebook lengkap Anda yang dibangun untuk menangani semuanya. Tanpa tanda air, tanpa perlambatan, tanpa login yang diperlukan, cukup tempel tautan Anda dan mulai.",
+          "p2": "Tidak seperti kebanyakan alat di luar sana, Fetchy adalah solusi open source yang dibangun untuk <b>kecepatan</b>, <b>kesederhanaan</b>, dan keandalan. Mendukung sebagian besar jenis konten dan memberikan unduhan yang bersih dan cepat tanpa kekacauan. Beberapa format <b>belum</b> didukung, tetapi kami secara aktif mengerjakannya dan semua yang dibutuhkan pengguna rata-rata sudah siap digunakan.",
+          "p3": "Sebagian besar alat akan membombardir Anda dengan iklan atau membatasi apa yang dapat Anda simpan. Fetchy membalik skripnya. Ini bersih, efisien, dan menghormati waktu Anda. Di balik layar, backend kami dioptimalkan untuk menangani bahkan URL Facebook yang paling kompleks, termasuk tautan yang dipersingkat, format seluler, dan pengalihan.",
+          "p4": "Plus, karena Fetchy adalah open source di bawah lisensi <BSL>BSL 1.1</BSL>, Anda bebas untuk melihat-lihat 'di bawah kap', berkontribusi pada kode, atau menjalankannya sendiri, tanpa biaya tersembunyi, tanpa langganan, hanya teknologi berbasis komunitas untuk semua orang.",
+          "p5": "Sempurna untuk kreator, pelajar, dan pengguna sehari-hari, Fetchy membuat pengunduhan konten Facebook menjadi <b>mudah</b> dan <b>terpercaya</b>."
         }
       }
     },
     "_youtube": {
-      "title": "YouTube Downloader Coming Soon",
-      "description": "Exciting New Feature Coming Your Way!"
+      "title": "Pengunduh YouTube Segera Hadir",
+      "description": "Fitur Baru yang Menarik Akan Segera Tiba!"
     },
     "steps": {
-      "title": "How to Use Fetchy",
+      "title": "Cara Menggunakan Fetchy",
       "copy": {
-        "title": "Copy the Link",
-        "description": "Go to the content you want to download, tap Share, then Copy Link. Boom, first step done!"
+        "title": "Salin Tautan",
+        "description": "Buka konten yang ingin Anda unduh, ketuk Bagikan, lalu Salin Tautan. Boom, langkah pertama selesai!"
       },
       "paste": {
-        "title": "Paste on Fetchy",
-        "description": "Jump back here, paste the copied link into Fetchy’s input, and hit that slick Download button."
+        "title": "Tempel di Fetchy",
+        "description": "Kembali ke sini, tempel tautan yang disalin ke kolom input Fetchy, dan tekan tombol Unduh yang keren itu."
       },
       "download": {
-        "title": "Download & Enjoy",
-        "description": "Wait just a sec while we fetch it for you. Then download, no watermark, no BS."
+        "title": "Unduh & Nikmati",
+        "description": "Tunggu sebentar saat kami mengambilkannya untuk Anda. Kemudian unduh, tanpa tanda air, tanpa basa-basi."
       }
     }
   },
 
   "_404": {
-    "title": "404 Not Found",
-    "description": "Lost in space? Let's get you back to the home planet!",
-    "back_to_home": "Back to Home"
+    "title": "404 Tidak Ditemukan",
+    "description": "Tersesat di luar angkasa? Mari kita kembalikan Anda ke planet asal!",
+    "back_to_home": "Kembali ke Beranda"
   },
 
   "_blogs": {
-    "title": "Latest Writings & Thoughts",
-    "no_blogs": "No blogs found"
+    "title": "Tulisan & Pemikiran Terbaru",
+    "no_blogs": "Tidak ada blog ditemukan"
   },
 
   "NavigationBar": {
-    "follow_us": "Follow Us",
-    "follow_us_description": "Stay updated with our latest and greatest."
+    "follow_us": "Ikuti Kami",
+    "follow_us_description": "Tetap update dengan yang terbaru dan terbaik dari kami."
   },
 
   "Footer": {
-    "description": "The ultimate free video downloader for all your favorite platforms. Fast, clean, and watermark free.",
-    "copyright": "© {year} Fetchy. All Rights Reserved. Built by {name}"
+    "description": "Pengunduh video gratis terbaik untuk semua platform favorit Anda. Cepat, bersih, dan bebas tanda air.",
+    "copyright": "© {year} Fetchy. Semua Hak Dilindungi. Dibangun oleh {name}"
   },
 
   "OpenSource": {
-    "title": "Built Openly. Shared Boldly.",
-    "description": "Fetchy is proudly open source under the <a>BSL 1.1</a>. Use it, learn from it, contribute to it, just don't resell it as is. Fair, right?",
-    "released_by": "Released by"
+    "title": "Dibangun Secara Terbuka. Dibagikan dengan Berani.",
+    "description": "Fetchy dengan bangga bersifat open source di bawah <a>BSL 1.1</a>. Gunakan, pelajari darinya, berkontribusi padanya, hanya saja jangan menjualnya kembali apa adanya. Adil, kan?",
+    "released_by": "Dirilis oleh"
   },
 
   "errors": {
-    "an_error_occurred": "An error occurred",
-    "download_session_expired": "Session expired, please refresh the page",
-    "url_not_whitelisted": "URL is not whitelisted for this tool. Please enter a valid one.",
-    "url_missing": "Please enter a URL",
-    "paste_failed": "Failed to paste from clipboard",
-    "private_or_not_exist": "Unfortunately, this video may be private or does not exist",
-    "instagram_not_supported_content": "Downloading stories and highlights is not supported yet",
-    "invalid_url": "Invalid URL",
-    "facebook_not_supported_content": "We currently don't support extracting content from Facebook posts. This feature will be available soon."
+    "an_error_occurred": "Terjadi kesalahan",
+    "download_session_expired": "Sesi kedaluwarsa, harap segarkan halaman",
+    "url_not_whitelisted": "URL tidak masuk daftar putih untuk alat ini. Harap masukkan yang valid.",
+    "url_missing": "Harap masukkan URL",
+    "paste_failed": "Gagal menempel dari clipboard",
+    "private_or_not_exist": "Sayangnya, video ini mungkin pribadi atau tidak ada",
+    "instagram_not_supported_content": "Mengunduh Story dan Highlight belum didukung",
+    "invalid_url": "URL tidak valid",
+    "facebook_not_supported_content": "Saat ini kami tidak mendukung ekstraksi konten dari postingan Facebook. Fitur ini akan segera tersedia."
   },
 
-  "faq": "Frequently Asked Questions",
-  "refresh": "Refresh",
-  "download": "Download",
-  "close": "Close",
-  "resources": "Resources",
-  "tools": "Tools",
-  "soon": "Soon",
-  "coming_soon": "Coming Soon",
-  "not_available_warning": "This {type} is not available right now.",
-  "not_available": "Not Available",
-  "home": "Home",
-  "new": "New",
-  "hot": "Hot"
+  "faq": "Pertanyaan yang Sering Diajukan",
+  "refresh": "Segarkan",
+  "download": "Unduh",
+  "close": "Tutup",
+  "resources": "Sumber Daya",
+  "tools": "Alat",
+  "soon": "Segera",
+  "coming_soon": "Segera Hadir",
+  "not_available_warning": "Jenis {type} ini tidak tersedia saat ini.",
+  "not_available": "Tidak Tersedia",
+  "locale_switcher_title": "Pilih Bahasa",
+  "locale_switcher_description": "Pilih bahasa pilihan Anda",
+  "home": "Beranda",
+  "new": "Baru",
+  "hot": "Populer"
 }
