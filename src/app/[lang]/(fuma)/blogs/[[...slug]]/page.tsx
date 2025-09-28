@@ -10,6 +10,8 @@ import BGPattern from "../components/bg-pattern";
 import { metatag } from "@/lib/metatag";
 import { headers } from "next/headers";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {

@@ -3,6 +3,8 @@ import { metatag } from "@/lib/metatag";
 import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
 
+export const dynamic = 'force-dynamic';
+
 export default async function FacebookDownloaderPage() {
   return <FacebookDownloaderView />;
 }
