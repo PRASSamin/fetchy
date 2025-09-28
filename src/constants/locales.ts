@@ -5,6 +5,7 @@ export const LOCALES_INFO = [
     name: "English",
     country: "US", // Primary flag icon
     countries: ["US", "GB", "CA", "AU"],
+    aliases: ["en", "en-US", "en-GB", "en-CA", "en-AU"],
   },
   {
     locale: "id", // Indonesian
@@ -61,6 +62,7 @@ export const LOCALES_INFO = [
     name: "বাংলা",
     country: "BD", // Bangladesh
     countries: ["BD", "IN"],
+    aliases: ["bn", "bn-BD", "bn-IN"],
   },
   {
     locale: "de", // German
@@ -86,3 +88,17 @@ export const LOCALES_INFO = [
 ];
 
 export const LOCALES = LOCALES_INFO.map((locale) => locale.locale);
+
+export const resolveLocale = (lang?: string) => {
+  if (!lang) return undefined;
+
+  // Exact match first
+  const exact = LOCALES_INFO.find((l) => l.locale === lang);
+  if (exact) return exact.locale;
+
+  // Alias match
+  const alias = LOCALES_INFO.find((l) => l?.aliases?.includes(lang));
+  if (alias) return alias.locale;
+
+  return undefined;
+};
