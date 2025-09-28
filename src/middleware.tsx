@@ -22,6 +22,7 @@ export async function middleware(request: NextRequest) {
   const matchedLocale = LOCALES_INFO.find((loc) =>
     loc.countries.includes(country ?? "")
   );
+  console.log(country, matchedLocale);
   const defaultLocale = matchedLocale?.locale ?? "en";
 
   // Use next-intl's middleware to ensure locale routing/redirects happen,
