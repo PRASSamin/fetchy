@@ -17,6 +17,7 @@ import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { DirectionProvider } from "@/hooks/useDir";
 import Banner from "@/components/banner";
+import { usePathname } from "@/i18n/navigation";
 
 const rethink = Rethink_Sans({
   weight: ["400", "800"],
@@ -92,14 +93,12 @@ export async function generateMetadata() {
   };
 }
 
-export default async function DefaultRootLayout({
+export default function DefaultRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const store = await cookies();
-  const locale = store.get("locale")?.value || "en";
-
+  const locale = useLocale();
   return (
     <TooltipProvider>
       <html

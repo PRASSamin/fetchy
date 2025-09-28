@@ -23,5 +23,5 @@ export const frontmatter = {
   },
   isAvailable: ENABLE_TIKTOK,
   isNew: true,
-  updatedAt: "2025-09-28T14:40:00.012Z",
+  updatedAt: "2025-09-28T15:48:50.767Z",
 };
