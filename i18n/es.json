@@ -311,6 +311,8 @@
   "coming_soon": "Próximamente",
   "not_available_warning": "Este {type} no está disponible en este momento.",
   "not_available": "No disponible",
+  "locale_switcher_title": "Seleccionar idioma",
+  "locale_switcher_description": "Selecciona tu idioma preferido",
   "home": "Inicio",
   "new": "Nuevo",
   "hot": "Popular"

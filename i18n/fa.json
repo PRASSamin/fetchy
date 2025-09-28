@@ -1,317 +1,319 @@
 {
   "metatags": {
     "root": {
-      "title": "Fetchy - Ultimate Video Downloader",
-      "description": "Fetchy - The ultimate free video downloader for everyone. Download high-quality videos and photos from Instagram, Facebook, and etc with one click. Free, easy, and efficient!"
+      "title": "Fetchy - دانلود کننده نهایی ویدیو",
+      "description": "Fetchy - دانلود کننده نهایی و رایگان ویدیو برای همه. دانلود ویدیوها و عکس‌های با کیفیت بالا از اینستاگرام، فیس‌بوک و غیره با یک کلیک. رایگان، آسان و کارآمد!"
     },
     "404": {
-      "title": "404 | Page Not Found"
+      "title": "404 | صفحه پیدا نشد"
     },
-    "tools": { "title": "{platform} Downloader | Fetchy" }
+    "tools": { "title": "دانلود کننده {platform} | Fetchy" }
   },
   "_home": {
-    "title": "Download Anything, Anywhere, Anytime.",
-    "description": "Fetchy is your all in one video downloader fast, clean, and watermark free. Download anything, from any platform, effortlessly.",
-    "compatibility": "Compatibility",
-    "compatibility_description": "Built to support your favorite platforms. Fast, seamless, and always expanding.",
-    "lightning_fast": "Lightning Fast",
-    "lightning_fast_description": "Fetchy delivers content at warp speed. No delays. Just pure performance.",
-    "testimonials_title": "What People Are Saying",
-    "testimonials_description": "Don't just take our word for it. Here's what our users say about their experience.",
-    "review_us_on": "Review us on",
-    "faq": "Frequently Asked Questions",
-    "faq_description": "Quick answers to common questions about Fetchy.",
-    "get_started": "Get Started",
+    "title": "<span>Fetchy،</span> هر چیزی را، هر کجا، هر زمانی دانلود کنید.",
+    "description": "Fetchy دانلود کننده ویدیوی همه‌کاره شماست: سریع، تمیز و بدون واترمارک. هر چیزی را، از هر پلتفرمی، بدون زحمت دانلود کنید.",
+    "compatibility": "سازگاری",
+    "compatibility_description": "ساخته شده برای پشتیبانی از پلتفرم‌های مورد علاقه شما. سریع، بدون نقص و همیشه در حال گسترش.",
+    "lightning_fast": "سرعت برق‌آسا",
+    "lightning_fast_description": "Fetchy محتوا را با سرعت بالا تحویل می‌دهد. بدون تاخیر. فقط عملکرد خالص.",
+    "testimonials_title": "نظر مردم چیست",
+    "testimonials_description": "فقط به حرف ما اکتفا نکنید. این چیزی است که کاربران ما درباره تجربه خود می‌گویند.",
+    "review_us_on": "به ما امتیاز دهید در",
+    "faq": "سوالات متداول",
+    "faq_description": "پاسخ‌های سریع به سوالات رایج درباره Fetchy.",
+    "get_started": "شروع کنید",
     "faqs": [
       {
-        "question": "What makes Fetchy better than other video downloaders?",
-        "answer": "Most downloaders are super basic, they choke on Facebook stories or Instagram carousels. Fetchy handles Instagram reels, multi-photo posts, TikTok slideshows, and even Facebook stories like a champ. Lightweight, fast, and built with real love."
+        "question": "چه چیزی Fetchy را بهتر از سایر دانلود کننده‌های ویدیو می‌کند؟",
+        "answer": "بیشتر دانلود کننده‌ها بسیار ساده هستند، در استوری‌های فیس‌بوک یا پست‌های چرخ و فلکی اینستاگرام گیر می‌کنند. Fetchy ریلزهای اینستاگرام، پست‌های چند عکس، اسلایدشوهای تیک‌تاک و حتی استوری‌های فیس‌بوک را به خوبی مدیریت می‌کند. سبک، سریع و با عشق واقعی ساخته شده است."
       },
       {
-        "question": "Can I use Fetchy as a Facebook Story Downloader?",
-        "answer": "Hell yes! Fetchy isn't just another downloader, it actually supports Facebook story downloads, including those that most tools can't touch. Just paste the story link and let Fetchy work its magic."
+        "question": "آیا می‌توانم از Fetchy به عنوان دانلود کننده استوری فیس‌بوک استفاده کنم؟",
+        "answer": "بله! Fetchy فقط یک دانلود کننده دیگر نیست، بلکه در واقع از دانلود استوری‌های فیس‌بوک، از جمله مواردی که اکثر ابزارها نمی‌توانند، پشتیبانی می‌کند. کافیست لینک استوری را جایگذاری کنید و اجازه دهید Fetchy جادوی خود را انجام دهد."
       },
       {
-        "question": "Can I download private or expired stories?",
-        "answer": "Nah, we play fair. Fetchy only works with public and active content. No creepy stuff. We respect user privacy and platform rules."
+        "question": "آیا می‌توانم استوری‌های خصوصی یا منقضی شده را دانلود کنم؟",
+        "answer": "نه، ما منصفانه عمل می‌کنیم. Fetchy فقط با محتوای عمومی و فعال کار می‌کند. از کارهای عجیب و غریب خبری نیست. ما به حریم خصوصی کاربران و قوانین پلتفرم احترام می‌گذاریم."
       },
       {
-        "question": "Is it free? Will there be annoying ads?",
-        "answer": "100% free. No subscriptions, no popups from hell. Just one clean banner ad to keep the server lights on, your UX stays smooth as silk."
+        "question": "آیا رایگان است؟ آیا تبلیغات آزاردهنده خواهد داشت؟",
+        "answer": "۱۰۰٪ رایگان. بدون اشتراک، بدون پنجره‌های پاپ‌آپ جهنمی. فقط یک بنر تبلیغاتی تمیز برای روشن نگه داشتن سرورها، تجربه کاربری شما مثل ابریشم روان می‌ماند."
       },
       {
-        "question": "Is it legal to download videos from Instagram, Facebook, or TikTok?",
-        "answer": "It depends how you use it. Fetchy is meant for personal use only, like saving your own content or public stuff you have permission to grab. Always respect creators and terms of service."
+        "question": "آیا دانلود ویدیوها از اینستاگرام، فیس‌بوک یا تیک‌تاک قانونی است؟",
+        "answer": "بستگی به نحوه استفاده شما دارد. Fetchy فقط برای استفاده شخصی در نظر گرفته شده است، مانند ذخیره محتوای خودتان یا محتوای عمومی که اجازه دسترسی به آن را دارید. همیشه به سازندگان و شرایط خدمات احترام بگذارید."
       },
       {
-        "question": "Why don’t you charge for this?",
-        "answer": "Fetchy’s a passion project — built for learning, sharing, and helping people. We believe in giving back. But hey, if you vibe with it, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>drop a star on GitHub 💖</strong></a>"
+        "question": "چرا برای این کار هزینه‌ای دریافت نمی‌کنید؟",
+        "answer": "Fetchy یک پروژه از روی علاقه است – ساخته شده برای یادگیری، به اشتراک‌گذاری و کمک به مردم. ما به بازگرداندن اعتقاد داریم. اما هی، اگر با آن حال می‌کنید، <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>یک ستاره در GitHub بدهید 💖</strong></a>"
       }
     ]
   },
 
   "_tools": {
-    "title": "Download Anything from {platform}",
-    "description": "Fast, secure, and watermark free downloads for all your favorite content",
-    "platform_url": "{platform} URL",
-    "paste_link": "Paste link",
-    "example": "Example: {url}",
-    "ready_to_download": "Ready to download",
-    "available_formats": "Available Formats",
-    "live_formats": "Live Formats",
-    "has_audio": "Has Audio",
-    "has_watermark": "Has Watermark",
-    "render": "Render",
-    "live": "Live",
-    "live_stream_info": "Live Stream Info",
-    "live_stream_info_message": "This is a <b>live stream</b> and cannot be downloaded directly. You can try again after the stream ends to access the VOD.",
-    "dash_copied_message": "DASH URL has been copied to clipboard.",
+    "title": "دانلود هر چیزی از {platform}",
+    "description": "دانلودهای سریع، ایمن و بدون واترمارک برای تمام محتوای مورد علاقه شما",
+    "platform_url": "آدرس {platform}",
+    "paste_link": "جایگذاری لینک",
+    "example": "مثال: {url}",
+    "ready_to_download": "آماده دانلود",
+    "available_formats": "فرمت‌های موجود",
+    "live_formats": "فرمت‌های زنده",
+    "has_audio": "دارای صدا",
+    "has_watermark": "دارای واترمارک",
+    "render": "رندر",
+    "live": "زنده",
+    "live_stream_info": "اطلاعات پخش زنده",
+    "live_stream_info_message": "این یک <b>پخش زنده</b> است و نمی‌توان آن را مستقیماً دانلود کرد. می‌توانید پس از پایان پخش، برای دسترسی به VOD دوباره امتحان کنید.",
+    "dash_copied_message": "آدرس DASH در کلیپ‌بورد کپی شد.",
     "_instagram": {
       "faqs": [
         {
-          "question": "Can I download Instagram Reels with Fetchy?",
-          "answer": "Absolutely! Just paste the Reel link into Fetchy and hit download. No watermarks, no quality loss, no BS."
+          "question": "آیا می‌توانم ریلزهای اینستاگرام را با Fetchy دانلود کنم؟",
+          "answer": "حتماً! کافیست لینک ریلز را در Fetchy جایگذاری کرده و روی دانلود کلیک کنید. بدون واترمارک، بدون افت کیفیت، بدون دردسر."
         },
         {
-          "question": "Does Fetchy work with Instagram post videos?",
-          "answer": "Yup! Fetchy supports downloading videos from standard Instagram posts, including single videos and carousel video posts."
+          "question": "آیا Fetchy با ویدیوهای پست اینستاگرام کار می‌کند؟",
+          "answer": "بله! Fetchy از دانلود ویدیوها از پست‌های استاندارد اینستاگرام، شامل ویدیوهای تکی و پست‌های چرخ و فلکی ویدیویی پشتیبانی می‌کند."
         },
         {
-          "question": "Can I download Instagram stories with Fetchy?",
-          "answer": "Currently, Fetchy does not support story downloads. We're working on adding it in a future update stay tuned!"
+          "question": "آیا می‌توانم استوری‌های اینستاگرام را با Fetchy دانلود کنم؟",
+          "answer": "در حال حاضر، Fetchy از دانلود استوری پشتیبانی نمی‌کند. ما در حال کار برای افزودن آن در به‌روزرسانی‌های آینده هستیم – با ما همراه باشید!"
         },
         {
-          "question": "Is Fetchy free for Instagram downloads?",
-          "answer": "100% free. No paywalls, no subscriptions. Fetchy is open source and always free to use."
+          "question": "آیا Fetchy برای دانلودهای اینستاگرام رایگان است؟",
+          "answer": "۱۰۰٪ رایگان. بدون دیوارهای پرداخت، بدون اشتراک. Fetchy منبع باز است و همیشه رایگان خواهد بود."
         },
         {
-          "question": "Does Fetchy add watermarks to Instagram videos?",
-          "answer": "Never. All Instagram videos downloaded through Fetchy come clean no watermarks or branding."
+          "question": "آیا Fetchy واترمارک به ویدیوهای اینستاگرام اضافه می‌کند؟",
+          "answer": "هرگز. تمام ویدیوهای اینستاگرام دانلود شده از طریق Fetchy تمیز و بدون واترمارک یا برندینگ هستند."
         },
         {
-          "question": "Do I need to log into Instagram to use Fetchy?",
-          "answer": "Nope! You can download public Instagram content without logging in. Just paste the link and go."
+          "question": "آیا برای استفاده از Fetchy باید وارد اینستاگرام شوم؟",
+          "answer": "نه! شما می‌توانید محتوای عمومی اینستاگرام را بدون ورود به سیستم دانلود کنید. فقط لینک را جایگذاری کنید و شروع کنید."
         },
         {
-          "question": "Can I use Fetchy on mobile to download Instagram Reels?",
-          "answer": "Yes! Fetchy is fully responsive and optimized for mobile browsers. Works like a charm on any device."
+          "question": "آیا می‌توانم از Fetchy در موبایل برای دانلود ریلزهای اینستاگرام استفاده کنم؟",
+          "answer": "بله! Fetchy کاملاً واکنش‌گرا است و برای مرورگرهای موبایل بهینه شده است. به خوبی روی هر دستگاهی کار می‌کند."
         },
         {
-          "question": "How do I copy an Instagram link to use with Fetchy?",
-          "answer": "Tap the three dots on the post or reel, select 'Copy Link', then paste it into Fetchy. Easy peasy."
+          "question": "چگونه یک لینک اینستاگرام را برای استفاده با Fetchy کپی کنم؟",
+          "answer": "روی سه نقطه در پست یا ریلز ضربه بزنید، 'کپی لینک' را انتخاب کنید، سپس آن را در Fetchy جایگذاری کنید. خیلی آسان."
         },
         {
-          "question": "Can Fetchy download private Instagram videos?",
-          "answer": "No. For privacy reasons, Fetchy only supports public content. Private videos require access and are not downloadable through Fetchy."
+          "question": "آیا Fetchy می‌تواند ویدیوهای خصوصی اینستاگرام را دانلود کند؟",
+          "answer": "خیر. به دلایل حفظ حریم خصوصی، Fetchy فقط از محتوای عمومی پشتیبانی می‌کند. ویدیوهای خصوصی نیاز به دسترسی دارند و از طریق Fetchy قابل دانلود نیستند."
         },
         {
-          "question": "Is Fetchy safe for Instagram downloads?",
-          "answer": "Definitely. Fetchy doesn’t collect any personal info and doesn’t ask for your Instagram login. It’s clean, secure, and open source."
+          "question": "آیا Fetchy برای دانلودهای اینستاگرام ایمن است؟",
+          "answer": "قطعاً. Fetchy هیچ اطلاعات شخصی را جمع‌آوری نمی‌کند و ورود به اینستاگرام شما را نمی‌خواهد. تمیز، ایمن و منبع باز است."
         },
         {
-          "question": "Can I download multiple Instagram videos?",
-          "answer": "Yes, one by one. Just paste each link and download. Batch support isn’t available yet, but it's on our roadmap."
+          "question": "آیا می‌توانم چندین ویدیوی اینستاگرام را دانلود کنم؟",
+          "answer": "بله، یکی یکی. فقط هر لینک را جایگذاری و دانلود کنید. پشتیبانی دسته‌ای هنوز در دسترس نیست، اما در برنامه ما قرار دارد."
         },
         {
-          "question": "Can I contribute to Fetchy’s Instagram downloader?",
-          "answer": "Totally! Head over to our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to contribute, suggest features, or report bugs."
+          "question": "آیا می‌توانم در دانلود کننده اینستاگرام Fetchy مشارکت کنم؟",
+          "answer": "البته! به مخزن <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> ما سر بزنید تا مشارکت کنید، ویژگی‌هایی پیشنهاد دهید یا اشکالات را گزارش کنید."
         },
         {
-          "question": "What content types does Fetchy support from Instagram?",
-          "answer": "Currently, Fetchy supports Reels, regular post videos, and carousel videos/images. Stories and private content are not supported yet."
+          "question": "Fetchy از چه نوع محتوایی در اینستاگرام پشتیبانی می‌کند؟",
+          "answer": "در حال حاضر، Fetchy از ریلز، ویدیوهای پست معمولی و ویدیوها/تصاویر چرخ و فلکی پشتیبانی می‌کند. استوری‌ها و محتوای خصوصی هنوز پشتیبانی نمی‌شوند."
         }
       ],
       "about": {
-        "title": "Download Instagram Reels, Posts & More with Fetchy",
+        "title": "دانلود ریلز، پست‌ها و بیشتر از اینستاگرام با Fetchy",
         "parts": {
-          "p1": "Whether it's a viral reel, a carousel post, or a high quality video, <b>Fetchy</b> is your go to Instagram content downloader. No watermarks, no sign ups, no sketchy redirects, just paste the link and download.",
-          "p2": "Unlike most tools out there, <b>Fetchy</b> is an open source project focused on <b>speed, simplicity</b>, and reliability. It supports reels, post videos, and more content handling, all with clean, instant downloads.",
-          "p3": "Most Instagram downloaders are packed with popups or make you wait forever. Fetchy is built different, optimized for mobile and desktop links, and designed to skip the nonsense so you get your content fast.",
-          "p4": "Since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to contribute, explore the code, or even run your own instance locally. No ads, no paywalls, just tech that respects you.",
-          "p5": "Whether you’re backing up your content, saving inspirational clips, or downloading videos for offline viewing, Fetchy makes <b>Instagram</b> downloading <b>easy, safe, and open</b>."
+          "p1": "چه یک ریلز وایرال، یک پست چرخ و فلکی یا یک ویدیوی با کیفیت بالا باشد، <b>Fetchy</b> دانلود کننده محتوای اینستاگرام شماست. بدون واترمارک، بدون ثبت نام، بدون هدایت‌های مشکوک، فقط لینک را جایگذاری کرده و دانلود کنید.",
+          "p2": "برخلاف اکثر ابزارهای موجود، <b>Fetchy</b> یک پروژه منبع باز است که بر روی <b>سرعت، سادگی</b> و قابلیت اطمینان تمرکز دارد. از ریلز، ویدیوهای پست و محتوای بیشتری پشتیبانی می‌کند، همه با دانلودهای تمیز و فوری.",
+          "p3": "بیشتر دانلود کننده‌های اینستاگرام پر از پاپ‌آپ هستند یا شما را برای همیشه منتظر می‌گذارند. Fetchy به گونه‌ای متفاوت ساخته شده است، برای لینک‌های موبایل و دسکتاپ بهینه شده و طراحی شده تا از شر مزخرفات خلاص شوید و محتوای خود را سریع دریافت کنید.",
+          "p4": "از آنجایی که Fetchy تحت مجوز <BSL>BSL 1.1</BSL> منبع باز است، شما آزادید که مشارکت کنید، کد را بررسی کنید یا حتی نمونه خود را به صورت محلی اجرا کنید. بدون تبلیغات، بدون دیوارهای پرداخت، فقط فناوری‌ای که به شما احترام می‌گذارد.",
+          "p5": "چه در حال پشتیبان‌گیری از محتوای خود باشید، چه کلیپ‌های الهام‌بخش را ذخیره می‌کنید یا ویدیوهایی را برای مشاهده آفلاین دانلود می‌کنید، Fetchy دانلود <b>اینستاگرام</b> را <b>آسان، ایمن و باز</b> می‌کند."
         }
       }
     },
     "_tiktok": {
       "faqs": [
         {
-          "question": "Can I download TikTok videos without watermark using Fetchy?",
-          "answer": "Yes! Fetchy removes watermarks from downloaded TikTok videos automatically no extra steps needed."
+          "question": "آیا می‌توانم ویدیوهای تیک‌تاک را بدون واترمارک با استفاده از Fetchy دانلود کنم؟",
+          "answer": "بله! Fetchy واترمارک‌ها را از ویدیوهای تیک‌تاک دانلود شده به طور خودکار حذف می‌کند – نیازی به مراحل اضافی نیست."
         },
         {
-          "question": "Does Fetchy support downloading TikTok slideshows?",
-          "answer": "Yup! Fetchy fully supports TikTok slideshows. Just copy the post link and paste it in to download."
+          "question": "آیا Fetchy از دانلود اسلایدشوهای تیک‌تاک پشتیبانی می‌کند؟",
+          "answer": "بله! Fetchy به طور کامل از اسلایدشوهای تیک‌تاک پشتیبانی می‌کند. کافیست لینک پست را کپی کرده و برای دانلود جایگذاری کنید."
         },
         {
-          "question": "Is Fetchy free for downloading TikTok videos and content?",
-          "answer": "Totally free. No hidden fees, no accounts required. Fetchy is open source and always will be."
+          "question": "آیا Fetchy برای دانلود ویدیوها و محتوای تیک‌تاک رایگان است؟",
+          "answer": "کاملاً رایگان. بدون هزینه‌های پنهان، بدون نیاز به حساب کاربری. Fetchy منبع باز است و همیشه خواهد بود."
         },
         {
-          "question": "Do I need a TikTok or Fetchy account to download?",
-          "answer": "Nope! Just paste your link into Fetchy and go. No sign ups or logins ever."
+          "question": "آیا برای دانلود به حساب تیک‌تاک یا Fetchy نیاز دارم؟",
+          "answer": "نه! فقط لینک خود را در Fetchy جایگذاری کنید و شروع کنید. هرگز نیازی به ثبت نام یا ورود نیست."
         },
         {
-          "question": "Does Fetchy support TikTok playlists or collections?",
-          "answer": "Not yet! TikTok playlist support is on our radar and coming soon. For now, you can download individual posts and videos."
+          "question": "آیا Fetchy از لیست‌های پخش یا مجموعه‌های تیک‌تاک پشتیبانی می‌کند؟",
+          "answer": "هنوز نه! پشتیبانی از لیست پخش تیک‌تاک در برنامه ما قرار دارد و به زودی اضافه خواهد شد. در حال حاضر، می‌توانید پست‌ها و ویدیوهای جداگانه را دانلود کنید."
         },
         {
-          "question": "Can I use Fetchy to download TikToks on my phone?",
-          "answer": "Definitely. Fetchy is mobile friendly and works smoothly in any modern browser on any device."
+          "question": "آیا می‌توانم از Fetchy برای دانلود تیک‌تاک‌ها روی گوشی خود استفاده کنم؟",
+          "answer": "قطعاً. Fetchy سازگار با موبایل است و به خوبی در هر مرورگر مدرنی روی هر دستگاهی کار می‌کند."
         },
         {
-          "question": "Is there a limit to how many TikToks I can download?",
-          "answer": "No limits. Download as many TikToks as you want Fetchy’s built for open, unrestricted use."
+          "question": "آیا محدودیتی در تعداد تیک‌تاک‌هایی که می‌توانم دانلود کنم وجود دارد؟",
+          "answer": "هیچ محدودیتی وجود ندارد. هر تعداد تیک‌تاک که می‌خواهید دانلود کنید – Fetchy برای استفاده باز و بدون محدودیت ساخته شده است."
         },
         {
-          "question": "Is Fetchy safe and private to use?",
-          "answer": "Yes! Fetchy doesn’t track you, collect data, or store history. It’s open source and privacy focused."
+          "question": "آیا استفاده از Fetchy ایمن و خصوصی است؟",
+          "answer": "بله! Fetchy شما را ردیابی نمی‌کند، داده جمع‌آوری نمی‌کند و تاریخچه را ذخیره نمی‌کند. منبع باز و متمرکز بر حفظ حریم خصوصی است."
         },
         {
-          "question": "Can I contribute to Fetchy or run my own TikTok downloader?",
-          "answer": "Heck yeah. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> to fork, contribute, suggest features, or report bugs."
+          "question": "آیا می‌توانم در Fetchy مشارکت کنم یا دانلود کننده تیک‌تاک خود را اجرا کنم؟",
+          "answer": "بله! به <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> ما سر بزنید تا فورک کنید، مشارکت کنید، ویژگی‌هایی پیشنهاد دهید یا اشکالات را گزارش کنید."
         }
       ],
       "about": {
-        "title": "Download TikTok Videos, Slideshows & Audios with Fetchy",
+        "title": "دانلود ویدیوها، اسلایدشوها و فایل‌های صوتی تیک‌تاک با Fetchy",
         "parts": {
-          "p1": "Whether it’s a trending <b>video</b>, a vibey <b>slideshow</b>, or an addicting TikTok <b>sound</b>, Fetchy lets you save it instantly. Just paste the link, hit download, and you’re set no watermark, no app install, no login.",
-          "p2": "Unlike clunky TikTok saver sites, Fetchy is an <b>open source</b> project built for <b>speed, simplicity</b>, and privacy. It supports all major content types including public videos, slideshows, and standalone audio tracks.",
-          "p3": "Some newly introduced TikTok features like <b>playlist collections</b> aren’t supported <b>yet</b>, but don’t sweat it we’re actively tracking updates and expanding support fast. Most users already have everything they need.",
-          "p4": "Fetchy’s backend is fine tuned to handle tricky links like <b>shortened URLs, mobile redirects</b>, and even TikTok share URLs from within the app. It just works, no matter where you’re copying from.",
-          "p5": " As always, Fetchy is fully open under the <BSL>BSL 1.1</BSL> license. That means you can fork it, contribute, or even run your own instance locally. No paywalls, no rate limits just pure, community powered downloading.",
-          "p6": "Loved by creators, students, and archivists alike <b>Fetchy</b> is your all in one solution for <b>safe, clean</b>, and <b>hassle free</b> TikTok content saving."
+          "p1": "چه یک <b>ویدیو</b> پرطرفدار، یک <b>اسلایدشوی</b> باحال، یا یک <b>صدای</b> اعتیادآور تیک‌تاک باشد، Fetchy به شما اجازه می‌دهد آن را فوراً ذخیره کنید. فقط لینک را جایگذاری کنید، روی دانلود کلیک کنید، و کار تمام است – بدون واترمارک، بدون نصب برنامه، بدون ورود به سیستم.",
+          "p2": "برخلاف سایت‌های ذخیره تیک‌تاک دست و پا گیر، Fetchy یک پروژه <b>منبع باز</b> است که برای <b>سرعت، سادگی</b> و حفظ حریم خصوصی ساخته شده است. از تمام انواع محتوای اصلی از جمله ویدیوهای عمومی، اسلایدشوها و ترک‌های صوتی مستقل پشتیبانی می‌کند.",
+          "p3": "برخی از ویژگی‌های تازه معرفی شده تیک‌تاک مانند <b>مجموعه‌های لیست پخش</b> <b>هنوز</b> پشتیبانی نمی‌شوند، اما نگران نباشید – ما فعالانه به‌روزرسانی‌ها را دنبال می‌کنیم و پشتیبانی را به سرعت گسترش می‌دهیم. اکثر کاربران از قبل همه چیز مورد نیاز خود را دارند.",
+          "p4": "بک‌اند Fetchy به دقت تنظیم شده است تا لینک‌های مشکل‌ساز مانند <b>URL‌های کوتاه شده، هدایت‌های موبایل</b> و حتی URL‌های اشتراک‌گذاری تیک‌تاک از داخل برنامه را مدیریت کند. صرفاً کار می‌کند، مهم نیست از کجا کپی می‌کنید.",
+          "p5": "همانطور که همیشه، Fetchy تحت مجوز <BSL>BSL 1.1</BSL> کاملاً باز است. این بدان معناست که شما می‌توانید آن را فورک کنید، مشارکت کنید، یا حتی نمونه خود را به صورت محلی اجرا کنید. بدون دیوارهای پرداخت، بدون محدودیت نرخ – فقط دانلود خالص و با قدرت جامعه.",
+          "p6": "مورد علاقه سازندگان، دانشجویان و آرشیوگران به طور یکسان، <b>Fetchy</b> راه حل همه‌کاره شما برای ذخیره محتوای تیک‌تاک <b>ایمن، تمیز</b> و <b>بدون دردسر</b> است."
         }
       }
     },
     "_facebook": {
       "faqs": [
         {
-          "question": "Can I download Facebook reels with Fetchy?",
-          "answer": "Absolutely! Just paste the link and you're good to go—no watermark, no fuss."
+          "question": "آیا می‌توانم ریلزهای فیس‌بوک را با Fetchy دانلود کنم؟",
+          "answer": "حتماً! فقط لینک را جایگذاری کنید و آماده‌اید – بدون واترمارک، بدون سر و صدا."
         },
         {
-          "question": "Does Fetchy work on mobile?",
-          "answer": "Yup. It's fully responsive and works smoothly on all modern browsers across devices."
+          "question": "آیا Fetchy روی موبایل کار می‌کند؟",
+          "answer": "بله. کاملاً واکنش‌گرا است و به راحتی روی تمام مرورگرهای مدرن در دستگاه‌های مختلف کار می‌کند."
         },
         {
-          "question": "Is Fetchy free to use?",
-          "answer": "100%. No hidden fees, no sign-ups. It's open source and always will be."
+          "question": "آیا استفاده از Fetchy رایگان است؟",
+          "answer": "۱۰۰٪. بدون هزینه‌های پنهان، بدون ثبت نام. منبع باز است و همیشه خواهد بود."
         },
         {
-          "question": "Do I need to sign up to use Fetchy?",
-          "answer": "Nope! Fetchy is completely sign-up free. Just paste your link and download your content instantly."
+          "question": "آیا برای استفاده از Fetchy باید ثبت نام کنم؟",
+          "answer": "نه! Fetchy کاملاً بدون نیاز به ثبت نام است. فقط لینک خود را جایگذاری کرده و محتوای خود را فوراً دانلود کنید."
         },
         {
-          "question": "Can Fetchy download private Facebook videos?",
-          "answer": "No. Fetchy only supports public Facebook content and will never introduce a private media downloader. we respect user privacy and platform rules."
+          "question": "آیا Fetchy می‌تواند ویدیوهای خصوصی فیس‌بوک را دانلود کند؟",
+          "answer": "خیر. Fetchy فقط از محتوای عمومی فیس‌بوک پشتیبانی می‌کند و هرگز یک دانلود کننده رسانه خصوصی را معرفی نخواهد کرد. ما به حریم خصوصی کاربران و قوانین پلتفرم احترام می‌گذاریم."
         },
         {
-          "question": "What type of Facebook links does Fetchy support?",
-          "answer": "Fetchy supports video links, story links, reels, and even shortened or mobile versions of Facebook URLs."
+          "question": "Fetchy از چه نوع لینک‌های فیس‌بوکی پشتیبانی می‌کند؟",
+          "answer": "Fetchy از لینک‌های ویدیو، لینک‌های استوری، ریلزها و حتی نسخه‌های کوتاه شده یا موبایل آدرس‌های فیس‌بوک پشتیبانی می‌کند."
         },
         {
-          "question": "Is there a limit to how many downloads I can do?",
-          "answer": "No limits here! Fetchy is built for open use. Download as much content as you need without restrictions."
+          "question": "آیا محدودیتی برای تعداد دانلودهایی که می‌توانم انجام دهم وجود دارد؟",
+          "answer": "اینجا محدودیتی وجود ندارد! Fetchy برای استفاده باز ساخته شده است. هر چقدر محتوا که نیاز دارید بدون محدودیت دانلود کنید."
         },
         {
-          "question": "What is the best way to copy Facebook links for Fetchy?",
-          "answer": "On mobile, tap the 'Share' button and then 'Copy Link'. On desktop, copy the URL from the address bar."
+          "question": "بهترین راه برای کپی کردن لینک‌های فیس‌بوک برای Fetchy چیست؟",
+          "answer": "در موبایل، روی دکمه 'اشتراک‌گذاری' و سپس 'کپی لینک' ضربه بزنید. در دسکتاپ، آدرس URL را از نوار آدرس کپی کنید."
         },
         {
-          "question": "Is Fetchy safe to use?",
-          "answer": "Definitely. Fetchy is open source and doesn’t collect any personal data. Your usage stays private and secure."
+          "question": "آیا استفاده از Fetchy ایمن است؟",
+          "answer": "قطعاً. Fetchy منبع باز است و هیچ داده شخصی را جمع‌آوری نمی‌کند. استفاده شما خصوصی و ایمن باقی می‌ماند."
         },
         {
-          "question": "Does Fetchy add watermarks?",
-          "answer": "Never. Fetchy ensures your downloaded content is watermark free and untouched."
+          "question": "آیا Fetchy واترمارک اضافه می‌کند؟",
+          "answer": "هرگز. Fetchy تضمین می‌کند که محتوای دانلود شده شما بدون واترمارک و دست‌نخورده باشد."
         },
         {
-          "question": "Can I contribute to Fetchy?",
-          "answer": "Yes! Fetchy is open source. Visit our <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> repo to report issues, suggest features, or contribute code."
+          "question": "آیا می‌توانم در Fetchy مشارکت کنم؟",
+          "answer": "بله! Fetchy منبع باز است. از مخزن <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> ما دیدن کنید تا مشکلات را گزارش دهید، ویژگی‌هایی پیشنهاد دهید یا کد مشارکت کنید."
         }
       ],
       "about": {
-        "title": "Download Facebook Videos, Stories & More with Fetchy",
+        "title": "دانلود ویدیوها، استوری‌ها و بیشتر از فیس‌بوک با Fetchy",
         "parts": {
-          "p1": "Whether it’s a viral video, a story, or a reel, Fetchy is your all in one Facebook content downloader built to handle it all. No watermarks, no slowdowns, no login required, just paste your link and go.",
-          "p2": "Unlike most tools out there, Fetchy is an open source solution built for <b>speed</b>, <b>simplicity</b>, and reliability. It supports most types of content and delivers clean, fast downloads without the junk. Some formats aren’t supported <b>yet</b>, but we’re actively working on it and everything the average user needs is already good to go.",
-          "p3": "Most tools either bombard you with ads or limit what you can save. Fetchy flips the script. It’s clean, efficient, and respects your time. Behind the scenes, our backend is optimized to handle even the most complex Facebook URLs, including shortened links, mobile formats, and redirects.",
-          "p4": "Plus, since Fetchy is open source under the <BSL>BSL 1.1</BSL> license, you’re free to peek under the hood, contribute to the code, or run it yourself, no paywalls, no subscriptions, just community driven tech for everyone.",
-          "p5": "Perfect for creators, students, and everyday users, Fetchy makes Facebook content downloading <b>effortless</b> and <b>trustworthy</b>."
+          "p1": "چه یک ویدیوی وایرال، یک استوری یا یک ریلز باشد، Fetchy دانلود کننده محتوای فیس‌بوک همه‌کاره شماست که برای مدیریت همه چیز ساخته شده است. بدون واترمارک، بدون کاهش سرعت، بدون نیاز به ورود، فقط لینک خود را جایگذاری کنید و شروع کنید.",
+          "p2": "برخلاف اکثر ابزارهای موجود، Fetchy یک راه حل منبع باز است که برای <b>سرعت</b>، <b>سادگی</b> و قابلیت اطمینان ساخته شده است. از اکثر انواع محتوا پشتیبانی می‌کند و دانلودهای تمیز و سریع را بدون حاشیه ارائه می‌دهد. برخی از فرمت‌ها <b>هنوز</b> پشتیبانی نمی‌شوند، اما ما فعالانه در حال کار بر روی آن هستیم و همه چیزهایی که کاربر عادی نیاز دارد از قبل آماده استفاده است.",
+          "p3": "اکثر ابزارها یا شما را با تبلیغات بمباران می‌کنند یا آنچه را که می‌توانید ذخیره کنید محدود می‌کنند. Fetchy ورق را برمی‌گرداند. تمیز، کارآمد است و به وقت شما احترام می‌گذارد. در پشت صحنه، بک‌اند ما برای مدیریت حتی پیچیده‌ترین آدرس‌های فیس‌بوک، از جمله لینک‌های کوتاه شده، فرمت‌های موبایل و هدایت‌ها، بهینه شده است.",
+          "p4": "به علاوه، از آنجایی که Fetchy تحت مجوز <BSL>BSL 1.1</BSL> منبع باز است، شما آزادید که زیر کاپوت را نگاه کنید، در کد مشارکت کنید یا آن را خودتان اجرا کنید، بدون دیوارهای پرداخت، بدون اشتراک، فقط فناوری‌ای با هدایت جامعه برای همه.",
+          "p5": "Fetchy که برای سازندگان، دانشجویان و کاربران روزمره عالی است، دانلود محتوای فیس‌بوک را <b>بدون زحمت</b> و <b>قابل اعتماد</b> می‌سازد."
         }
       }
     },
     "_youtube": {
-      "title": "YouTube Downloader Coming Soon",
-      "description": "Exciting New Feature Coming Your Way!"
+      "title": "دانلود کننده YouTube به زودی",
+      "description": "ویژگی هیجان‌انگیز جدید در راه است!"
     },
     "steps": {
-      "title": "How to Use Fetchy",
+      "title": "نحوه استفاده از Fetchy",
       "copy": {
-        "title": "Copy the Link",
-        "description": "Go to the content you want to download, tap Share, then Copy Link. Boom, first step done!"
+        "title": "لینک را کپی کنید",
+        "description": "به محتوایی که می‌خواهید دانلود کنید بروید، روی اشتراک‌گذاری، سپس کپی لینک ضربه بزنید. تمام، مرحله اول انجام شد!"
       },
       "paste": {
-        "title": "Paste on Fetchy",
-        "description": "Jump back here, paste the copied link into Fetchy’s input, and hit that slick Download button."
+        "title": "در Fetchy جایگذاری کنید",
+        "description": "به اینجا برگردید، لینک کپی شده را در فیلد ورودی Fetchy جایگذاری کرده و روی دکمه دانلود شیک کلیک کنید."
       },
       "download": {
-        "title": "Download & Enjoy",
-        "description": "Wait just a sec while we fetch it for you. Then download, no watermark, no BS."
+        "title": "دانلود و لذت ببرید",
+        "description": "فقط یک ثانیه صبر کنید تا آن را برای شما بیاوریم. سپس دانلود کنید، بدون واترمارک، بدون دردسر."
       }
     }
   },
 
   "_404": {
-    "title": "404 Not Found",
-    "description": "Lost in space? Let's get you back to the home planet!",
-    "back_to_home": "Back to Home"
+    "title": "404 پیدا نشد",
+    "description": "در فضا گم شده‌اید؟ بیایید شما را به سیاره خانه برگردانیم!",
+    "back_to_home": "بازگشت به خانه"
   },
 
   "_blogs": {
-    "title": "Latest Writings & Thoughts",
-    "no_blogs": "No blogs found"
+    "title": "آخرین نوشته‌ها و افکار",
+    "no_blogs": "پستی پیدا نشد"
   },
 
   "NavigationBar": {
-    "follow_us": "Follow Us",
-    "follow_us_description": "Stay updated with our latest and greatest."
+    "follow_us": "ما را دنبال کنید",
+    "follow_us_description": "با آخرین و بهترین‌های ما به روز بمانید."
   },
 
   "Footer": {
-    "description": "The ultimate free video downloader for all your favorite platforms. Fast, clean, and watermark free.",
-    "copyright": "© {year} Fetchy. All Rights Reserved. Built by {name}"
+    "description": "دانلود کننده ویدیوی رایگان نهایی برای تمام پلتفرم‌های مورد علاقه شما. سریع، تمیز و بدون واترمارک.",
+    "copyright": "© {year} Fetchy. تمامی حقوق محفوظ است. ساخته شده توسط {name}"
   },
 
   "OpenSource": {
-    "title": "Built Openly. Shared Boldly.",
-    "description": "Fetchy is proudly open source under the <a>BSL 1.1</a>. Use it, learn from it, contribute to it, just don't resell it as is. Fair, right?",
-    "released_by": "Released by"
+    "title": "باز ساخته شده. جسورانه به اشتراک گذاشته شده.",
+    "description": "Fetchy با افتخار تحت مجوز <a>BSL 1.1</a> منبع باز است. از آن استفاده کنید، از آن بیاموزید، در آن مشارکت کنید، فقط آن را همانطور که هست نفروشید. منصفانه است، درست است؟",
+    "released_by": "منتشر شده توسط"
   },
 
   "errors": {
-    "an_error_occurred": "An error occurred",
-    "download_session_expired": "Session expired, please refresh the page",
-    "url_not_whitelisted": "URL is not whitelisted for this tool. Please enter a valid one.",
-    "url_missing": "Please enter a URL",
-    "paste_failed": "Failed to paste from clipboard",
-    "private_or_not_exist": "Unfortunately, this video may be private or does not exist",
-    "instagram_not_supported_content": "Downloading stories and highlights is not supported yet",
-    "invalid_url": "Invalid URL",
-    "facebook_not_supported_content": "We currently don't support extracting content from Facebook posts. This feature will be available soon."
+    "an_error_occurred": "خطایی رخ داد",
+    "download_session_expired": "نشست منقضی شد، لطفاً صفحه را به‌روزرسانی کنید",
+    "url_not_whitelisted": "آدرس URL برای این ابزار در لیست سفید نیست. لطفاً یک آدرس معتبر وارد کنید.",
+    "url_missing": "لطفاً یک آدرس URL وارد کنید",
+    "paste_failed": "جایگذاری از کلیپ‌بورد با شکست مواجه شد",
+    "private_or_not_exist": "متأسفانه، این ویدیو ممکن است خصوصی باشد یا وجود نداشته باشد",
+    "instagram_not_supported_content": "دانلود استوری‌ها و هایلایت‌ها هنوز پشتیبانی نمی‌شود",
+    "invalid_url": "آدرس URL نامعتبر",
+    "facebook_not_supported_content": "ما در حال حاضر از استخراج محتوا از پست‌های فیس‌بوک پشتیبانی نمی‌کنیم. این ویژگی به زودی در دسترس خواهد بود."
   },
 
-  "faq": "Frequently Asked Questions",
-  "refresh": "Refresh",
-  "download": "Download",
-  "close": "Close",
-  "resources": "Resources",
-  "tools": "Tools",
-  "soon": "Soon",
-  "coming_soon": "Coming Soon",
-  "not_available_warning": "This {type} is not available right now.",
-  "not_available": "Not Available",
-  "home": "Home",
-  "new": "New",
-  "hot": "Hot"
+  "faq": "سوالات متداول",
+  "refresh": "تازه‌سازی",
+  "download": "دانلود",
+  "close": "بستن",
+  "resources": "منابع",
+  "tools": "ابزارها",
+  "soon": "به زودی",
+  "coming_soon": "به زودی",
+  "not_available_warning": "این {type} در حال حاضر در دسترس نیست.",
+  "not_available": "در دسترس نیست",
+  "locale_switcher_title": "زبان را انتخاب کنید",
+  "locale_switcher_description": "زبان مورد نظر خود را انتخاب کنید",
+  "home": "خانه",
+  "new": "جدید",
+  "hot": "داغ"
 }
