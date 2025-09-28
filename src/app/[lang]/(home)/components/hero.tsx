@@ -115,7 +115,7 @@ const HeroSection = () => {
                     #2a1e39 0%,
                     transparent 80%
                   )`,
-        height: `${window?.innerHeight - 57}px`,
+        height: `calc(100dvh - 57px)`,
       }}
       className="mx-auto grid gap-16 items-center relative"
     >

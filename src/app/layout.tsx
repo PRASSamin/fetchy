@@ -16,6 +16,7 @@ import { NextIntlClientProvider, useLocale, useMessages } from "next-intl";
 import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { DirectionProvider } from "@/hooks/useDir";
+import Banner from "@/components/banner";
 
 const rethink = Rethink_Sans({
   weight: ["400", "800"],
@@ -119,7 +120,10 @@ export default async function DefaultRootLayout({
           <DirectionProvider
             dir={locale === "ar" || locale === "fa" ? "rtl" : "ltr"}
           >
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+            <NextIntlClientProvider>
+              <Banner />
+              {children}
+            </NextIntlClientProvider>
           </DirectionProvider>
           <Analytics />
           <SpeedInsights />

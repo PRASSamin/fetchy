@@ -58,6 +58,7 @@ export function LocaleSwitcher({
     if (newLocale === locale) return;
 
     setDialogOpen(false);
+    localStorage.removeItem("nd-banner-banner");
     const newHref = `/${newLocale}${pathname}`;
     window.location.replace(newHref);
   };

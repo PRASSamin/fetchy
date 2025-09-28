@@ -30,7 +30,7 @@ export default function Home() {
           }
         `}
       </style>
-      {isLoading ? (
+      {/* {isLoading ? (
         <div className="flex items-center justify-center h-screen w-full pt-3 pb-8 bg-background">
           <Image
             width={100}
@@ -41,16 +41,16 @@ export default function Home() {
           />
         </div>
       ) : (
-        <>
-          <Navigation />
-          <HeroSection />
-          <WhyFetchy />
-          <Testimonials />
-          <OpenSource />
-          <FAQ />
-          <Footer />
-        </>
-      )}
+        <> */}
+      <Navigation />
+      <HeroSection />
+      <WhyFetchy />
+      <Testimonials />
+      <OpenSource />
+      <FAQ />
+      <Footer />
+      {/* </>
+      )} */}
     </>
   );
 }
