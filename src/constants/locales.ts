@@ -85,6 +85,13 @@ export const LOCALES_INFO = [
     country: "JP",
     countries: ["JP"],
   },
+  {
+    locale: "ko", // Korean
+    state: "beta",
+    name: "한국어",
+    country: "KR",
+    countries: ["KR", "KP"],
+  },
 ];
 
 export const LOCALES = LOCALES_INFO.map((locale) => locale.locale);

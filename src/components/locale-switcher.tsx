@@ -64,7 +64,7 @@ export function LocaleSwitcher({
   };
 
   const languageList = (
-    <div className="flex flex-col gap-2">
+    <div className="grid grid-cols-2 gap-2">
       {LOCALES_INFO.map((localeInfo, index) => (
         <button
           key={index}
@@ -111,14 +111,14 @@ export function LocaleSwitcher({
             <Globe className="!size-5" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="bg-[#101010] border-border/50">
+        <DialogContent className="bg-[#101010] border-border/50 p-4">
           <DialogHeader>
             <DialogTitle>{t("locale_switcher_title")}</DialogTitle>
             <DialogDescription>
               {t("locale_switcher_description")}
             </DialogDescription>
           </DialogHeader>
-          <div className="pt-4">{languageList}</div>
+          {languageList}
         </DialogContent>
       </Dialog>
     );

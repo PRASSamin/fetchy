@@ -1,0 +1,319 @@
+{
+  "metatags": {
+    "root": {
+      "title": "Fetchy - 최고의 비디오 다운로더",
+      "description": "Fetchy - 모두를 위한 최고의 무료 비디오 다운로더. Instagram, Facebook 등에서 고화질 영상과 사진을 한 번의 클릭으로 다운로드하세요. 무료, 쉽고, 효율적입니다!"
+    },
+    "404": {
+      "title": "404 | 페이지를 찾을 수 없습니다"
+    },
+    "tools": { "title": "{platform} 다운로더 | Fetchy" }
+  },
+  "_home": {
+    "title": "<span>Fetchy,</span> 언제 어디서든 무엇이든 다운로드하세요.",
+    "description": "Fetchy는 빠르고, 깔끔하며, 워터마크가 없는 올인원 비디오 다운로더입니다. 어떤 플랫폼의 콘텐츠든 손쉽게 다운로드하세요.",
+    "compatibility": "호환성",
+    "compatibility_description": "좋아하는 플랫폼을 지원하도록 구축되었습니다. 빠르고, 끊김이 없으며, 항상 확장됩니다.",
+    "lightning_fast": "번개처럼 빠른 속도",
+    "lightning_fast_description": "Fetchy는 놀라운 속도로 콘텐츠를 제공합니다. 지연 없이 순수한 성능을 경험하세요.",
+    "testimonials_title": "사용자들의 이야기",
+    "testimonials_description": "저희 말만 믿지 마세요. 저희 사용자들이 자신의 경험에 대해 어떻게 말하는지 확인해 보세요.",
+    "review_us_on": "에서 리뷰하기",
+    "get_started": "시작하기",
+    "faq": "자주 묻는 질문",
+    "faq_description": "Fetchy에 대한 일반적인 질문에 대한 빠른 답변입니다.",
+    "faqs": [
+      {
+        "question": "Fetchy가 다른 비디오 다운로더보다 나은 점은 무엇인가요?",
+        "answer": "대부분의 다운로더는 매우 기본적인 기능만 제공하며, Facebook 스토리나 Instagram 캐러셀에서는 제대로 작동하지 않습니다. Fetchy는 Instagram 릴스, 멀티 포토 게시물, TikTok 슬라이드쇼, 심지어 Facebook 스토리까지 챔피언처럼 처리합니다. 가볍고, 빠르며, 진정한 애정을 담아 만들었습니다."
+      },
+      {
+        "question": "Fetchy를 Facebook 스토리 다운로더로 사용할 수 있나요?",
+        "answer": "물론이죠! Fetchy는 단순한 다운로더가 아닙니다. 대부분의 도구가 처리할 수 없는 Facebook 스토리 다운로드까지 실제로 지원합니다. 스토리 링크를 붙여넣기만 하면 Fetchy가 마법을 부릴 거예요."
+      },
+      {
+        "question": "비공개 또는 만료된 스토리를 다운로드할 수 있나요?",
+        "answer": "아니요, 저희는 정정당당하게 플레이합니다. Fetchy는 공개적이고 활성화된 콘텐츠에서만 작동합니다. 수상한 행동은 하지 않습니다. 저희는 사용자 개인 정보 보호와 플랫폼 규칙을 존중합니다."
+      },
+      {
+        "question": "무료인가요? 성가신 광고가 있나요?",
+        "answer": "100% 무료입니다. 구독도, 지옥 같은 팝업도 없습니다. 서버 유지를 위한 깔끔한 배너 광고 하나만 있으며, 사용자 경험은 비단처럼 부드럽게 유지됩니다."
+      },
+      {
+        "question": "Instagram, Facebook 또는 TikTok에서 비디오를 다운로드하는 것이 합법적인가요?",
+        "answer": "사용 목적에 따라 다릅니다. Fetchy는 개인적인 용도로만 사용해야 합니다. 예를 들어, 본인의 콘텐츠를 저장하거나 허가를 받은 공개 콘텐츠를 가져오는 경우입니다. 항상 크리에이터와 서비스 약관을 존중하세요."
+      },
+      {
+        "question": "왜 이 서비스를 유료로 제공하지 않나요?",
+        "answer": "Fetchy는 학습, 공유, 도움을 주기 위해 만든 열정적인 프로젝트입니다. 저희는 되돌려주는 것을 믿습니다. 하지만 마음에 드신다면, <a href='{GITHUB}' target='_blank' rel='noreferrer noopener'><strong>GitHub에 별점을 남겨주세요 💖</strong></a>"
+      }
+    ]
+  },
+
+  "_tools": {
+    "title": "{platform}에서 무엇이든 다운로드하세요",
+    "description": "좋아하는 모든 콘텐츠를 빠르고 안전하며 워터마크 없이 다운로드하세요",
+    "platform_url": "{platform} URL",
+    "paste_link": "링크 붙여넣기",
+    "example": "예: {url}",
+    "ready_to_download": "다운로드 준비 완료",
+    "available_formats": "사용 가능한 형식",
+    "live_formats": "라이브 형식",
+    "has_audio": "오디오 있음",
+    "has_watermark": "워터마크 있음",
+    "render": "렌더링",
+    "live": "라이브",
+    "live_stream_info": "라이브 스트림 정보",
+    "live_stream_info_message": "이것은 <b>라이브 스트림</b>이며 직접 다운로드할 수 없습니다. 스트림이 끝난 후 다시 시도하여 VOD에 접근할 수 있습니다.",
+    "dash_copied_message": "DASH URL이 클립보드에 복사되었습니다.",
+    "_instagram": {
+      "faqs": [
+        {
+          "question": "Fetchy로 Instagram 릴스를 다운로드할 수 있나요?",
+          "answer": "물론이죠! 릴스 링크를 Fetchy에 붙여넣고 다운로드를 누르세요. 워터마크도, 품질 손실도, 불필요한 것도 없습니다."
+        },
+        {
+          "question": "Fetchy는 Instagram 게시물 비디오와 함께 작동하나요?",
+          "answer": "네! Fetchy는 단일 비디오 및 캐러셀 비디오 게시물을 포함하여 일반 Instagram 게시물의 비디오 다운로드를 지원합니다."
+        },
+        {
+          "question": "Fetchy로 Instagram 스토리를 다운로드할 수 있나요?",
+          "answer": "현재 Fetchy는 스토리 다운로드를 지원하지 않습니다. 향후 업데이트에서 추가하기 위해 노력하고 있습니다. 기대해 주세요!"
+        },
+        {
+          "question": "Fetchy는 Instagram 다운로드에 무료인가요?",
+          "answer": "100% 무료입니다. 유료 제한도, 구독도 없습니다. Fetchy는 오픈 소스이며 항상 무료로 사용할 수 있습니다."
+        },
+        {
+          "question": "Fetchy는 Instagram 비디오에 워터마크를 추가하나요?",
+          "answer": "절대 아닙니다. Fetchy를 통해 다운로드된 모든 Instagram 비디오는 워터마크나 브랜드 없이 깔끔합니다."
+        },
+        {
+          "question": "Fetchy를 사용하기 위해 Instagram에 로그인해야 하나요?",
+          "answer": "아니요! 로그인 없이 공개 Instagram 콘텐츠를 다운로드할 수 있습니다. 링크를 붙여넣고 시작하세요."
+        },
+        {
+          "question": "모바일에서 Fetchy를 사용하여 Instagram 릴스를 다운로드할 수 있나요?",
+          "answer": "네! Fetchy는 완벽하게 반응하며 모바일 브라우저에 최적화되어 있습니다. 모든 장치에서 훌륭하게 작동합니다."
+        },
+        {
+          "question": "Fetchy에서 사용할 Instagram 링크를 어떻게 복사하나요?",
+          "answer": "게시물 또는 릴스에서 점 세 개를 탭하고 '링크 복사'를 선택한 다음 Fetchy에 붙여넣습니다. 아주 쉽습니다."
+        },
+        {
+          "question": "Fetchy는 비공개 Instagram 비디오를 다운로드할 수 있나요?",
+          "answer": "아니요. 개인 정보 보호를 위해 Fetchy는 공개 콘텐츠만 지원합니다. 비공개 비디오는 접근 권한이 필요하며 Fetchy를 통해 다운로드할 수 없습니다."
+        },
+        {
+          "question": "Fetchy는 Instagram 다운로드에 안전한가요?",
+          "answer": "물론이죠. Fetchy는 개인 정보를 수집하지 않으며 Instagram 로그인 정보를 요구하지 않습니다. 깔끔하고, 안전하며, 오픈 소스입니다."
+        },
+        {
+          "question": "여러 Instagram 비디오를 다운로드할 수 있나요?",
+          "answer": "네, 하나씩 할 수 있습니다. 각 링크를 붙여넣고 다운로드하세요. 일괄 지원은 아직 제공되지 않지만 로드맵에 있습니다."
+        },
+        {
+          "question": "Fetchy의 Instagram 다운로더에 기여할 수 있나요?",
+          "answer": "당연하죠! 저희 <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a>로 오셔서 기여하거나, 기능을 제안하거나, 버그를 보고해 주세요."
+        },
+        {
+          "question": "Fetchy가 Instagram에서 지원하는 콘텐츠 유형은 무엇인가요?",
+          "answer": "현재 Fetchy는 릴스, 일반 게시물 비디오, 캐러셀 비디오/이미지를 지원합니다. 스토리는 아직 지원되지 않습니다."
+        }
+      ],
+      "about": {
+        "title": "Fetchy로 Instagram 릴스, 게시물 및 기타 콘텐츠를 다운로드하세요",
+        "parts": {
+          "p1": "바이럴 릴스든, 캐러셀 게시물이든, 고화질 비디오든, <b>Fetchy</b>는 여러분이 찾는 Instagram 콘텐츠 다운로더입니다. 워터마크도, 가입도, 수상한 리디렉션도 없이 링크를 붙여넣고 다운로드하세요.",
+          "p2": "시중에 있는 대부분의 도구와 달리, <b>Fetchy</b>는 <b>속도, 단순성</b> 및 신뢰성에 중점을 둔 오픈 소스 프로젝트입니다. 릴스, 게시물 비디오 및 더 많은 콘텐츠 처리를 지원하며, 모두 깔끔하고 즉각적인 다운로드를 제공합니다.",
+          "p3": "대부분의 Instagram 다운로더는 팝업으로 가득 차 있거나 영원히 기다리게 만듭니다. Fetchy는 다르게 만들어졌습니다. 모바일 및 데스크톱 링크에 최적화되어 있으며, 불필요한 과정을 건너뛰도록 설계되어 콘텐츠를 빠르게 얻을 수 있습니다.",
+          "p4": "Fetchy는 <BSL>BSL 1.1</BSL> 라이선스 하에 오픈 소스이므로, 자유롭게 기여하고, 코드를 탐색하거나, 심지어 로컬에서 자체 인스턴스를 실행할 수도 있습니다. 광고도, 유료 제한도 없이 여러분을 존중하는 기술입니다.",
+          "p5": "콘텐츠를 백업하든, 영감을 주는 클립을 저장하든, 오프라인 시청을 위해 비디오를 다운로드하든, Fetchy는 <b>Instagram</b> 다운로드를 <b>쉽고, 안전하며, 개방적</b>으로 만듭니다."
+        }
+      }
+    },
+    "_tiktok": {
+      "faqs": [
+        {
+          "question": "Fetchy를 사용하여 워터마크 없이 TikTok 비디오를 다운로드할 수 있나요?",
+          "answer": "네! Fetchy는 다운로드된 TikTok 비디오에서 워터마크를 자동으로 제거합니다. 추가 단계가 필요 없습니다."
+        },
+        {
+          "question": "Fetchy는 TikTok 슬라이드쇼 다운로드를 지원하나요?",
+          "answer": "네! Fetchy는 TikTok 슬라이드쇼를 완벽하게 지원합니다. 게시물 링크를 복사하여 붙여넣으면 다운로드할 수 있습니다."
+        },
+        {
+          "question": "Fetchy는 TikTok 비디오 및 콘텐츠 다운로드에 무료인가요?",
+          "answer": "완전히 무료입니다. 숨겨진 수수료도, 계정 요구 사항도 없습니다. Fetchy는 오픈 소스이며 항상 그럴 것입니다."
+        },
+        {
+          "question": "다운로드하려면 TikTok 또는 Fetchy 계정이 필요한가요?",
+          "answer": "아니요! 링크를 Fetchy에 붙여넣고 시작하세요. 가입이나 로그인은 절대 필요 없습니다."
+        },
+        {
+          "question": "Fetchy는 TikTok 플레이리스트 또는 컬렉션을 지원하나요?",
+          "answer": "아직은 아닙니다! TikTok 플레이리스트 지원은 저희의 계획에 있으며 곧 제공될 예정입니다. 현재로서는 개별 게시물과 비디오를 다운로드할 수 있습니다."
+        },
+        {
+          "question": "Fetchy를 사용하여 휴대폰에 TikTok을 다운로드할 수 있나요?",
+          "answer": "당연하죠. Fetchy는 모바일에 최적화되어 있으며 모든 장치의 최신 브라우저에서 원활하게 작동합니다."
+        },
+        {
+          "question": "다운로드할 수 있는 TikTok 수에 제한이 있나요?",
+          "answer": "제한은 없습니다. 원하는 만큼 TikTok을 다운로드하세요. Fetchy는 개방적이고 제한 없는 사용을 위해 만들어졌습니다."
+        },
+        {
+          "question": "Fetchy는 사용하기에 안전하고 개인적인가요?",
+          "answer": "네! Fetchy는 사용자를 추적하거나, 데이터를 수집하거나, 기록을 저장하지 않습니다. 오픈 소스이며 개인 정보 보호에 중점을 둡니다."
+        },
+        {
+          "question": "Fetchy에 기여하거나 저만의 TikTok 다운로더를 실행할 수 있나요?",
+          "answer": "물론이죠. 저희 <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a>를 방문하여 포크하거나, 기여하거나, 기능을 제안하거나, 버그를 보고해 주세요."
+        }
+      ],
+      "about": {
+        "title": "Fetchy로 TikTok 비디오, 슬라이드쇼 및 오디오를 다운로드하세요",
+        "parts": {
+          "p1": "유행하는 <b>비디오</b>든, 분위기 있는 <b>슬라이드쇼</b>든, 중독성 있는 TikTok <b>사운드</b>든, Fetchy를 사용하면 즉시 저장할 수 있습니다. 링크를 붙여넣고 다운로드를 누르면 끝입니다. 워터마크도, 앱 설치도, 로그인도 필요 없습니다.",
+          "p2": "복잡한 TikTok 저장 사이트와 달리, Fetchy는 <b>속도, 단순성</b> 및 개인 정보 보호를 위해 구축된 <b>오픈 소스</b> 프로젝트입니다. 공개 비디오, 슬라이드쇼, 독립형 오디오 트랙을 포함한 모든 주요 콘텐츠 유형을 지원합니다.",
+          "p3": "<b>플레이리스트 컬렉션</b>과 같이 새로 도입된 일부 TikTok 기능은 <b>아직</b> 지원되지 않지만, 걱정하지 마세요. 저희는 업데이트를 적극적으로 추적하고 지원을 빠르게 확장하고 있습니다. 대부분의 사용자는 이미 필요한 모든 것을 갖추고 있습니다.",
+          "p4": "Fetchy의 백엔드는 <b>단축 URL, 모바일 리디렉션</b>, 심지어 앱 내의 TikTok 공유 URL과 같은 까다로운 링크를 처리하도록 정밀하게 조정되었습니다. 어디에서 복사하든 그냥 작동합니다.",
+          "p5": "항상 그렇듯이, Fetchy는 <BSL>BSL 1.1</BSL> 라이선스 하에 완전히 공개되어 있습니다. 즉, 포크하거나, 기여하거나, 심지어 로컬에서 자체 인스턴스를 실행할 수도 있습니다. 유료 제한도, 속도 제한도 없는 순수한, 커뮤니티 기반의 다운로드입니다.",
+          "p6": "크리에이터, 학생, 일반 사용자 모두에게 사랑받는 <b>Fetchy</b>는 <b>안전하고, 깔끔하며, 번거로움 없는</b> TikTok 콘텐츠 저장을 위한 올인원 솔루션입니다."
+        }
+      }
+    },
+    "_facebook": {
+      "faqs": [
+        {
+          "question": "Fetchy로 Facebook 릴스를 다운로드할 수 있나요?",
+          "answer": "물론이죠! 링크를 붙여넣기만 하면 워터마크나 번거로움 없이 바로 사용할 수 있습니다."
+        },
+        {
+          "question": "Fetchy는 모바일에서 작동하나요?",
+          "answer": "네. 완벽하게 반응하며 모든 장치의 최신 브라우저에서 원활하게 작동합니다."
+        },
+        {
+          "question": "Fetchy는 무료로 사용할 수 있나요?",
+          "answer": "100% 무료입니다. 숨겨진 수수료도, 가입도 없습니다. 오픈 소스이며 항상 그럴 것입니다."
+        },
+        {
+          "question": "Fetchy를 사용하려면 가입해야 하나요?",
+          "answer": "아니요! Fetchy는 완전히 가입이 필요 없습니다. 링크를 붙여넣고 콘텐츠를 즉시 다운로드하세요."
+        },
+        {
+          "question": "Fetchy는 비공개 Facebook 비디오를 다운로드할 수 있나요?",
+          "answer": "아니요. Fetchy는 공개 Facebook 콘텐츠만 지원하며 비공개 미디어 다운로더는 절대 도입하지 않을 것입니다. 저희는 사용자 개인 정보 보호와 플랫폼 규칙을 존중합니다."
+        },
+        {
+          "question": "Fetchy가 지원하는 Facebook 링크 유형은 무엇인가요?",
+          "answer": "Fetchy는 비디오 링크, 스토리 링크, 릴스, 심지어 Facebook URL의 단축 버전이나 모바일 버전까지 지원합니다."
+        },
+        {
+          "question": "다운로드 횟수에 제한이 있나요?",
+          "answer": "여기에는 제한이 없습니다! Fetchy는 개방적인 사용을 위해 구축되었습니다. 제한 없이 필요한 만큼 콘텐츠를 다운로드하세요."
+        },
+        {
+          "question": "Fetchy에서 사용할 Facebook 링크를 복사하는 가장 좋은 방법은 무엇인가요?",
+          "answer": "모바일에서는 '공유' 버튼을 탭한 다음 '링크 복사'를 탭하세요. 데스크톱에서는 주소 표시줄에서 URL을 복사하세요."
+        },
+        {
+          "question": "Fetchy는 사용하기에 안전한가요?",
+          "answer": "물론이죠. Fetchy는 오픈 소스이며 개인 데이터를 수집하지 않습니다. 사용 내역은 비공개로 안전하게 유지됩니다."
+        },
+        {
+          "question": "Fetchy는 워터마크를 추가하나요?",
+          "answer": "절대 아닙니다. Fetchy는 다운로드한 콘텐츠가 워터마크 없이 원본 그대로임을 보장합니다."
+        },
+        {
+          "question": "Fetchy에 기여할 수 있나요?",
+          "answer": "네! Fetchy는 오픈 소스입니다. 저희 <a href='{GITHUB}' target='_blank' rel='noopener noreferrer'><strong>GitHub</strong></a> 저장소를 방문하여 문제를 보고하고, 기능을 제안하거나, 코드를 기여하세요."
+        }
+      ],
+      "about": {
+        "title": "Fetchy로 Facebook 비디오, 스토리 등을 다운로드하세요",
+        "parts": {
+          "p1": "바이럴 비디오든, 스토리든, 릴스든, Fetchy는 이 모든 것을 처리하도록 구축된 올인원 Facebook 콘텐츠 다운로더입니다. 워터마크도, 속도 저하도, 로그인 요구 사항도 없이 링크를 붙여넣고 시작하세요.",
+          "p2": "시중에 있는 대부분의 도구와 달리, Fetchy는 <b>속도</b>, <b>단순성</b> 및 신뢰성을 위해 구축된 오픈 소스 솔루션입니다. 대부분의 콘텐츠 유형을 지원하며 불필요한 것 없이 깔끔하고 빠른 다운로드를 제공합니다. 일부 형식은 <b>아직</b> 지원되지 않지만, 저희는 이를 위해 적극적으로 노력하고 있으며 일반 사용자가 필요로 하는 모든 것은 이미 잘 작동하고 있습니다.",
+          "p3": "대부분의 도구는 광고로 사용자를 폭격하거나 저장할 수 있는 것을 제한합니다. Fetchy는 그 판도를 바꿉니다. 깔끔하고, 효율적이며, 여러분의 시간을 존중합니다. 비하인드 스토리에서는, 저희 백엔드가 단축 링크, 모바일 형식, 리디렉션을 포함하여 가장 복잡한 Facebook URL까지 처리하도록 최적화되어 있습니다.",
+          "p4": "또한, Fetchy는 <BSL>BSL 1.1</BSL> 라이선스 하에 오픈 소스이므로, 내부를 들여다보고, 코드에 기여하거나, 스스로 실행할 수도 있습니다. 유료 제한도, 구독도 없이 모두를 위한 커뮤니티 기반 기술입니다.",
+          "p5": "크리에이터, 학생, 일상 사용자에게 완벽한 Fetchy는 Facebook 콘텐츠 다운로드를 <b>쉽고</b> <b>신뢰할 수 있게</b> 만듭니다."
+        }
+      }
+    },
+    "_youtube": {
+      "title": "YouTube 다운로더 곧 출시 예정",
+      "description": "흥미로운 새 기능이 곧 여러분을 찾아옵니다!"
+    },
+    "steps": {
+      "title": "Fetchy 사용 방법",
+      "copy": {
+        "title": "링크 복사",
+        "description": "다운로드하고 싶은 콘텐츠로 이동하여 '공유'를 탭한 다음 '링크 복사'를 탭합니다. 붐, 첫 번째 단계 완료!"
+      },
+      "paste": {
+        "title": "Fetchy에 붙여넣기",
+        "description": "이곳으로 돌아와 복사한 링크를 Fetchy 입력창에 붙여넣고 멋진 '다운로드' 버튼을 누릅니다."
+      },
+      "download": {
+        "title": "다운로드 및 즐기기",
+        "description": "저희가 콘텐츠를 가져오는 동안 잠시만 기다려 주세요. 그런 다음 워터마크나 불필요한 것 없이 다운로드하세요."
+      }
+    }
+  },
+
+  "_404": {
+    "title": "404 찾을 수 없음",
+    "description": "길을 잃으셨나요? 홈 플래닛으로 돌아가 봅시다!",
+    "back_to_home": "홈으로 돌아가기"
+  },
+
+  "_blogs": {
+    "title": "최신 글 및 생각",
+    "no_blogs": "블로그를 찾을 수 없습니다"
+  },
+
+  "NavigationBar": {
+    "follow_us": "팔로우하기",
+    "follow_us_description": "저희의 최신 소식을 받아보세요."
+  },
+
+  "Footer": {
+    "description": "좋아하는 모든 플랫폼을 위한 최고의 무료 비디오 다운로더. 빠르고, 깔끔하며, 워터마크가 없습니다.",
+    "copyright": "© {year} Fetchy. 모든 권리 보유. Built by {name}"
+  },
+
+  "OpenSource": {
+    "title": "공개적으로 구축. 대담하게 공유.",
+    "description": "Fetchy는 <a>BSL 1.1</a> 하에 자랑스러운 오픈 소스입니다. 사용하고, 배우고, 기여하세요. 단, 있는 그대로 재판매하지 마세요. 공평하죠?",
+    "released_by": "배포자"
+  },
+
+  "errors": {
+    "an_error_occurred": "오류가 발생했습니다",
+    "download_session_expired": "세션이 만료되었습니다. 페이지를 새로고침해 주세요",
+    "url_not_whitelisted": "이 도구에 허용된 URL이 아닙니다. 유효한 URL을 입력해 주세요.",
+    "url_missing": "URL을 입력해 주세요",
+    "paste_failed": "클립보드에서 붙여넣기에 실패했습니다",
+    "private_or_not_exist": "안타깝게도 이 비디오는 비공개이거나 존재하지 않을 수 있습니다",
+    "instagram_not_supported_content": "스토리 및 하이라이트 다운로드는 아직 지원되지 않습니다",
+    "invalid_url": "잘못된 URL",
+    "facebook_not_supported_content": "현재 Facebook 게시물에서 콘텐츠 추출을 지원하지 않습니다. 이 기능은 곧 제공될 예정입니다."
+  },
+
+  "faq": "자주 묻는 질문",
+  "refresh": "새로고침",
+  "download": "다운로드",
+  "close": "닫기",
+  "resources": "자료",
+  "tools": "도구",
+  "soon": "곧",
+  "coming_soon": "출시 예정",
+  "not_available_warning": "이 {type}는 지금 사용할 수 없습니다.",
+  "not_available": "사용 불가",
+  "locale_switcher_title": "언어 선택",
+  "locale_switcher_description": "선호하는 언어를 선택하세요",
+  "home": "홈",
+  "new": "신규",
+  "hot": "인기"
+}
