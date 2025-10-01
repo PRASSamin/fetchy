@@ -20,6 +20,7 @@ export const frontmatter = {
     de: "Laden Sie Instagram-Videos, -Reels und -Fotos herunter.",
     fa: "دانلود ویدیوها، ریلزها و عکس‌های اینستاگرام.",
     ja: "Instagramの動画、リール、写真をダウンロード。",
+    ko: "Instagram 동영상, 릴스 및 사진을 다운로드하세요.",
   },
   isAvailable: ENABLE_INSTAGRAM,
   isNew: false,

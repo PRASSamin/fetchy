@@ -20,6 +20,7 @@ export const frontmatter = {
     de: "Laden Sie TikTok-Videos, -Diashows und Musik herunter.",
     fa: "دانلود ویدیوها، اسلایدشوها و موسیقی تیک‌تاک.",
     ja: "TikTokの動画、スライドショー、音楽をダウンロード。",
+    ko: "TikTok 영상, 슬라이드쇼, 음악을 다운로드하세요.",
   },
   isAvailable: ENABLE_TIKTOK,
   isNew: true,

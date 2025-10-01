@@ -19,6 +19,7 @@ export const frontmatter = {
     de: "Kommt bald",
     fa: "به زودی",
     ja: "近日公開",
+    ko: "곧 출시됩니다",
   },
   isAvailable: "coming",
   isNew: false,
