@@ -11,6 +11,7 @@ import { FETCHY_GITHUB } from "@/constants";
 import { fluid } from "@/utils/fluid";
 import { useTranslations } from "next-intl";
 import { useDirection } from "@/hooks/useDir";
+import Image from "next/image";
 
 const Tag = ({ label, color }: { label: string; color: string }) => {
   const dir = useDirection();
@@ -121,7 +122,18 @@ const HeroSection = () => {
     >
       {/* TEXT SIDE */}
       <div className="flex flex-col gap-20 relative max-w-[calc(100vw-2rem)] mx-auto">
-        <div className="space-y-6 text-center lg:max-w-[80%] mx-auto">
+        <div className="space-y-6 text-center lg:max-w-[80%] mx-auto flex flex-col items-center">
+          <a
+            href="https://www.producthunt.com/products/fetchy?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-fetchy"
+            target="_blank"
+          >
+            <Image
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1023238&theme=light&t=1759755141092"
+              alt="Fetchy - An&#0032;open&#0045;source&#0044;&#0032;ad&#0045;free&#0032;content&#0032;downloader&#0032;that&#0032;just&#0032;works&#0046; | Product Hunt"
+              width={200}
+              height={40}
+            />
+          </a>
           <h1
             style={{
               fontSize: fluid("2.25rem", "4.5rem") as string,
@@ -152,12 +164,12 @@ const HeroSection = () => {
             <Button
               onClick={() => setIsChoiceOpen(!isChoiceOpen)}
               className="py-5
-    bg-gradient-to-r from-[#6e56cf] via-[#9e7eea] to-[#c7a3ff]
-    text-white font-semibold
-    rounded-lg
-    transition-all duration-300
-    hover:scale-[1.03]
-    active:scale-[0.98]"
+      bg-gradient-to-r from-[#6e56cf] via-[#9e7eea] to-[#c7a3ff]
+      text-white font-semibold
+      rounded-lg
+      transition-all duration-300
+      hover:scale-[1.03]
+      active:scale-[0.98]"
             >
               {t("get_started")}
             </Button>
@@ -245,11 +257,11 @@ const HeroSection = () => {
             href={FETCHY_GITHUB}
             target="_blank"
             className={`inline-flex items-center justify-center bg-transparent py-5 
-    !transition-all duration-300
-    hover:scale-[1.03]
-    active:scale-[0.98] hover:bg-transparent ${buttonVariants({
-      variant: "outline",
-    })}`}
+      !transition-all duration-300
+      hover:scale-[1.03]
+      active:scale-[0.98] hover:bg-transparent ${buttonVariants({
+        variant: "outline",
+      })}`}
           >
             Star on GitHub
             <GitHub className={`${isRTL ? "mr-2" : "ml-2"} w-5 h-5`} />
