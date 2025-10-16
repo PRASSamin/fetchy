@@ -58,7 +58,17 @@ export class Discord {
     const { pathname } = this.request.nextUrl;
     const ip =
       ipAddress(this.request) || this.request.headers.get("x-forwarded-for");
-    const { country, flag } = geolocation(this.request);
+    let { country, flag } = geolocation(this.request);
+
+    if (!country) {
+      const geo = this.request.cookies.get("user-geo")?.value;
+      if (geo) {
+        const [geoCountry, geoFlag] = geo.split(",");
+        country = geoCountry;
+        flag = geoFlag;
+      }
+    }
+
     const body = await serializeRequest(this.request, this.response);
 
     const id = nanoid(12);

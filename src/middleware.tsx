@@ -43,6 +43,14 @@ export async function middleware(request: NextRequest) {
   // Call Next-Intl middleware
   const intlMiddleware = createMiddleware({ ...routing, defaultLocale });
   const response = intlMiddleware(request);
+
+  if (country && flag) {
+    response.cookies.set("user-geo", `${country},${flag}`, {
+      path: "/",
+      maxAge: 15, // 15 seconds
+    });
+  }
+
   // =============================
 
   const locale = response.headers.get(
