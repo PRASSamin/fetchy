@@ -24,6 +24,7 @@ export const FETCHY_API_KEY = process.env.NEXT_API_KEY!;
 export const FETCHY_CDN_API_KEY = process.env.NEXT_CDN_API_KEY!;
 export const STAGE = process.env.NEXT_STAGE!;
 export const ADMIN_PANEL_PASSWORD = process.env.NEXT_ADMIN_PASSWORD!;
+export const ANONYMOUS_SECRET = process.env.NEXT_ANONYMOUS_SECRET;
 
 // Admin
 export const ADMIN_AUTH_COOKIE_TTL = 60 * 60 * 24 * 30; // 30 days

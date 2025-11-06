@@ -1,12 +1,17 @@
 import axios from "axios";
 import type { NextResponse, NextRequest } from "next/server";
 import { Discord } from "@/lib/discord";
-import { ENABLE_LOGGER, SEND_TO_DISCORD } from "@/conf";
+import { ENABLE_LOGGER, SEND_TO_DISCORD, ANONYMOUS_SECRET } from "@/conf";
 
 export const postExec = async (
   request: NextRequest,
   response: NextResponse
 ) => {
+  const anonymousParam = request.nextUrl.searchParams.get("pras");
+  if (ANONYMOUS_SECRET && anonymousParam === ANONYMOUS_SECRET) {
+    return; // Skip logging
+  }
+
   if (ENABLE_LOGGER) {
     if (!request.nextUrl.pathname.startsWith("/api/dl")) return;
 
