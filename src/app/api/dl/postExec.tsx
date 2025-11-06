@@ -7,7 +7,9 @@ export const postExec = async (
   request: NextRequest,
   response: NextResponse
 ) => {
-  const anonymousParam = request.nextUrl.searchParams.get("pras");
+  const xDownloadUrl = request.headers.get("x-download-url");
+  const anonymousParam = new URL(xDownloadUrl ?? "").searchParams.get("pras");
+
   if (ANONYMOUS_SECRET && anonymousParam === ANONYMOUS_SECRET) {
     return; // Skip logging
   }
