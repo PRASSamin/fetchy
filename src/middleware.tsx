@@ -170,7 +170,7 @@ export async function middleware(request: NextRequest) {
       maxAge: 60,
     });
   }
-
+  console.log(response);
   return response;
 }
 
