@@ -24,6 +24,7 @@ export async function serializeRequest(req: NextRequest, res: NextResponse) {
     keepalive: req.keepalive,
     method: req.method,
     mode: req.mode,
+    geo: decodeAtob(req.cookies.get("_g")?.value || ""),
     nextUrl: req.nextUrl
       ? {
           pathname: req.nextUrl.pathname,
@@ -63,6 +64,8 @@ export class Discord {
     let country = "";
     let flag = "";
 
+    console.log(_g);
+    console.log(decodeAtob(_g || ""));
     if (_g) {
       const geo = decodeAtob(_g);
       country = geo.country;
