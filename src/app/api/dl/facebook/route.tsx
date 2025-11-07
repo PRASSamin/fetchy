@@ -9,8 +9,6 @@ import { ipAddress } from "@vercel/functions";
 import { Exception } from "@/lib/exceptions";
 import { fetchFBContentJson } from "@/lib/facebook";
 
-export const runtime = 'edge';
-
 const manager = new TokenManager();
 
 export async function POST(request: NextRequest) {

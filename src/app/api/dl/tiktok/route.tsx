@@ -8,8 +8,6 @@ import { ipAddress } from "@vercel/functions";
 import { ENABLE_TIKTOK } from "@/conf";
 import { Exception } from "@/lib/exceptions";
 
-export const runtime = 'edge';
-
 const manager = new TokenManager();
 
 export async function POST(request: NextRequest) {
