@@ -3,6 +3,8 @@ import axios from "axios";
 import { MERGEIT_API } from "@/constants";
 import { FETCHY_CDN_API_KEY } from "@/constants/env";
 
+export const runtime = 'edge';
+
 export async function POST(request: NextRequest) {
   try {
     const { video, audio } = await request.json();
