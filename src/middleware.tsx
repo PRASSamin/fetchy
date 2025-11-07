@@ -17,6 +17,11 @@ export async function middleware(request: NextRequest) {
   const ip = ipAddress(request);
   const { flag, country } = geolocation(request);
   const securityManager = new TokenManagerEdge();
+  
+  const headers = new Headers(request.headers);
+  request.headers.forEach((value, key) => {
+    headers.set(key, value);
+  });
 
   // =============================
   // next-intl setup
@@ -66,7 +71,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const headers = new Headers(request.headers);
   headers.set("x-current-url", request.nextUrl.href);
   headers.set("x-current-path", pathname);
 
