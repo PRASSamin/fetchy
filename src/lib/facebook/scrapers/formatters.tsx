@@ -107,19 +107,29 @@ export function _generateRandomId() {
   return Math.random().toString(10).substring(2, 15);
 }
 
-export const formatGraphqlStoryJson = (data: string, contentId: string) => {
-  if (!data) {
+export const formatGraphqlStoryJson = (
+  raw: string,
+  contentId: string,
+  type: "story" | "highlight"
+) => {
+  if (!raw) {
     throw new BadRequest("This post does not exist");
   }
 
   let responseData;
   try {
-    responseData = JSON.parse(data.split("\n")[0]);
+    responseData = JSON.parse(raw.split("\n")[0]);
   } catch (e) {
-    responseData = data;
+    responseData = raw;
   }
 
-  const owner = responseData?.data?.nodes?.[0]?.story_bucket_owner || {};
+  const _BUCKET_NAME = type === "story" ? "nodes" : "bucket";
+  const _UNIFIED_STORIES_NAME =
+    type === "story" ? "unified_stories" : "unified_stories_with_notes";
+
+  const data = responseData?.data?.[_BUCKET_NAME];
+
+  const owner = data?.[0]?.story_bucket_owner || data?.story_bucket_owner || {};
   owner.profile_pic = owner?.profilePicture?.uri || null;
   owner.profile_url = owner?.url || null;
 
@@ -129,12 +139,15 @@ export const formatGraphqlStoryJson = (data: string, contentId: string) => {
 
   const contentInfo: FacebookStoryResponse = {
     id: contentId,
-    owner: responseData?.data?.nodes?.[0]?.story_bucket_owner || null,
+    owner: data?.[0]?.story_bucket_owner || data?.story_bucket_owner || null,
     type: "story",
     stories: [],
   };
 
-  const edges = responseData?.data?.nodes?.[0]?.unified_stories?.edges || [];
+  const edges =
+    data?.[0]?.[_UNIFIED_STORIES_NAME]?.edges ||
+    data?.[_UNIFIED_STORIES_NAME]?.edges ||
+    [];
 
   if (Array.isArray(edges) && edges.length > 0) {
     edges.forEach((item, index) => {

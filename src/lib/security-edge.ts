@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { TokenPayload } from "./security";
-import { STAGE } from "@/conf";
+import { STAGE } from "@/constants/env";
 
 export class TokenManagerEdge {
   decodeToken(token: string): TokenPayload | null {

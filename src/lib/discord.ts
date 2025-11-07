@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { NextRequest, NextResponse } from "next/server";
 import { redis } from "./redis";
 import { LOGGER_CACHE_TTL } from "@/conf";
+import { decodeAtob } from "@/utils";
 
 export async function serializeRequest(req: NextRequest, res: NextResponse) {
   const headers = Object.fromEntries(req.headers.entries());
@@ -23,6 +24,7 @@ export async function serializeRequest(req: NextRequest, res: NextResponse) {
     keepalive: req.keepalive,
     method: req.method,
     mode: req.mode,
+    geo: decodeAtob(req.cookies.get("_g")?.value || ""),
     nextUrl: req.nextUrl
       ? {
           pathname: req.nextUrl.pathname,
@@ -58,15 +60,14 @@ export class Discord {
     const { pathname } = this.request.nextUrl;
     const ip =
       ipAddress(this.request) || this.request.headers.get("x-forwarded-for");
-    let { country, flag } = geolocation(this.request);
+    const _g = this.request.cookies.get("_g")?.value;
+    let country = "";
+    let flag = "";
 
-    if (!country) {
-      const geo = this.request.cookies.get("user-geo")?.value;
-      if (geo) {
-        const [geoCountry, geoFlag] = geo.split(",");
-        country = geoCountry;
-        flag = geoFlag;
-      }
+    if (_g) {
+      const geo = decodeAtob(_g);
+      country = geo.country;
+      flag = geo.flag;
     }
 
     const body = await serializeRequest(this.request, this.response);

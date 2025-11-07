@@ -24,22 +24,27 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { FacebookStoryResponse } from "@/types/api/downloader";
+import {
+  FacebookStoryResponse,
+  InstagramStoryResponse,
+} from "@/types/api/downloader";
 import { useEffect, useState } from "react";
 import TrustpilotReview from "@/components/trustpilot-review-button";
 import { useTranslations } from "next-intl";
 
-const FBStoryResultView = ({
+const FBIGStoryResultView = ({
   data,
   processingTime,
 }: {
-  data: FacebookStoryResponse;
+  data: FacebookStoryResponse | InstagramStoryResponse;
   processingTime: string;
 }) => {
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isRendering, setIsRendering] = useState<boolean>(false);
   const [selectedStory, setSelectedStory] = useState<
-    FacebookStoryResponse["stories"][number] | null
+    | FacebookStoryResponse["stories"][number]
+    | InstagramStoryResponse["stories"][number]
+    | null
   >(data?.stories[0]);
   const rawT = useTranslations();
   const t = useTranslations("_tools");
@@ -335,4 +340,4 @@ const FBStoryResultView = ({
   );
 };
 
-export default FBStoryResultView;
+export default FBIGStoryResultView;

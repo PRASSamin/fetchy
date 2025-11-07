@@ -3,16 +3,35 @@ import {
   getIGVideoFileName,
   getIGImageFileName,
   getIGAudioFileName,
+  parseDashManifest,
 } from "./helpers";
-import { _generateRandomId } from "@/lib/facebook/scrapers/formaters";
+import { _generateRandomId } from "@/lib/facebook/scrapers/formatters";
 import { DOMParser } from "xmldom";
-import { InstagramResource, InstagramResponse } from "@/types/api/downloader";
+import {
+  InstagramContentType,
+  InstagramResource,
+  InstagramResponse,
+  InstagramStoryResponse,
+} from "@/types/api/downloader";
 
-export const formatGraphqlJson = (postJson: any) => {
-  const data = postJson.data.xdt_shortcode_media;
+export const formatGraphqlJson = (json: any, type: InstagramContentType) => {
+  if (type === "post" || type === "reel") {
+    return postAndReelFormatter(json);
+  }
+
+  if (type === "highlight") return highlightFormatter(json);
+
+  return postAndReelFormatter(json);
+};
+
+/**
+ * @private
+ */
+const postAndReelFormatter = (json: any) => {
+  const data = json.data.xdt_shortcode_media;
 
   if (!data) {
-    return null
+    return null;
   }
 
   const owner = data.owner;
@@ -57,6 +76,7 @@ export const formatGraphqlJson = (postJson: any) => {
 
     const PostJson: InstagramResponse = {
       id: data.id,
+      type: "post",
       owner: owner,
       thumbnail: data.thumbnail_src,
       resources: [
@@ -99,6 +119,7 @@ export const formatGraphqlJson = (postJson: any) => {
     id: data.id,
     thumbnail: thumbnailUrl,
     owner: owner,
+    type: "reel",
     resources: [
       {
         id: data.id,
@@ -169,4 +190,114 @@ export const formatGraphqlJson = (postJson: any) => {
   }
 
   return videoJson;
+};
+
+/**
+ * @private
+ */
+const highlightFormatter = (json: any) => {
+  const data =
+    json?.data?.xdt_api__v1__feed__reels_media__connection?.edges?.[0]?.node;
+
+  if (!data) {
+    return null;
+  }
+  const owner = data?.user;
+  owner.profile_pic = owner?.profile_pic_url;
+  owner.name = owner?.full_name;
+  owner.profile_url = `https://www.instagram.com/${owner?.username}/`;
+
+  const keysToRemove = [
+    "is_verified",
+    "is_private",
+    "blocked_by_viewer",
+    "followed_by_viewer",
+    "restricted_by_viewer",
+    "followed_by_viewer",
+    "has_blocked_viewer",
+    "is_embeds_disabled",
+    "is_unpublished",
+    "requested_by_viewer",
+    "pass_tiering_recommendation",
+    "edge_owner_to_timeline_media",
+    "edge_followed_by",
+    "profile_pic_url",
+    "full_name",
+  ];
+
+  keysToRemove.forEach((key) => {
+    if (key in owner) delete owner[key];
+  });
+
+  const contentInfo: InstagramStoryResponse = {
+    id: data.id,
+    owner: owner,
+    type: "story",
+    stories: [],
+  };
+
+  data.items.forEach((item: any) => {
+    const imageVersions = item?.image_versions2?.candidates;
+    // Pick the best image candidate by largest area (width * height)
+    const bestImageCandidate =
+      Array.isArray(imageVersions) && imageVersions.length > 0
+        ? imageVersions.reduce((best: any, cand: any) => {
+            const bestArea = (best?.width ?? 0) * (best?.height ?? 0);
+            const candArea = (cand?.width ?? 0) * (cand?.height ?? 0);
+            return candArea > bestArea ? cand : best;
+          }, imageVersions[0])
+        : null;
+    const bestImageUrl: string | null = bestImageCandidate?.url ?? null;
+
+    const standardVideo = item?.video_versions?.[0]?.url;
+
+    const resources: InstagramResource[] = [];
+
+    if (bestImageUrl) {
+      resources.push({
+        id: _generateRandomId(),
+        filename: getIGImageFileName(
+          `${item?.id}_${bestImageCandidate?.width}x${bestImageCandidate?.height}`
+        ),
+        type: "image",
+        mime_type: "image/jpg",
+        has_audio: false,
+        width: bestImageCandidate?.width,
+        height: bestImageCandidate?.height,
+        baseURL: bestImageUrl,
+      });
+    }
+
+    if (standardVideo) {
+      resources.push({
+        id: _generateRandomId(),
+        filename: getIGVideoFileName(
+          `${item?.id}_${item?.original_width}x${item?.original_height}`
+        ),
+        type: "video",
+        mime_type: "video/mp4",
+        quality: `${item?.original_width}p`,
+        has_audio: true,
+        width: item?.original_width,
+        height: item?.original_height,
+        baseURL: standardVideo,
+      });
+    }
+
+    resources.push(
+      ...parseDashManifest({
+        manifest: item?.video_dash_manifest,
+        thumbnailUrl: bestImageUrl || "",
+      })
+    );
+
+    contentInfo.stories.push({
+      id: item.id,
+      type: "video",
+      resources,
+      thumbnail: bestImageUrl || "",
+    });
+  });
+  
+  return contentInfo;
 };

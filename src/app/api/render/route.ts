@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { MERGEIT_API } from "@/constants";
-import { FETCHY_CDN_API_KEY } from "@/conf";
+import { FETCHY_CDN_API_KEY } from "@/constants/env";
 
 export async function POST(request: NextRequest) {
   try {

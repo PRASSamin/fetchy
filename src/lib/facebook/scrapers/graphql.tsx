@@ -1,15 +1,14 @@
 import querystring from "querystring";
-import { formatGraphqlVideoJson, formatGraphqlStoryJson } from "./formaters";
+import { formatGraphqlVideoJson, formatGraphqlStoryJson } from "./formatters";
 import { HttpRequest } from "@/utils";
 import { handleScraperError } from "./helpers";
-import * as fs from "fs";
 import {
-  FacebookResponse,
+  FacebookContentType,
   FacebookVideoResponse,
 } from "@/types/api/downloader";
 import { FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API } from "@/constants";
 import axios from "axios";
-import { FETCHY_CDN_API_KEY } from "@/conf";
+import { FB_COOKIE, FB_DTSG_TOKEN, FETCHY_CDN_API_KEY } from "@/constants/env";
 import { BadRequest } from "@/lib/exceptions";
 
 const encodeVideoRequestData = (contentId: string) => {
@@ -40,32 +39,63 @@ const encodeVideoRequestData = (contentId: string) => {
   return encoded;
 };
 
-const encodeStoryRequestData = (contentId: string) => {
+const encodeStoryHighlightRequestData = (
+  contentId: string,
+  type: FacebookContentType
+) => {
+  const isHighlight = type === "highlight";
+
+  const docId = isHighlight ? "32287746704205066" : "7202535426537683";
+  const variables = isHighlight
+    ? {
+        blur: 10,
+        bucketID: contentId,
+        feedbackSource: 65,
+        feedLocation: "COMET_MEDIA_VIEWER",
+        focusCommentID: null,
+        initialBucketID: contentId,
+        initialLoad: true,
+        isFbNotesIncluded: false,
+        isStoriesArchive: false,
+        scale: 1,
+        shouldDeferLoad: false,
+        shouldEnableArmadilloStoryReply: true,
+        shouldEnableLiveInStories: true,
+        __relay_internal__pv__StoriesShouldIncludeFbNotesrelayprovider: false,
+        __relay_internal__pv__StoriesThreeDotsMenuEntryPoint_enable_entrypoint_qerelayprovider: false,
+        __relay_internal__pv__StoriesThreeDotsMenuRelay3D_enable_relay3d_qerelayprovider: false,
+        __relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider: false,
+        __relay_internal__pv__IsWorkUserrelayprovider: false,
+        __relay_internal__pv__StoriesLWRVariantrelayprovider:
+          "www_new_reactions",
+      }
+    : {
+        bucketIDs: [contentId],
+        scale: 1,
+        blur: 10,
+        shouldEnableArmadilloStoryReply: true,
+        shouldEnableLiveInStories: true,
+        feedbackSource: 65,
+        useDefaultActor: false,
+        feedLocation: "COMET_MEDIA_VIEWER",
+        focusCommentID: null,
+        shouldDeferLoad: false,
+        isStoriesArchive: false,
+        __relay_internal__pv__StoriesIsShareToStoryEnabledrelayprovider: false,
+        __relay_internal__pv__IsWorkUserrelayprovider: false,
+      };
+
   const requestData = {
-    doc_id: 7202535426537683,
-    variables: JSON.stringify({
-      bucketIDs: [contentId],
-      scale: 1,
-      blur: 10,
-      shouldEnableArmadilloStoryReply: true,
-      shouldEnableLiveInStories: true,
-      feedbackSource: 65,
-      useDefaultActor: false,
-      feedLocation: "COMET_MEDIA_VIEWER",
-      focusCommentID: null,
-      shouldDeferLoad: false,
-      isStoriesArchive: false,
-      __relay_internal__pv__StoriesIsShareToStoryEnabledrelayprovider: false,
-      __relay_internal__pv__IsWorkUserrelayprovider: false,
-    }),
+    doc_id: docId,
+    variables: JSON.stringify(variables),
+    fb_dtsg: FB_DTSG_TOKEN,
     server_timestamps: true,
   };
-  const encoded = querystring.stringify(requestData);
-  return encoded;
+  return querystring.stringify(requestData);
 };
 
 export const fetchFromFbGraphQL = async (
-  type: string,
+  type: FacebookContentType,
   contentId: string,
   requestedUrl: string,
   timeout: number = 0
@@ -83,16 +113,17 @@ export const fetchFromFbGraphQL = async (
     "sec-gpc": "1",
     "user-agent":
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "x-asbd-id": "129477",
-    "x-fb-friendly-name": "StoriesViewerBucketPrefetcherMultiBucketsQuery",
-    "x-fb-lsd": "jueQkOOsFwea95Sl_R-LU4",
+    "x-asbd-id": "359341",
+    "x-fb-friendly-name": "StoriesSuspenseContentPaneRootWithEntryPointQuery",
+    "x-fb-lsd": "KLAEUjPxtGRiaMNx5zNUVg",
     origin: "https://www.facebook.com",
+    cookie: FB_COOKIE,
   };
 
   const encodedData =
     type === "video"
       ? encodeVideoRequestData(contentId)
-      : encodeStoryRequestData(contentId);
+      : encodeStoryHighlightRequestData(contentId, type);
 
   let response;
   try {
@@ -111,7 +142,6 @@ export const fetchFromFbGraphQL = async (
     return null;
   }
   if (response.statusText === "error") return null;
-
   const contentType = response.headers["content-type"];
   if (contentType !== 'text/html; charset="utf-8"') return null;
 
@@ -131,8 +161,9 @@ export const fetchFromFbGraphQL = async (
       );
 
     return json;
-  } else if (type === "story") {
-    const formatedJson = formatGraphqlStoryJson(responseJson, contentId);
+  } else if (type === "story" || type === "highlight") {
+    const formatedJson = formatGraphqlStoryJson(responseJson, contentId, type);
+
     if (!formatedJson?.owner || formatedJson?.stories?.length === 0)
       return null;
     return formatedJson;

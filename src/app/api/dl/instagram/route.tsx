@@ -50,7 +50,6 @@ export async function POST(request: NextRequest) {
       response = handleError(err);
       throw new Exception(response.body.error, response.status);
     });
-
     const data = SuccessResponse(json);
     response = { body: data, status: 200 };
     return NextResponse.json(data, { status: 200 });

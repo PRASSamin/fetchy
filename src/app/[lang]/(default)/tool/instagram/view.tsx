@@ -2,7 +2,10 @@
 import { useState } from "react";
 
 import OpenSource from "@/components/open-source";
-import { InstagramResponse } from "@/types/api/downloader";
+import {
+  InstagramResponse,
+  InstagramStoryResponse,
+} from "@/types/api/downloader";
 import GlobalResultView from "../components/GlobalResultView";
 import { animated, useTransition } from "@react-spring/web";
 import DownloaderHero from "../components/hero";
@@ -11,6 +14,7 @@ import HowToUseFetchy from "../components/howtouse";
 import { BSL_1_1 } from "@/constants";
 import DownloaderFAQ from "../components/faq";
 import { useMessages, useTranslations } from "next-intl";
+import FBIGStoryResultView from "../components/FBIGStoryResultView";
 
 const InstagramDownloaderView = () => {
   const [data, setData] = useState<InstagramResponse | null>(null);
@@ -40,7 +44,17 @@ const InstagramDownloaderView = () => {
       {transition((style, item) =>
         item ? (
           <animated.div style={style}>
-            <GlobalResultView data={item} processingTime={processingTime} />
+            {item.type === "story" ? (
+              <FBIGStoryResultView
+                data={item as unknown as InstagramStoryResponse}
+                processingTime={processingTime}
+              />
+            ) : (
+              <GlobalResultView
+                data={item as InstagramResponse}
+                processingTime={processingTime}
+              />
+            )}
           </animated.div>
         ) : null
       )}

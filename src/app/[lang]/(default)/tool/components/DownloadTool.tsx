@@ -131,8 +131,16 @@ const DownloadTool = ({
         },
         {
           keys: ["Ctrl", "X"],
-          handler: () => {
-            setUrl("");
+          handler: async () => {
+            try {
+              await navigator.clipboard.writeText(url);
+              setUrl("");
+            } catch (err) {
+              console.error(err);
+              toast.error(
+                errors("copy_failed") || "Failed to copy to clipboard"
+              );
+            }
           },
           options: {
             preventDefault: true,

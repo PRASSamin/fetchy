@@ -1,3 +1,4 @@
+import { APP_NAME } from "@/constants";
 import { BadRequest, TimeoutException } from "@/lib/exceptions";
 import { FacebookVideoResource } from "@/types/api/downloader";
 import { getTimedFilename } from "@/utils";
@@ -8,7 +9,7 @@ export const getFbContentFileName = (
   res: string,
   ext: string
 ) => {
-  return getTimedFilename(`PRAS-${type}-${res}`, ext);
+  return getTimedFilename(`${APP_NAME}_${type}_${res}`, ext);
 };
 
 export const handleScraperError = (error: Error) => {
@@ -45,7 +46,6 @@ export const parseDashManifest = ({
   const videoInfoList = Array.from(representations).map((rep: any) => {
     const mime_type = rep.getAttribute("mimeType");
     const id = rep.getAttribute("id");
-    const bandwidth = rep.getAttribute("bandwidth");
     const baseURL = rep.getElementsByTagName(urlFieldKey)[0]?.textContent || "";
 
     if (mime_type.includes("audio")) {

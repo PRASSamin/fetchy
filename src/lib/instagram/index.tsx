@@ -5,32 +5,52 @@ import { getTranslations } from "next-intl/server";
 
 export const getPostId = async (url: string) => {
   const t = await getTranslations("errors");
+
   const postRegex =
     /^https:\/\/(?:www\.)?instagram\.com\/p\/([a-zA-Z0-9_-]+)\/?/;
   const reelRegex =
     /^https:\/\/(?:www\.)?instagram\.com\/(?:reels|reel)\/([a-zA-Z0-9_-]+)\/?/;
-
-  let postId;
+  const storyRegex =
+    /^https:\/\/(?:www\.)?instagram\.com\/stories\/([a-zA-Z0-9._-]+)\/?$/;
+  const highlightRegex =
+    /^https:\/\/(?:www\.)?instagram\.com\/stories\/highlights\/([0-9]+)\/?$/;
 
   if (!url) {
     throw new BadRequest(t("invalid_url"), 400);
   }
 
+  let postId: string | undefined;
+  let type: "post" | "reel" | "story" | "highlight" | undefined;
+
   const postCheck = url.match(postRegex);
   if (postCheck) {
     postId = postCheck.at(-1);
+    type = "post";
   }
 
   const reelCheck = url.match(reelRegex);
   if (reelCheck) {
     postId = reelCheck.at(-1);
+    type = "reel";
   }
 
-  if (!postId) {
+  const highlightCheck = url.match(highlightRegex);
+  if (highlightCheck) {
+    postId = highlightCheck.at(-1);
+    type = "highlight";
+  }
+
+  const storyCheck = url.match(storyRegex);
+  if (storyCheck) {
+    postId = storyCheck.at(-1);
+    type = "story";
+  }
+
+  if (!postId || !type) {
     throw new BadRequest(t("invalid_url"), 400);
   }
 
-  return postId;
+  return { id: postId, type };
 };
 
 export const fetchInstaContentJson = async (
@@ -38,10 +58,6 @@ export const fetchInstaContentJson = async (
   timeout: number = 0
 ) => {
   const t = await getTranslations("errors");
-
-  if (/\/stories|highlights\//.test(url)) {
-    throw new BadRequest(t("instagram_not_supported_content"), 400);
-  }
 
   const orgUrl = await resolveRedirectUrl({
     url,
@@ -56,9 +72,9 @@ export const fetchInstaContentJson = async (
     },
   });
 
-  const postId = await getPostId(orgUrl.url);
+  const { id: postId, type } = await getPostId(orgUrl.url);
 
-  const apiJson = await fetchFromGraphQL(postId, orgUrl.url, timeout);
+  const apiJson = await fetchFromGraphQL(postId, orgUrl.url, timeout, type);
   if (apiJson) return apiJson;
 
   throw new BadRequest(t("private_or_not_exist"), 404);

@@ -7,16 +7,27 @@ import { BANNED_SCRAPPERS } from "./middleware/ban";
 import { isStaticPath } from "./middleware/isStatic";
 import { TokenManagerEdge } from "./lib/security-edge";
 import { FETCHY_GITHUB } from "./constants";
-import { FETCHY_API_KEY, STAGE } from "./conf";
+import { FETCHY_API_KEY, STAGE } from "./constants/env";
 import { routing } from "./i18n/routing";
 import createMiddleware from "next-intl/middleware";
 import { LOCALES_INFO, resolveLocale } from "./constants/locales";
+import { encodeBtoa } from "./utils";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = ipAddress(request);
-  const { flag, country } = geolocation(request);
+  const {
+    flag,
+    country,
+    city,
+    countryRegion,
+    latitude,
+    longitude,
+    postalCode,
+    region,
+  } = geolocation(request);
   const securityManager = new TokenManagerEdge();
+  const headers = new Headers(request.headers);
 
   // =============================
   // next-intl setup
@@ -44,15 +55,22 @@ export async function middleware(request: NextRequest) {
   const intlMiddleware = createMiddleware({ ...routing, defaultLocale });
   const response = intlMiddleware(request);
 
-  if (country && flag) {
-    response.cookies.set("user-geo", `${country},${flag}`, {
-      path: "/",
-      maxAge: 15, // 15 seconds
-    });
-  }
+  const geo = {
+    country,
+    flag,
+    city,
+    countryRegion,
+    latitude,
+    longitude,
+    postalCode,
+    region,
+  };
+  response.cookies.set("_g", encodeBtoa(geo), {
+    path: "/",
+    maxAge: 15,
+  });
 
   // =============================
-
   const locale = response.headers.get(
     "x-middleware-request-x-next-intl-locale"
   );
@@ -66,7 +84,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const headers = new Headers(request.headers);
   headers.set("x-current-url", request.nextUrl.href);
   headers.set("x-current-path", pathname);
 
@@ -109,6 +126,7 @@ export async function middleware(request: NextRequest) {
   if (STAGE === "production") {
     if (
       request.headers.get("host") !== "gofetchy.app" &&
+      request.headers.get("host") !== "test.gofetchy.app" &&
       request.headers.get("host") !== "fetchy.pras.me" &&
       request.headers.get("host") !== "pownloader.pras.me"
     ) {
@@ -169,7 +187,7 @@ export async function middleware(request: NextRequest) {
       maxAge: 60,
     });
   }
-
+  
   return response;
 }
 

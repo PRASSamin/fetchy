@@ -10,7 +10,7 @@ import GlobalResultView from "../components/GlobalResultView";
 import { animated, useTransition } from "@react-spring/web";
 import DownloaderHero from "../components/hero";
 import DownloadTool from "../components/DownloadTool";
-import FBStoryResultView from "../components/FBStoryResultView";
+import FBStoryResultView from "../components/FBIGStoryResultView";
 import FBLiveResultView from "../components/FBLiveResultView";
 import HowToUseFetchy from "../components/howtouse";
 import DownloaderFAQ from "../components/faq";

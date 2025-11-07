@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { BadRequest } from "@/lib/exceptions";
-import { FETCHY_API_KEY } from "@/conf";
+import { FETCHY_API_KEY } from "@/constants/env";
 import crypto from "crypto";
 
 export const getTimedFilename = (name: string, ext: string) => {
@@ -50,6 +50,20 @@ export const HttpRequest = async ({ ...args }: AxiosRequestConfig) => {
       console.error("Server Error: ", err.message);
       throw new ServerException();
     }
+  }
+};
+
+export const encodeBtoa = (data: Record<string, any>) => {
+  const json = JSON.stringify(data);
+  return btoa(encodeURIComponent(json));
+};
+
+export const decodeAtob = (token: string) => {
+  try {
+    const json = decodeURIComponent(atob(token));
+    return JSON.parse(json);
+  } catch {
+    return null;
   }
 };
 
