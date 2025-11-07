@@ -8,7 +8,7 @@ import {
 } from "@/types/api/downloader";
 import { FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API } from "@/constants";
 import axios from "axios";
-import { FB_COOKIE, FETCHY_CDN_API_KEY } from "@/constants/env";
+import { FB_COOKIE, FB_DTSG_TOKEN, FETCHY_CDN_API_KEY } from "@/constants/env";
 import { BadRequest } from "@/lib/exceptions";
 
 const encodeVideoRequestData = (contentId: string) => {
@@ -88,8 +88,7 @@ const encodeStoryHighlightRequestData = (
   const requestData = {
     doc_id: docId,
     variables: JSON.stringify(variables),
-    fb_dtsg:
-      "NAfsToRITcQRgJaxOR-z4uHXDr56Ww3PZbTjxX1X0ra4X4crfP5yHtA:33:1762489257",
+    fb_dtsg: FB_DTSG_TOKEN,
     server_timestamps: true,
   };
   return querystring.stringify(requestData);

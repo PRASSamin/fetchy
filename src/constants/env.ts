@@ -13,3 +13,4 @@ export const ANONYMOUS_SECRET = process.env.NEXT_ANONYMOUS_SECRET!;
 
 export const IG_COOKIE = process.env.NEXT_IG_COOKIE!;
 export const FB_COOKIE = process.env.NEXT_FB_COOKIE!;
+export const FB_DTSG_TOKEN = process.env.NEXT_FB_DTSG_TOKEN!;
