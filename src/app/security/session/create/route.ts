@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { TokenManager } from "@/lib/security";
-import { DOWNLOADER_SESSION_TTL, FETCHY_API_KEY } from "@/conf";
+import {  FETCHY_API_KEY } from "@/constants/env";
+import { DOWNLOADER_SESSION_TTL } from "@/conf";
 
 export async function POST(request: NextRequest) {
   const manager = new TokenManager(

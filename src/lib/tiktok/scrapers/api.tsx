@@ -1,9 +1,9 @@
 import { handleScraperError } from "@/lib/facebook/scrapers/helpers";
 import { TIKTOK_CONTENT_FETCH_API } from "@/constants";
 import axios from "axios";
-import { formatTiktokJson } from "./formaters";
+import { formatTiktokJson } from "./formatters";
 import { TiktokResponse } from "@/types/api/downloader";
-import { FETCHY_CDN_API_KEY } from "@/conf";
+import { FETCHY_CDN_API_KEY } from "@/constants/env";
 
 export const fetchTiktokContent = async (
   url: string,

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { ADMIN_AUTH_COOKIE } from "@/constants";
-import { ADMIN_AUTH_COOKIE_TTL, ADMIN_PANEL_PASSWORD } from "@/conf";
+import {  ADMIN_PANEL_PASSWORD } from "@/constants/env";
+import { ADMIN_AUTH_COOKIE_TTL, } from "@/conf";
 
 export async function POST(req: NextRequest) {
   const { password } = await req.json();

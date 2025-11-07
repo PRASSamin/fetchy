@@ -2,14 +2,38 @@ import querystring from "querystring";
 
 import { HttpRequest } from "@/utils";
 import { handleScraperError } from "./helpers";
-import { formatGraphqlJson } from "./formaters";
+import { formatGraphqlJson } from "./formatters";
 import { IG_SEMI_PRIVATE_REEL_FETCH_API } from "@/constants";
-import { InstagramResponse } from "@/types/api/downloader";
+import {
+  InstagramResponse,
+  InstagramContentType,
+} from "@/types/api/downloader";
 import axios from "axios";
-import { FETCHY_CDN_API_KEY } from "@/conf";
+import { FETCHY_CDN_API_KEY, IG_COOKIE } from "@/constants/env";
 import { BadRequest } from "@/lib/exceptions";
 
-const encodePostRequestData = (shortcode: string) => {
+const encodePostRequestData = (postId: string, type: InstagramContentType) => {
+  const isPostOrReel = ["post", "reel"].includes(type);
+  const docId = isPostOrReel ? "10015901848480474" : "31842794902034649";
+  const variables = isPostOrReel
+    ? {
+        shortcode: postId,
+        fetch_comment_count: "null",
+        fetch_related_profile_media_count: "null",
+        parent_comment_count: "null",
+        child_comment_count: "null",
+        fetch_like_count: "null",
+        fetch_tagged_user_count: "null",
+        fetch_preview_comment_count: "null",
+        has_threaded_comments: "false",
+        hoisted_comment_id: "null",
+        hoisted_reply_id: "null",
+      }
+    : {
+        initial_reel_id: `highlight:${postId}`,
+        reel_ids: [`highlight:${postId}`],
+        first: 1,
+      };
   const requestData = {
     av: "0",
     __d: "www",
@@ -34,21 +58,9 @@ const encodePostRequestData = (shortcode: string) => {
     __spin_t: "1695523385",
     fb_api_caller_class: "RelayModern",
     fb_api_req_friendly_name: "PolarisPostActionLoadPostQueryQuery",
-    variables: JSON.stringify({
-      shortcode: shortcode,
-      fetch_comment_count: "null",
-      fetch_related_profile_media_count: "null",
-      parent_comment_count: "null",
-      child_comment_count: "null",
-      fetch_like_count: "null",
-      fetch_tagged_user_count: "null",
-      fetch_preview_comment_count: "null",
-      has_threaded_comments: "false",
-      hoisted_comment_id: "null",
-      hoisted_reply_id: "null",
-    }),
+    variables: JSON.stringify(variables),
     server_timestamps: "true",
-    doc_id: "10015901848480474",
+    doc_id: docId,
   };
   const encoded = querystring.stringify(requestData);
   return encoded;
@@ -57,11 +69,15 @@ const encodePostRequestData = (shortcode: string) => {
 export const fetchFromGraphQL = async (
   postId: string,
   requestedUrl: string,
-  timeout: number = 0
+  timeout: number = 0,
+  type: InstagramContentType
 ) => {
   if (!postId) return null;
+  const isStoryOrHighlight = ["story", "highlight"].includes(type);
 
-  const API_URL = "https://www.instagram.com/api/graphql";
+  const API_URL = isStoryOrHighlight
+    ? "https://www.instagram.com/graphql/query"
+    : "https://www.instagram.com/api/graphql";
   const headers = {
     Accept: "*/*",
     "Accept-Language": "en-US,en;q=0.5",
@@ -76,9 +92,12 @@ export const fetchFromGraphQL = async (
     "Sec-Fetch-Site": "same-origin",
     "User-Agent":
       "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36",
+    cookie: ["highlight", "story"].includes(type)
+      ? `${IG_COOKIE}`
+      : "",
   };
 
-  const encodedData = encodePostRequestData(postId);
+  const encodedData = encodePostRequestData(postId, type);
 
   let response: any;
   try {
@@ -99,14 +118,11 @@ export const fetchFromGraphQL = async (
 
   if (response.statusText === "error") return null;
 
-  const contentType = response.headers["content-type"];
-
-  if (contentType !== "text/javascript; charset=utf-8") return null;
-
   const responseJson = response.data;
   if (!responseJson.data) return null;
 
-  let json = formatGraphqlJson(responseJson);
+  let json = formatGraphqlJson(responseJson, type);
+  console.log(json);
   // if formatedJson is null, thats mean it might be a private or semi-private video. so fetch it from the cdn
   if (json === null) {
     json = await fetchIGSemiPrivateReel(requestedUrl, timeout);

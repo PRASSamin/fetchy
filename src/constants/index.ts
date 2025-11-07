@@ -17,3 +17,4 @@ export const FETCHY_GITHUB = `${PRAS_GITHUB}/fetchy`;
 export const FETCHY_BASE_URL = "https://gofetchy.app";
 
 export const ADMIN_AUTH_COOKIE = "__FETCHY_ADMIN_AUTH__";
+export const APP_NAME = "Fetchy";

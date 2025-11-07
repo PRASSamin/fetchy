@@ -1,9 +1,8 @@
 import jwt from "jsonwebtoken";
 import type { SignOptions } from "jsonwebtoken";
 import crypto from "crypto";
-import { FETCHY_API_KEY } from "@/conf";
+import { FETCHY_API_KEY, STAGE } from "@/constants/env";
 import { TokenManagerEdge } from "./security-edge";
-import { STAGE } from "@/conf";
 
 export interface TokenPayload {
   ip: string;

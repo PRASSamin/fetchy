@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { BadRequest } from "@/lib/exceptions";
-import { FETCHY_API_KEY } from "@/conf";
+import { FETCHY_API_KEY } from "@/constants/env";
 import crypto from "crypto";
 
 export const getTimedFilename = (name: string, ext: string) => {

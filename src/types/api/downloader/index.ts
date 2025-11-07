@@ -1,3 +1,4 @@
+export type FacebookContentType = "video" | "story" | "highlight";
 export interface FacebookResource {
   id: string;
   type: "image" | "video" | "audio";
@@ -47,6 +48,8 @@ export interface FacebookStoryResponse {
 
 export type FacebookResponse = FacebookVideoResponse | FacebookStoryResponse;
 
+export type InstagramContentType = "post" | "reel" | "story" | "highlight";
+
 export interface InstagramResource extends FacebookResource {
   thumbnail?: string;
 }
@@ -54,8 +57,22 @@ export interface InstagramResource extends FacebookResource {
 export interface InstagramResponse {
   id: string;
   owner: Owner;
+  type: "post" | "reel" | "story";
   thumbnail?: string;
   resources: InstagramResource[];
+}
+
+export interface InstagramStoryResponse {
+  id: string;
+  owner: Owner;
+  type: "story";
+  thumbnail?: string | null;
+  stories: {
+    id: string;
+    type: "image" | "video" | "audio";
+    resources: InstagramResource[];
+    thumbnail: string;
+  }[];
 }
 
 export interface TiktokResource extends FacebookResource {

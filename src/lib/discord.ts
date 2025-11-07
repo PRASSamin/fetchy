@@ -58,6 +58,7 @@ export class Discord {
     const { pathname } = this.request.nextUrl;
     const ip =
       ipAddress(this.request) || this.request.headers.get("x-forwarded-for");
+      console.log(this.request)
     let { country, flag } = geolocation(this.request);
 
     if (!country) {

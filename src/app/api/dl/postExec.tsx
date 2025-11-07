@@ -1,7 +1,8 @@
 import axios from "axios";
 import type { NextResponse, NextRequest } from "next/server";
 import { Discord } from "@/lib/discord";
-import { ENABLE_LOGGER, SEND_TO_DISCORD, ANONYMOUS_SECRET } from "@/conf";
+import { ENABLE_LOGGER, SEND_TO_DISCORD } from "@/conf";
+import { ANONYMOUS_SECRET } from "@/constants/env";
 
 export const postExec = async (
   request: NextRequest,

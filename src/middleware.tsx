@@ -7,7 +7,7 @@ import { BANNED_SCRAPPERS } from "./middleware/ban";
 import { isStaticPath } from "./middleware/isStatic";
 import { TokenManagerEdge } from "./lib/security-edge";
 import { FETCHY_GITHUB } from "./constants";
-import { FETCHY_API_KEY, STAGE } from "./conf";
+import { FETCHY_API_KEY, STAGE } from "./constants/env";
 import { routing } from "./i18n/routing";
 import createMiddleware from "next-intl/middleware";
 import { LOCALES_INFO, resolveLocale } from "./constants/locales";

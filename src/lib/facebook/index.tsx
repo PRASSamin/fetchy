@@ -3,6 +3,8 @@ import { fetchFromFbGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
 import { USER_AGENT } from "@/constants";
 import { getTranslations } from "next-intl/server";
+import { FB_COOKIE } from "@/constants/env";
+import { FacebookContentType } from "@/types/api/downloader";
 
 export function extractFacebookRedirectedUrl(fullUrl: string) {
   try {
@@ -35,7 +37,7 @@ export const getContentFbId = async ({
   url: string;
   html?: string;
 }): Promise<{
-  type: "video" | "story";
+  type: FacebookContentType;
   contentId: string;
 }> => {
   const t = await getTranslations("errors");
@@ -67,6 +69,12 @@ export const getContentFbId = async ({
   const storyCheck = url.match(storyRegex);
   if (storyCheck) {
     contentId = storyCheck.at(-1);
+    if (html && html.includes("StoryHighlightContainer")) {
+      return {
+        type: "highlight",
+        contentId,
+      };
+    }
     return {
       type: "story",
       contentId,
@@ -120,8 +128,7 @@ export const fetchFBContentJson = async (
         Accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.8",
-        cookie:
-          "datr=YL6OZ9N5-1Lklte7br433knu; sb=YL6OZ4dJAzSXgjX7oX9o4K2F; wd=775x834; ps_l=1; ps_n=1",
+        cookie: FB_COOKIE,
         Host: "www.facebook.com",
         referrer: "https://www.facebook.com/",
       },
