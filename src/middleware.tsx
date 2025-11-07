@@ -11,17 +11,23 @@ import { FETCHY_API_KEY, STAGE } from "./constants/env";
 import { routing } from "./i18n/routing";
 import createMiddleware from "next-intl/middleware";
 import { LOCALES_INFO, resolveLocale } from "./constants/locales";
+import { encodeBtoa } from "./utils";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = ipAddress(request);
-  const { flag, country } = geolocation(request);
+  const {
+    flag,
+    country,
+    city,
+    countryRegion,
+    latitude,
+    longitude,
+    postalCode,
+    region,
+  } = geolocation(request);
   const securityManager = new TokenManagerEdge();
-  
   const headers = new Headers(request.headers);
-  request.headers.forEach((value, key) => {
-    headers.set(key, value);
-  });
 
   // =============================
   // next-intl setup
@@ -49,15 +55,22 @@ export async function middleware(request: NextRequest) {
   const intlMiddleware = createMiddleware({ ...routing, defaultLocale });
   const response = intlMiddleware(request);
 
-  if (country && flag) {
-    response.cookies.set("user-geo", `${country},${flag}`, {
-      path: "/",
-      maxAge: 15, // 15 seconds
-    });
-  }
+  const geo = {
+    country,
+    flag,
+    city,
+    countryRegion,
+    latitude,
+    longitude,
+    postalCode,
+    region,
+  };
+  response.cookies.set("_g", encodeBtoa(geo), {
+    path: "/",
+    maxAge: 15,
+  });
 
   // =============================
-
   const locale = response.headers.get(
     "x-middleware-request-x-next-intl-locale"
   );
@@ -174,7 +187,7 @@ export async function middleware(request: NextRequest) {
       maxAge: 60,
     });
   }
-  console.log(response);
+  
   return response;
 }
 

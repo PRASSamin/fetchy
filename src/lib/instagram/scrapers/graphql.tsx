@@ -122,7 +122,7 @@ export const fetchFromGraphQL = async (
   if (!responseJson.data) return null;
 
   let json = formatGraphqlJson(responseJson, type);
-  console.log(json);
+
   // if formatedJson is null, thats mean it might be a private or semi-private video. so fetch it from the cdn
   if (json === null) {
     json = await fetchIGSemiPrivateReel(requestedUrl, timeout);

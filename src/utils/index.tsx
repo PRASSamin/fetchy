@@ -53,6 +53,20 @@ export const HttpRequest = async ({ ...args }: AxiosRequestConfig) => {
   }
 };
 
+export const encodeBtoa = (data: Record<string, any>) => {
+  const json = JSON.stringify(data);
+  return btoa(encodeURIComponent(json));
+};
+
+export const decodeAtob = (token: string) => {
+  try {
+    const json = decodeURIComponent(atob(token));
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+};
+
 export const downloadFile = async (
   url: string,
   filename: string,
