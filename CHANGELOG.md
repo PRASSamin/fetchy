@@ -2,16 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+### [Version 3.1.0] | 2025-11-07
+
+### Added
+
+- Instagram Downloader: Added support for downloading highlights 
+- Facebook Downloader: Added support for downloading highlights 
+
+### Fixed
+
+- Fixed an issue with geo-location logging not working correctly 
+
 ### [Version 3.0.2] | 2025-08-26
 
 ### Added
+
 - **Enhanced Content Support**: Introduced capabilities to fetch content from public Instagram and Facebook pages that may require a logged-in session to view.
 - **New Blog Content**: Published three new articles to improve SEO:
-  - *How to Download Instagram Posts & Carousels in HD*
-  - *How to Save Just the Audio from a TikTok (MP3)*
-  - *How to Download TikTok Slideshows as a Single Video*
+  - _How to Download Instagram Posts & Carousels in HD_
+  - _How to Save Just the Audio from a TikTok (MP3)_
+  - _How to Download TikTok Slideshows as a Single Video_
 
 ### Fixed
+
 - **Site Metadata**: Corrected sitewide metadata to ensure accurate information and improve social media link previews.
 
 ### [Version 3.0.1] | 2025/07/28

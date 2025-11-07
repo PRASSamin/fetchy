@@ -132,6 +132,7 @@ const DownloadTool = ({
         {
           keys: ["Ctrl", "X"],
           handler: () => {
+            navigator.clipboard.writeText(url);
             setUrl("");
           },
           options: {

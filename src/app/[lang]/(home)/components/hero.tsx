@@ -123,7 +123,7 @@ const HeroSection = () => {
       {/* TEXT SIDE */}
       <div className="flex flex-col gap-20 relative max-w-[calc(100vw-2rem)] mx-auto">
         <div className="space-y-6 text-center lg:max-w-[80%] mx-auto flex flex-col items-center">
-          <a
+          {/* <a
             href="https://www.producthunt.com/products/fetchy?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-fetchy"
             target="_blank"
           >
@@ -133,7 +133,7 @@ const HeroSection = () => {
               width={200}
               height={40}
             />
-          </a>
+          </a> */}
           <h1
             style={{
               fontSize: fluid("2.25rem", "4.5rem") as string,

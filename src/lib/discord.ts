@@ -64,8 +64,6 @@ export class Discord {
     let country = "";
     let flag = "";
 
-    console.log(_g);
-    console.log(decodeAtob(_g || ""));
     if (_g) {
       const geo = decodeAtob(_g);
       country = geo.country;
