@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
   const acceptLanguage = (request.headers.get("accept-language") ?? "")
     .split(/[;,]/)[0]
     ?.trim();
-
+  console.log(request);
   // If cookie missing and accept-language not supported, replace accept-lang header
   if (
     !resolveLocale(localeFromCookie ?? "") &&
