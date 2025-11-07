@@ -109,6 +109,7 @@ export async function middleware(request: NextRequest) {
   if (STAGE === "production") {
     if (
       request.headers.get("host") !== "gofetchy.app" &&
+      request.headers.get("host") !== "test.gofetchy.app" &&
       request.headers.get("host") !== "fetchy.pras.me" &&
       request.headers.get("host") !== "pownloader.pras.me"
     ) {
