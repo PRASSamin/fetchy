@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { MERGEIT_API } from "@/constants";
-import { FETCHY_CDN_API_KEY } from "@/constants/env";
+import { redenv } from "@/lib/redenv";
 
 export async function POST(request: NextRequest) {
   try {
+    const env = await redenv.load();
     const { video, audio } = await request.json();
 
     if (!video || !audio) {
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
       {
         headers: {
           "Content-Type": "application/json",
-          "X-API-KEY": FETCHY_CDN_API_KEY,
+          "X-API-KEY": env.CDN_API_KEY,
         },
       }
     );

@@ -9,8 +9,6 @@ import { toast } from "sonner";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { BadRequest } from "@/lib/exceptions";
-import { FETCHY_API_KEY } from "@/constants/env";
-import crypto from "crypto";
 
 export const getTimedFilename = (name: string, ext: string) => {
   const timeStamp = Math.floor(Date.now() / 1000).toString();
@@ -217,20 +215,6 @@ export const resolveRedirectUrl = async ({
 
   throw new BadRequest("Too many redirect hops");
 };
-
-export function hash({
-  ip,
-  userAgent,
-  ...rest
-}: { ip: string; userAgent: string } & Record<string, unknown>): string {
-  const sortedRest = Object.fromEntries(
-    Object.entries(rest).sort((a, b) => a[0].localeCompare(b[0]))
-  );
-  const data = `${FETCHY_API_KEY}-${ip}-${userAgent}-${JSON.stringify(
-    sortedRest
-  )}`;
-  return crypto.createHash("sha256").update(data).digest("hex");
-}
 
 export const formatedTime = (time: Date | string) => {
   const currentTime = Date.now();

@@ -12,12 +12,12 @@ import { GoogleAnalytics } from "@/lib/GoogleAnalytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
-import { NextIntlClientProvider, useLocale, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { DirectionProvider } from "@/hooks/useDir";
 import Banner from "@/components/banner";
-import { usePathname } from "@/i18n/navigation";
+import { redenv } from "@/lib/redenv";
 
 const rethink = Rethink_Sans({
   weight: ["400", "800"],
@@ -93,12 +93,14 @@ export async function generateMetadata() {
   };
 }
 
-export default function DefaultRootLayout({
+export default async function DefaultRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = useLocale();
+  const store = await cookies();
+  const locale = store.get("locale")?.value || "en";
+  await redenv.load();
   return (
     <TooltipProvider>
       <html

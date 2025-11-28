@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { ADMIN_AUTH_COOKIE } from "@/constants";
-import {  ADMIN_PANEL_PASSWORD } from "@/constants/env";
-import { ADMIN_AUTH_COOKIE_TTL, } from "@/conf";
+import { ADMIN_AUTH_COOKIE_TTL } from "@/conf";
+import { redenv } from "@/lib/redenv";
 
 export async function POST(req: NextRequest) {
+  const env = await redenv.load();
   const { password } = await req.json();
   if (!password)
     return NextResponse.json(
@@ -13,7 +14,7 @@ export async function POST(req: NextRequest) {
     );
   const cookieStore = await cookies();
 
-  if (password === ADMIN_PANEL_PASSWORD) {
+  if (password === env.ADMIN_PASSWORD) {
     cookieStore.set(ADMIN_AUTH_COOKIE, "true", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

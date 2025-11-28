@@ -7,13 +7,14 @@ import { BANNED_SCRAPPERS } from "./middleware/ban";
 import { isStaticPath } from "./middleware/isStatic";
 import { TokenManagerEdge } from "./lib/security-edge";
 import { FETCHY_GITHUB } from "./constants";
-import { FETCHY_API_KEY, STAGE } from "./constants/env";
+import { STAGE } from "./constants/env";
 import { routing } from "./i18n/routing";
 import createMiddleware from "next-intl/middleware";
 import { LOCALES_INFO, resolveLocale } from "./constants/locales";
 import { encodeBtoa } from "./utils";
+import { redenv } from "./lib/redenv";
 
-export async function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const ip = ipAddress(request);
   const {
@@ -27,6 +28,7 @@ export async function middleware(request: NextRequest) {
     region,
   } = geolocation(request);
   const securityManager = new TokenManagerEdge();
+  const env = await redenv.load();
   const headers = new Headers(request.headers);
 
   // =============================
@@ -124,15 +126,6 @@ export async function middleware(request: NextRequest) {
   }
 
   if (STAGE === "production") {
-    if (
-      request.headers.get("host") !== "gofetchy.app" &&
-      request.headers.get("host") !== "test.gofetchy.app" &&
-      request.headers.get("host") !== "fetchy.pras.me" &&
-      request.headers.get("host") !== "pownloader.pras.me"
-    ) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
     if (isStaticPath(pathname)) {
       return NextResponse.next({ headers });
     }
@@ -169,7 +162,7 @@ export async function middleware(request: NextRequest) {
   if (pathname.includes("/tool/")) {
     const resp = await axios.post(
       new URL("/security/session/create", request.nextUrl.origin).toString(),
-      { key: FETCHY_API_KEY },
+      { key: env.API_KEY },
       {
         headers: {
           ...Object.fromEntries(request.headers.entries()),
@@ -187,7 +180,7 @@ export async function middleware(request: NextRequest) {
       maxAge: 60,
     });
   }
-  
+
   return response;
 }
 

@@ -9,8 +9,8 @@ import {
   InstagramContentType,
 } from "@/types/api/downloader";
 import axios from "axios";
-import { FETCHY_CDN_API_KEY, IG_COOKIE } from "@/constants/env";
 import { BadRequest } from "@/lib/exceptions";
+import { redenv } from "@/lib/redenv";
 
 const encodePostRequestData = (postId: string, type: InstagramContentType) => {
   const isPostOrReel = ["post", "reel"].includes(type);
@@ -73,11 +73,13 @@ export const fetchFromGraphQL = async (
   type: InstagramContentType
 ) => {
   if (!postId) return null;
+  const env = await redenv.load();
   const isStoryOrHighlight = ["story", "highlight"].includes(type);
 
   const API_URL = isStoryOrHighlight
     ? "https://www.instagram.com/graphql/query"
     : "https://www.instagram.com/api/graphql";
+
   const headers = {
     Accept: "*/*",
     "Accept-Language": "en-US,en;q=0.5",
@@ -92,9 +94,7 @@ export const fetchFromGraphQL = async (
     "Sec-Fetch-Site": "same-origin",
     "User-Agent":
       "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36",
-    cookie: ["highlight", "story"].includes(type)
-      ? `${IG_COOKIE}`
-      : "",
+    cookie: ["highlight", "story"].includes(type) ? `${env.IG_COOKIE}` : "",
   };
 
   const encodedData = encodePostRequestData(postId, type);
@@ -140,6 +140,7 @@ export const fetchIGSemiPrivateReel = async (
 ): Promise<InstagramResponse | null> => {
   if (!url) return null;
   try {
+    const env = await redenv.load();
     const api = new URL(IG_SEMI_PRIVATE_REEL_FETCH_API);
     const response = await axios.get(
       `${IG_SEMI_PRIVATE_REEL_FETCH_API}${url}`,
@@ -152,7 +153,7 @@ export const fetchIGSemiPrivateReel = async (
           Origin: api.origin,
           Referer: api.origin,
           Accept: "*/*",
-          "X-API-KEY": FETCHY_CDN_API_KEY,
+          "X-API-KEY": env.CDN_API_KEY,
           Host: api.host,
         },
         timeout,
