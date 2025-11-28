@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
 import type { SignOptions } from "jsonwebtoken";
 import crypto from "crypto";
-import { FETCHY_API_KEY, STAGE } from "@/constants/env";
+import { STAGE } from "@/constants/env";
 import { TokenManagerEdge } from "./security-edge";
+import { redenv } from "./redenv";
 
 export interface TokenPayload {
   ip: string;
@@ -11,10 +12,7 @@ export interface TokenPayload {
 }
 
 export class TokenManager extends TokenManagerEdge {
-  constructor(
-    private key: string = FETCHY_API_KEY,
-    private ttl: SignOptions["expiresIn"] = 60
-  ) {
+  constructor(private ttl: SignOptions["expiresIn"] = 60) {
     super();
   }
 
@@ -24,30 +22,38 @@ export class TokenManager extends TokenManagerEdge {
     );
   }
 
-  private hash({
+  private async hash({
     ip,
     userAgent,
     ...rest
-  }: { ip: string; userAgent: string } & Record<string, unknown>): string {
+  }: { ip: string; userAgent: string } & Record<
+    string,
+    unknown
+  >): Promise<string> {
+    const env = await redenv.load();
     const sortedRest = this.sortObject(rest);
-    const data = `${this.key}-${ip}-${userAgent}-${JSON.stringify(sortedRest)}`;
+    const data = `${env.API_KEY}-${ip}-${userAgent}-${JSON.stringify(sortedRest)}`;
     return crypto.createHash("sha256").update(data).digest("hex");
   }
 
-  createToken({
+  async createToken({
     ip,
     userAgent,
     ...rest
-  }: { ip: string; userAgent: string } & Record<string, unknown>): string {
-    const hashedApiKey = this.hash({ ip, userAgent, ...rest });
+  }: { ip: string; userAgent: string } & Record<
+    string,
+    unknown
+  >): Promise<string> {
+    const env = await redenv.load();
+    const hashedApiKey = await this.hash({ ip, userAgent, ...rest });
     const payload: TokenPayload = { ip, userAgent, hashedApiKey, ...rest };
 
-    return jwt.sign(payload, this.key, {
+    return jwt.sign(payload, env.API_KEY, {
       expiresIn: this.ttl,
     });
   }
 
-  verifyToken({
+  async verifyToken({
     token,
     ip: currentIp,
     userAgent: currentUserAgent,
@@ -57,12 +63,13 @@ export class TokenManager extends TokenManagerEdge {
     ip: string;
     userAgent: string;
     [key: string]: unknown;
-  }): boolean {
+  }): Promise<boolean> {
     try {
       if (STAGE !== "production") return true;
-      const payload = jwt.verify(token, this.key) as TokenPayload;
+      const env = await redenv.load();
+      const payload = jwt.verify(token, env.API_KEY) as TokenPayload;
 
-      const currentHash = this.hash({
+      const currentHash = await this.hash({
         ip: currentIp,
         userAgent: currentUserAgent,
         ...rest,

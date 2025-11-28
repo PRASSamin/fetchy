@@ -3,7 +3,7 @@ import { TIKTOK_CONTENT_FETCH_API } from "@/constants";
 import axios from "axios";
 import { formatTiktokJson } from "./formatters";
 import { TiktokResponse } from "@/types/api/downloader";
-import { FETCHY_CDN_API_KEY } from "@/constants/env";
+import { redenv } from "@/lib/redenv";
 
 export const fetchTiktokContent = async (
   url: string,
@@ -11,6 +11,7 @@ export const fetchTiktokContent = async (
 ): Promise<TiktokResponse | null> => {
   if (!url) return null;
   try {
+    const env = await redenv.load();
     const api = new URL(TIKTOK_CONTENT_FETCH_API);
     const response = await axios.get(`${TIKTOK_CONTENT_FETCH_API}${url}`, {
       headers: {
@@ -21,7 +22,7 @@ export const fetchTiktokContent = async (
         Origin: api.origin,
         Referer: api.origin,
         Accept: "*/*",
-        "X-API-KEY": FETCHY_CDN_API_KEY,
+        "X-API-KEY": env.CDN_API_KEY,
         Host: api.host,
       },
       timeout,

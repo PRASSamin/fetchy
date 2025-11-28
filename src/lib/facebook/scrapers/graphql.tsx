@@ -8,8 +8,8 @@ import {
 } from "@/types/api/downloader";
 import { FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API } from "@/constants";
 import axios from "axios";
-import { FB_COOKIE, FB_DTSG_TOKEN, FETCHY_CDN_API_KEY } from "@/constants/env";
 import { BadRequest } from "@/lib/exceptions";
+import { redenv } from "@/lib/redenv";
 
 const encodeVideoRequestData = (contentId: string) => {
   const requestData = {
@@ -39,9 +39,10 @@ const encodeVideoRequestData = (contentId: string) => {
   return encoded;
 };
 
-const encodeStoryHighlightRequestData = (
+const encodeStoryHighlightRequestData = async (
   contentId: string,
-  type: FacebookContentType
+  type: FacebookContentType,
+  dtsg: string
 ) => {
   const isHighlight = type === "highlight";
 
@@ -88,7 +89,7 @@ const encodeStoryHighlightRequestData = (
   const requestData = {
     doc_id: docId,
     variables: JSON.stringify(variables),
-    fb_dtsg: FB_DTSG_TOKEN,
+    fb_dtsg: dtsg,
     server_timestamps: true,
   };
   return querystring.stringify(requestData);
@@ -101,7 +102,7 @@ export const fetchFromFbGraphQL = async (
   timeout: number = 0
 ) => {
   if (!contentId) return null;
-
+  const env = await redenv.load();
   const API_URL = "https://www.facebook.com/api/graphql";
   const headers = {
     "content-type": "application/x-www-form-urlencoded",
@@ -117,13 +118,13 @@ export const fetchFromFbGraphQL = async (
     "x-fb-friendly-name": "StoriesSuspenseContentPaneRootWithEntryPointQuery",
     "x-fb-lsd": "KLAEUjPxtGRiaMNx5zNUVg",
     origin: "https://www.facebook.com",
-    cookie: FB_COOKIE,
+    cookie: env.FB_COOKIE,
   };
 
   const encodedData =
     type === "video"
       ? encodeVideoRequestData(contentId)
-      : encodeStoryHighlightRequestData(contentId, type);
+      : encodeStoryHighlightRequestData(contentId, type, env.FB_DTSG_TOKEN);
 
   let response;
   try {
@@ -176,6 +177,7 @@ export const fetchSemiPrivateVideo = async (
 ): Promise<FacebookVideoResponse | null> => {
   if (!url) return null;
   try {
+    const env = await redenv.load();
     const api = new URL(FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API);
     const response = await axios.get(
       `${FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API}${url}`,
@@ -188,7 +190,7 @@ export const fetchSemiPrivateVideo = async (
           Origin: api.origin,
           Referer: api.origin,
           Accept: "*/*",
-          "X-API-KEY": FETCHY_CDN_API_KEY,
+          "X-API-KEY": env.CDN_API_KEY,
           Host: api.host,
         },
         timeout,

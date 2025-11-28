@@ -53,8 +53,6 @@ export class Discord {
     this.response = response;
   }
 
-  public WEBHOOK_URL = process.env.NEXT_DISCORD_WEBHOOK_URL;
-
   public async payload() {
     const downloadUrlParam = this.request.headers.get("X-Download-Url");
     const { pathname } = this.request.nextUrl;

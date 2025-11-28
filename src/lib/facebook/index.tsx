@@ -3,8 +3,8 @@ import { fetchFromFbGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
 import { USER_AGENT } from "@/constants";
 import { getTranslations } from "next-intl/server";
-import { FB_COOKIE } from "@/constants/env";
 import { FacebookContentType } from "@/types/api/downloader";
+import { redenv } from "../redenv";
 
 export function extractFacebookRedirectedUrl(fullUrl: string) {
   try {
@@ -119,6 +119,7 @@ export const fetchFBContentJson = async (
   url: string,
   timeout: number = 5000
 ) => {
+  const env = await redenv.load();
   const t = await getTranslations("errors");
   try {
     const { url: resolvedUrl, html } = await resolveRedirectUrl({
@@ -128,7 +129,7 @@ export const fetchFBContentJson = async (
         Accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.8",
-        cookie: FB_COOKIE,
+        cookie: env.FB_COOKIE,
         Host: "www.facebook.com",
         referrer: "https://www.facebook.com/",
       },
