@@ -39,7 +39,7 @@ const encodeVideoRequestData = (contentId: string) => {
   return encoded;
 };
 
-const encodeStoryHighlightRequestData = async (
+const encodeStoryHighlightRequestData = (
   contentId: string,
   type: FacebookContentType,
   dtsg: string
@@ -104,6 +104,8 @@ export const fetchFromFbGraphQL = async (
   if (!contentId) return null;
   const env = await redenv.load();
   const API_URL = "https://www.facebook.com/api/graphql";
+  const isVideo = type === "video";
+
   const headers = {
     "content-type": "application/x-www-form-urlencoded",
     "accept-language": "en-US,en;q=0.8",
@@ -118,7 +120,7 @@ export const fetchFromFbGraphQL = async (
     "x-fb-friendly-name": "StoriesSuspenseContentPaneRootWithEntryPointQuery",
     "x-fb-lsd": "KLAEUjPxtGRiaMNx5zNUVg",
     origin: "https://www.facebook.com",
-    cookie: env.FB_COOKIE,
+    cookie: !isVideo ? env.FB_COOKIE : null,
   };
 
   const encodedData =
