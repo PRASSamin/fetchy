@@ -1,20 +1,18 @@
-import jwt from "jsonwebtoken";
-import type { SignOptions } from "jsonwebtoken";
-import crypto from "crypto";
 import { STAGE } from "@/constants/env";
-import { TokenManagerEdge } from "./security-edge";
 import { redenv } from "./redenv";
+import { SignJWT, jwtVerify, decodeJwt } from "jose";
+
+const crypto = globalThis.crypto;
 
 export interface TokenPayload {
   ip: string;
   userAgent: string;
   hashedApiKey: string;
+  [key: string]: unknown;
 }
 
-export class TokenManager extends TokenManagerEdge {
-  constructor(private ttl: SignOptions["expiresIn"] = 60) {
-    super();
-  }
+export class TokenManager {
+  constructor(private ttl: number = 60) {}
 
   private sortObject(obj: Record<string, unknown>): Record<string, unknown> {
     return Object.fromEntries(
@@ -26,31 +24,52 @@ export class TokenManager extends TokenManagerEdge {
     ip,
     userAgent,
     ...rest
-  }: { ip: string; userAgent: string } & Record<
-    string,
-    unknown
-  >): Promise<string> {
+  }: {
+    ip: string;
+    userAgent: string;
+    [key: string]: unknown;
+  }): Promise<string> {
     const env = await redenv.load();
     const sortedRest = this.sortObject(rest);
-    const data = `${env.API_KEY}-${ip}-${userAgent}-${JSON.stringify(sortedRest)}`;
-    return crypto.createHash("sha256").update(data).digest("hex");
+    const data = `${env.API_KEY}-${ip}-${userAgent}-${JSON.stringify(
+      sortedRest
+    )}`;
+
+    const buffer = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(data)
+    );
+
+    return Array.from(new Uint8Array(buffer))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
   }
 
   async createToken({
     ip,
     userAgent,
     ...rest
-  }: { ip: string; userAgent: string } & Record<
-    string,
-    unknown
-  >): Promise<string> {
+  }: {
+    ip: string;
+    userAgent: string;
+    [key: string]: unknown;
+  }): Promise<string> {
     const env = await redenv.load();
     const hashedApiKey = await this.hash({ ip, userAgent, ...rest });
-    const payload: TokenPayload = { ip, userAgent, hashedApiKey, ...rest };
 
-    return jwt.sign(payload, env.API_KEY, {
-      expiresIn: this.ttl,
-    });
+    const payload: TokenPayload = {
+      ip,
+      userAgent,
+      hashedApiKey,
+      ...rest,
+    };
+
+    const secret = new TextEncoder().encode(env.API_KEY);
+
+    return await new SignJWT(payload)
+      .setProtectedHeader({ alg: "HS256" })
+      .setExpirationTime(`${this.ttl}s`)
+      .sign(secret);
   }
 
   async verifyToken({
@@ -66,8 +85,11 @@ export class TokenManager extends TokenManagerEdge {
   }): Promise<boolean> {
     try {
       if (STAGE !== "production") return true;
+
       const env = await redenv.load();
-      const payload = jwt.verify(token, env.API_KEY) as TokenPayload;
+      const secret = new TextEncoder().encode(env.API_KEY);
+
+      const { payload } = await jwtVerify(token, secret);
 
       const currentHash = await this.hash({
         ip: currentIp,
@@ -82,6 +104,28 @@ export class TokenManager extends TokenManagerEdge {
       );
     } catch (err) {
       console.error("Token verification failed:", err);
+      return false;
+    }
+  }
+
+  decodeToken(token: string): TokenPayload | null {
+    try {
+      return decodeJwt(token) as TokenPayload;
+    } catch {
+      return null;
+    }
+  }
+
+  isTokenValid(token: string): boolean {
+    try {
+      if (STAGE !== "production") return true;
+      const decoded = decodeJwt(token);
+
+      if (!decoded?.exp) return false;
+
+      const now = Math.floor(Date.now() / 1000);
+      return decoded.exp >= now;
+    } catch {
       return false;
     }
   }
