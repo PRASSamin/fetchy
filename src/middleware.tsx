@@ -5,7 +5,7 @@ import axios from "axios";
 import { COLLAB_OPPORTUNITIES, collabMessage } from "./middleware/collab";
 import { BANNED_SCRAPPERS } from "./middleware/ban";
 import { isStaticPath } from "./middleware/isStatic";
-import { TokenManagerEdge } from "./lib/security-edge";
+import { TokenManager } from "./lib/security";
 import { FETCHY_GITHUB } from "./constants";
 import { STAGE } from "./constants/env";
 import { routing } from "./i18n/routing";
@@ -27,7 +27,7 @@ export default async function middleware(request: NextRequest) {
     postalCode,
     region,
   } = geolocation(request);
-  const securityManager = new TokenManagerEdge();
+  const securityManager = new TokenManager();
   const env = await redenv.load();
   const headers = new Headers(request.headers);
 
@@ -160,19 +160,12 @@ export default async function middleware(request: NextRequest) {
   headers.forEach((value, key) => response.headers.set(key, value));
 
   if (pathname.includes("/tool/")) {
-    const resp = await axios.post(
-      new URL("/security/session/create", request.nextUrl.origin).toString(),
-      { key: env.API_KEY },
-      {
-        headers: {
-          ...Object.fromEntries(request.headers.entries()),
-          "X-User-Agent": request.headers.get("user-agent"),
-          "x-user-ip": ip,
-        },
-      }
-    );
+    const resp = await securityManager.createToken({
+      ip: ip ?? "",
+      userAgent: request.headers.get("user-agent") ?? "",
+    });
 
-    response.cookies.set("d_session", resp.data.token, {
+    response.cookies.set("d_session", resp, {
       httpOnly: true,
       secure: true,
       sameSite: "strict",
