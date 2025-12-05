@@ -7,9 +7,9 @@ export const getPostId = async (url: string) => {
   const t = await getTranslations("errors");
 
   const postRegex =
-    /^https:\/\/(?:www\.)?instagram\.com\/p\/([a-zA-Z0-9_-]+)\/?/;
+    /^https:\/\/(?:www\.)?instagram\.com\/(?:[a-zA-Z0-9._-]+\/)?p\/([a-zA-Z0-9_-]+)\/?/;
   const reelRegex =
-    /^https:\/\/(?:www\.)?instagram\.com\/(?:reels|reel)\/([a-zA-Z0-9_-]+)\/?/;
+    /^https:\/\/(?:www\.)?instagram\.com\/(?:[a-zA-Z0-9._-]+\/)?(?:reel|reels)\/([a-zA-Z0-9_-]+)\/?/;
   const storyRegex =
     /^https:\/\/(?:www\.)?instagram\.com\/stories\/([a-zA-Z0-9._-]+)\/?$/;
   const highlightRegex =
