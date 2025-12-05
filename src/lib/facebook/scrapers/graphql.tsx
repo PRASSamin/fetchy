@@ -193,6 +193,7 @@ export const fetchSemiPrivateVideo = async (
           Referer: api.origin,
           Accept: "*/*",
           "X-API-KEY": env.CDN_API_KEY,
+          Cookie: env.FB_COOKIE,
           Host: api.host,
         },
         timeout,

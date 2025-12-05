@@ -154,6 +154,7 @@ export const fetchIGSemiPrivateReel = async (
           Referer: api.origin,
           Accept: "*/*",
           "X-API-KEY": env.CDN_API_KEY,
+          Cookie: env.IG_COOKIE,
           Host: api.host,
         },
         timeout,

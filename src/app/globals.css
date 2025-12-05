@@ -246,6 +246,11 @@
     -o-user-select: none;
   }
 
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+
   .container {
     @apply !w-screen sm:!max-w-[40rem] md:!max-w-[48rem] lg:!max-w-[64rem] xl:!max-w-[80rem] 2xl:!max-w-[96rem];
   }
