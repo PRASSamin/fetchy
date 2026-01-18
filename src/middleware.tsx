@@ -28,7 +28,6 @@ export default async function middleware(request: NextRequest) {
     region,
   } = geolocation(request);
   const securityManager = new TokenManager();
-  const env = await redenv.load();
   const headers = new Headers(request.headers);
 
   // =============================

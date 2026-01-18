@@ -3,16 +3,13 @@
 import { shouldTriggerStartEvent } from "@/components/link";
 import { useRouter as useRouterImpl } from "@/i18n/navigation";
 import NProgress from "nprogress";
-import { useLocale } from "next-intl";
 
 type NavigationOptions = {
-  locale?: string;
   scroll?: boolean;
   force?: boolean;
 };
 
 export const useRouter = () => {
-  const locale = useLocale();
   const router = useRouterImpl();
 
   const safeWrap = async (
