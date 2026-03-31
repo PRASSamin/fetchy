@@ -86,7 +86,7 @@ export const getContentFbId = async ({
     const match = html.match(/"permalink_url":"([^"]+)"/);
     if (match) {
       const permalink = decodeURIComponent(
-        match[1].replace(/\\u0025/g, "%")
+        match[1].replace(/\\u0025/g, "%"),
       ).replace(/\\/g, "");
       return getContentFbId({ url: permalink });
     }
@@ -117,23 +117,38 @@ export const getContentFbId = async ({
 
 export const fetchFBContentJson = async (
   url: string,
-  timeout: number = 5000
+  timeout: number = 5000,
 ) => {
   const env = await redenv.load();
   const t = await getTranslations("errors");
   try {
-    const { url: resolvedUrl, html } = await resolveRedirectUrl({
+    const commonHeaders = {
+      "User-Agent": USER_AGENT,
+      Accept:
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.8",
+      Host: "www.facebook.com",
+      referrer: "https://www.facebook.com/",
+    };
+
+    // Try resolving WITHOUT a cookie first (avoids checkpoints for public share URLs)
+    let { url: resolvedUrl, html } = await resolveRedirectUrl({
       url,
-      headers: {
-        "User-Agent": USER_AGENT,
-        Accept:
-          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.8",
-        cookie: env.FB_COOKIE,
-        Host: "www.facebook.com",
-        referrer: "https://www.facebook.com/",
-      },
+      headers: commonHeaders,
     });
+
+    // If it hits a login wall/checkpoint, and we have a cookie, retry WITH the cookie (for private videos)
+    if (
+      env.FB_COOKIE &&
+      (resolvedUrl.includes("/login") || resolvedUrl.includes("/checkpoint"))
+    ) {
+      const withCookieRes = await resolveRedirectUrl({
+        url,
+        headers: { ...commonHeaders, cookie: env.FB_COOKIE },
+      });
+      resolvedUrl = withCookieRes.url;
+      html = withCookieRes.html;
+    }
 
     const orgUrl = extractFacebookRedirectedUrl(resolvedUrl);
     const urlDet = await getContentFbId({ url: orgUrl, html });
@@ -142,7 +157,7 @@ export const fetchFBContentJson = async (
       urlDet.type,
       urlDet.contentId,
       orgUrl,
-      timeout
+      timeout,
     );
 
     if (contentJson) return contentJson;
