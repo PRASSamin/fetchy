@@ -1,12 +1,6 @@
 "use client";
 import { AudioLines, Download, Droplet, Loader2, Wand2, X } from "lucide-react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import {
-  BetterImage,
-  BetterVersion,
-  Fallback,
-  Img,
-} from "@/components/ui/better-image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
   Dialog,
@@ -35,6 +29,7 @@ import {
 import { useEffect, useState } from "react";
 import TrustpilotReview from "@/components/trustpilot-review-button";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const GlobalResultView = ({
   data,
@@ -85,7 +80,7 @@ const GlobalResultView = ({
                   className="relative bg-muted rounded-lg"
                 >
                   {/* Main Image */}
-                  <BetterImage
+                  <Image
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority
@@ -103,7 +98,7 @@ const GlobalResultView = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BetterImage
+                      <Image
                         className="rounded-full w-8 h-8 border border-neutral-600"
                         alt={data?.owner?.name}
                         src={data?.owner?.profile_pic}
@@ -155,7 +150,7 @@ const GlobalResultView = ({
                                 {res.type === "audio" ? (
                                   <AudioLines className="text-neutral-400" />
                                 ) : (
-                                  <BetterImage
+                                  <Image
                                     src={res.thumbnail || ""}
                                     alt="Image Preview"
                                     width={150}
@@ -295,16 +290,13 @@ const GlobalResultView = ({
                             </DialogTitle>
                             <DialogFooter className="flex w-full h-full overflow-hidden items-center justify-center">
                               {res?.type === "image" ? (
-                                <BetterVersion>
-                                  <Img
+                                  <Image
                                     priority
                                     src={res?.baseURL}
                                     width={res?.width}
                                     height={res?.height}
                                     alt={res?.id}
-                                  ></Img>
-                                  <Fallback className="min-h-[300px] max-h-full" />
-                                </BetterVersion>
+                                  />
                               ) : res?.type === "audio" ? (
                                 <audio
                                   controls

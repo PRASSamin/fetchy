@@ -24,5 +24,5 @@ export const frontmatter = {
   },
   isAvailable: ENABLE_INSTAGRAM,
   isNew: false,
-  updatedAt: "2025-11-07T19:23:23.823Z",
+  updatedAt: "2026-07-05T12:08:36.771Z",
 };

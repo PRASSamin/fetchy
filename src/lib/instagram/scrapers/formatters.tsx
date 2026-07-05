@@ -19,7 +19,7 @@ export const formatGraphqlJson = (json: any, type: InstagramContentType) => {
     return postAndReelFormatter(json);
   }
 
-  if (type === "highlight") return highlightFormatter(json);
+  if (type === "highlight" || type === "story") return highlightFormatter(json);
 
   return postAndReelFormatter(json);
 };
