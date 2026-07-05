@@ -1,6 +1,12 @@
 "use client";
 import { AudioLines, Download, Droplet, Loader2, Wand2, X } from "lucide-react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import {
+  BetterImage,
+  BetterVersion,
+  Fallback,
+  Image as Img,
+} from "@/components/ui/better-image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
   Dialog,
@@ -29,7 +35,6 @@ import {
 import { useEffect, useState } from "react";
 import TrustpilotReview from "@/components/trustpilot-review-button";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const GlobalResultView = ({
   data,
@@ -80,10 +85,8 @@ const GlobalResultView = ({
                   className="relative bg-muted rounded-lg"
                 >
                   {/* Main Image */}
-                  <Image
-                    fill
+                  <BetterImage
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
                     className="rounded-lg object-cover object-center"
                     alt={data?.id}
                     src={data?.thumbnail || ""}
@@ -98,7 +101,7 @@ const GlobalResultView = ({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Image
+                      <BetterImage
                         className="rounded-full w-8 h-8 border border-neutral-600"
                         alt={data?.owner?.name}
                         src={data?.owner?.profile_pic}
@@ -140,7 +143,7 @@ const GlobalResultView = ({
                           | InstagramResource
                           | TiktokResource
                           | FacebookVideoResource,
-                        i: number
+                        i: number,
                       ) => (
                         <Dialog key={i}>
                           <DialogTrigger asChild>
@@ -150,7 +153,7 @@ const GlobalResultView = ({
                                 {res.type === "audio" ? (
                                   <AudioLines className="text-neutral-400" />
                                 ) : (
-                                  <Image
+                                  <BetterImage
                                     src={res.thumbnail || ""}
                                     alt="Image Preview"
                                     width={150}
@@ -233,7 +236,7 @@ const GlobalResultView = ({
                                       res?.baseURL,
                                       res?.filename,
                                       res?.type,
-                                      setIsDownloading
+                                      setIsDownloading,
                                     )
                                   }
                                   variant="default"
@@ -252,7 +255,7 @@ const GlobalResultView = ({
                                 {res?.type === "video" &&
                                   !res?.has_audio &&
                                   data?.resources?.filter(
-                                    (r) => r?.type === "audio"
+                                    (r) => r?.type === "audio",
                                   ).length > 0 && (
                                     <Button
                                       variant="outline"
@@ -261,10 +264,10 @@ const GlobalResultView = ({
                                         renderVideo(
                                           res?.baseURL,
                                           data?.resources?.filter(
-                                            (r) => r?.type === "audio"
+                                            (r) => r?.type === "audio",
                                           )[0]?.baseURL,
                                           res?.filename,
-                                          setIsRendering
+                                          setIsRendering,
                                         )
                                       }
                                       className="bg-gradient-to-r from-amber-500/90 to-orange-500/90 text-foreground border-amber-500/30 hover:from-amber-500 hover:to-orange-500  focus-visible:ring-0 transition-all duration-200 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20"
@@ -290,13 +293,15 @@ const GlobalResultView = ({
                             </DialogTitle>
                             <DialogFooter className="flex w-full h-full overflow-hidden items-center justify-center">
                               {res?.type === "image" ? (
-                                  <Image
-                                    priority
+                                <BetterVersion>
+                                  <Img
                                     src={res?.baseURL}
                                     width={res?.width}
                                     height={res?.height}
                                     alt={res?.id}
-                                  />
+                                  ></Img>
+                                  <Fallback className="min-h-[60dvh] max-h-full" />
+                                </BetterVersion>
                               ) : res?.type === "audio" ? (
                                 <audio
                                   controls
@@ -315,7 +320,7 @@ const GlobalResultView = ({
                             </DialogFooter>
                           </DialogContent>
                         </Dialog>
-                      )
+                      ),
                     )}
                   </div>
                 </div>

@@ -1,63 +1,62 @@
 import React from "react";
-import * as BetterThings from "@prass/betterimage";
 import { Loader } from "lucide-react";
 import { cn } from "@/utils";
+import * as RadixImage from "@radix-ui/react-avatar";
 
 const BetterVersion = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BetterThings.Root>
+  React.ComponentPropsWithoutRef<typeof RadixImage.Root>
 >(({ className, ...props }, ref) => (
-  <BetterThings.Root
+  <RadixImage.Root
     ref={ref}
     className={cn(
-      "relative flex h-full w-full items-center justify-center",
+      "relative w-full h-full inline-flex items-center justify-center overflow-hidden rounded align-middle",
       className
     )}
     {...props}
   />
 ));
-BetterVersion.displayName = BetterThings.Root.displayName;
+BetterVersion.displayName = RadixImage.Root.displayName;
 
-const Img = React.forwardRef<
+const Image = React.forwardRef<
   HTMLImageElement,
-  React.ComponentPropsWithoutRef<typeof BetterThings.Image>
+  React.ComponentPropsWithoutRef<typeof RadixImage.Image>
 >(({ className, ...props }, ref) => (
-  <BetterThings.Image
+  <RadixImage.Image
     ref={ref}
-    className={cn("h-full w-full", className)}
+    className={cn("size-full rounded-[inherit] object-cover", className)}
     {...props}
   />
 ));
-Img.displayName = BetterThings.Image.displayName;
+Image.displayName = RadixImage.Image.displayName;
 
 const Fallback = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BetterThings.Fallback>
+  React.ComponentPropsWithoutRef<typeof RadixImage.Fallback>
 >(({ className, ...props }, ref) => (
-  <BetterThings.Fallback
+  <RadixImage.Fallback
     ref={ref}
     className={cn("flex h-full w-full items-center justify-center", className)}
     {...props}
   >
     <Loader className="h-4 w-4 animate-spin" />
-  </BetterThings.Fallback>
+  </RadixImage.Fallback>
 ));
-Fallback.displayName = BetterThings.Fallback.displayName;
+Fallback.displayName = RadixImage.Fallback.displayName;
 
 const BetterImage = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof Img> & {
-    onFailString?: string;
+  React.ComponentPropsWithoutRef<typeof Image> & {
     delay?: number;
   }
->(({ src, alt, className, onFailString, delay, ...props }, ref) => {
+>(({ src, alt, className, delay, ...props }, ref) => {
   return (
     <BetterVersion ref={ref}>
-      <Img src={src} alt={alt} className={className} {...props} />
-      <Fallback onFailString={onFailString} delay={delay} />
+      <Image src={src} alt={alt} className={className} {...props} />
+      <Fallback delayMs={delay} />
     </BetterVersion>
   );
 });
 BetterImage.displayName = "BetterImage";
 
-export { BetterVersion, Img, Fallback, BetterImage };
+export { BetterVersion, Image, Fallback, BetterImage };
