@@ -4,7 +4,7 @@
 
 ## Live Now
 
-[https://gofetchy.app](https://gofetchy.app)
+[https://gofetchy.pras.me](https://gofetchy.pras.me)
 
 ## What’s New in Neon (v3.0.0)
 

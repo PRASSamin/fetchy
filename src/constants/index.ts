@@ -1,4 +1,4 @@
-export const CDN_HOST_URL = "https://cdn.gofetchy.app";
+export const CDN_HOST_URL = "https://cdn.gofetchy.pras.me";
 export const TIKTOK_CONTENT_FETCH_API = `${CDN_HOST_URL}/api/tiktok/content?url=`;
 export const TIKTOK_PROFILE_FETCH_API = `${CDN_HOST_URL}/api/tiktok/profile?url=`;
 export const FB_SEMI_PRIVATE_REEL_OR_VIDEO_FETCH_API = `${CDN_HOST_URL}/api/facebook/reel/semi-private?url=`;
@@ -14,7 +14,7 @@ export const BSL_1_1 = "https://mariadb.com/bsl11/";
 export const PRAS_GITHUB = "https://github.com/PRASSamin";
 export const FETCHY_GITHUB = `${PRAS_GITHUB}/fetchy`;
 
-export const FETCHY_BASE_URL = "https://gofetchy.app";
+export const FETCHY_BASE_URL = "https://gofetchy.pras.me";
 
 export const ADMIN_AUTH_COOKIE = "__FETCHY_ADMIN_AUTH__";
 export const APP_NAME = "Fetchy";
