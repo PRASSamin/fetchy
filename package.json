@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/PRASSamin/Fetchy/issues"
   },
-  "homepage": "https://gofetchy.app/",
+  "homepage": "https://gofetchy.pras.me/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -5,9 +5,9 @@
   "background_color": "#061e2f",
   "theme_color": "#061e2f",
   "display": "standalone",
-  "start_url": "https://gofetchy.app/?launchedfrom=homescreen",
-  "scope": "https://gofetchy.app",
-  "id": "https://gofetchy.app/hb6rwGuMNIdZibvj5srL",
+  "start_url": "https://gofetchy.pras.me/?launchedfrom=homescreen",
+  "scope": "https://gofetchy.pras.me",
+  "id": "https://gofetchy.pras.me/hb6rwGuMNIdZibvj5srL",
   "prefer_related_applications": false,
   "related_applications": [],
   "icons": [
@@ -27,11 +27,11 @@
   "protocol_handlers": [
     {
       "protocol": "web+pwa",
-      "url": "https://gofetchy.app/?launchedfrom=homescreen&pwaprotocolredirect=%s"
+      "url": "https://gofetchy.pras.me/?launchedfrom=homescreen&pwaprotocolredirect=%s"
     },
     {
       "protocol": "web+fetchy",
-      "url": "https://gofetchy.app/?launchedfrom=homescreen&pwaprotocolredirect=%s"
+      "url": "https://gofetchy.pras.me/?launchedfrom=homescreen&pwaprotocolredirect=%s"
     }
   ]
 }
