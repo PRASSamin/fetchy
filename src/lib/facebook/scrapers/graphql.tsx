@@ -42,11 +42,10 @@ const encodeVideoRequestData = (contentId: string) => {
 const encodeStoryHighlightRequestData = (
   contentId: string,
   type: FacebookContentType,
-  dtsg: string
+  dtsg: string,
 ) => {
   const isHighlight = type === "highlight";
 
-  const docId = isHighlight ? "32287746704205066" : "7202535426537683";
   const variables = isHighlight
     ? {
         blur: 10,
@@ -56,19 +55,14 @@ const encodeStoryHighlightRequestData = (
         focusCommentID: null,
         initialBucketID: contentId,
         initialLoad: true,
-        isFbNotesIncluded: false,
         isStoriesArchive: false,
         scale: 1,
         shouldDeferLoad: false,
         shouldEnableArmadilloStoryReply: true,
         shouldEnableLiveInStories: true,
-        __relay_internal__pv__StoriesShouldIncludeFbNotesrelayprovider: false,
-        __relay_internal__pv__StoriesThreeDotsMenuEntryPoint_enable_entrypoint_qerelayprovider: false,
-        __relay_internal__pv__StoriesThreeDotsMenuRelay3D_enable_relay3d_qerelayprovider: false,
-        __relay_internal__pv__CometUFICommentAvatarStickerAnimatedImagerelayprovider: false,
+        useDefaultActor: false,
+        __relay_internal__pv__StoriesIsShareToStoryEnabledrelayprovider: false,
         __relay_internal__pv__IsWorkUserrelayprovider: false,
-        __relay_internal__pv__StoriesLWRVariantrelayprovider:
-          "www_new_reactions",
       }
     : {
         bucketIDs: [contentId],
@@ -82,28 +76,28 @@ const encodeStoryHighlightRequestData = (
         focusCommentID: null,
         shouldDeferLoad: false,
         isStoriesArchive: false,
-        __relay_internal__pv__StoriesIsShareToStoryEnabledrelayprovider: false,
-        __relay_internal__pv__IsWorkUserrelayprovider: false,
+        isFbNotesIncluded: false,
       };
 
-  const requestData = {
+  const docId = isHighlight ? "32287746704205066" : "27432712149671089";
+
+  return querystring.stringify({
     doc_id: docId,
     variables: JSON.stringify(variables),
     fb_dtsg: dtsg,
     server_timestamps: true,
-  };
-  return querystring.stringify(requestData);
+  });
 };
 
 export const fetchFromFbGraphQL = async (
   type: FacebookContentType,
   contentId: string,
   requestedUrl: string,
-  timeout: number = 0
+  timeout: number = 0,
 ) => {
   if (!contentId) return null;
   const env = await redenv.load();
-  const API_URL = "https://www.facebook.com/api/graphql";
+  const API_URL = "https://www.facebook.com/api/graphql/";
   const isVideo = type === "video";
 
   const headers = {
@@ -117,8 +111,10 @@ export const fetchFromFbGraphQL = async (
     "user-agent":
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
     "x-asbd-id": "359341",
-    "x-fb-friendly-name": "StoriesSuspenseContentPaneRootWithEntryPointQuery",
-    "x-fb-lsd": "KLAEUjPxtGRiaMNx5zNUVg",
+    "x-fb-friendly-name":
+      type === "highlight"
+        ? "CometStoryViewerHighlightsQueries"
+        : "StoriesViewerBucketPrefetcherMultiBucketsQuery",
     origin: "https://www.facebook.com",
     cookie: !isVideo ? env.FB_COOKIE : null,
   };
@@ -146,7 +142,6 @@ export const fetchFromFbGraphQL = async (
   }
   if (response.statusText === "error") return null;
   const contentType = response.headers["content-type"];
-  if (contentType !== 'text/html; charset="utf-8"') return null;
 
   const responseJson = response.data;
 
@@ -160,7 +155,7 @@ export const fetchFromFbGraphQL = async (
     // if it is still null, then throw error
     if (json === null)
       throw new BadRequest(
-        "The requested post is either unavailable or has privacy restrictions."
+        "The requested post is either unavailable or has privacy restrictions.",
       );
 
     return json;
@@ -175,7 +170,7 @@ export const fetchFromFbGraphQL = async (
 
 export const fetchSemiPrivateVideo = async (
   url: string,
-  timeout: number = 5000
+  timeout: number = 5000,
 ): Promise<FacebookVideoResponse | null> => {
   if (!url) return null;
   try {
@@ -197,7 +192,7 @@ export const fetchSemiPrivateVideo = async (
           Host: api.host,
         },
         timeout,
-      }
+      },
     );
     // it will return formated json so no need to format it again
     return response.data;
