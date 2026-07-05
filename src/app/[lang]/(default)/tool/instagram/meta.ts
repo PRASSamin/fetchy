@@ -1,4 +1,3 @@
-import { ENABLE_INSTAGRAM } from "@/conf";
 import { Instagram } from "@mui/icons-material";
 
 export const frontmatter = {
@@ -22,7 +21,6 @@ export const frontmatter = {
     ja: "Instagramの動画、リール、写真をダウンロード。",
     ko: "Instagram 동영상, 릴스 및 사진을 다운로드하세요.",
   },
-  isAvailable: ENABLE_INSTAGRAM,
   isNew: false,
   updatedAt: "2026-07-05T22:26:36.878Z",
 };

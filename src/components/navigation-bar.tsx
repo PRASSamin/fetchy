@@ -14,7 +14,13 @@ import { cn } from "@/utils";
 import { toast } from "sonner";
 import { useRouter } from "@/hooks/useRouter";
 import { Facebook, GitHub, Instagram } from "@mui/icons-material";
-import { Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 import { Button } from "./ui/button";
 import { Home, Menu } from "lucide-react";
 import { PRAS_GITHUB } from "@/constants";
@@ -35,9 +41,22 @@ export default function Navigation({ className = "" }) {
   const dir = useDirection();
   const tools = toolsList
     .getTools()
-    .sortBy("isAvailable", "desc", "boolean")
     .sortBy("isNew", "desc")
-    .sortBy("isHot", "desc");
+    .sortBy("isHot", "desc")
+    .sort((a, b) => {
+      const aKey = a.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+      const bKey = b.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+      const aAvailable =
+        typeof window !== "undefined"
+          ? window.TOOLS_CONFIG?.[aKey] !== false
+          : true;
+      const bAvailable =
+        typeof window !== "undefined"
+          ? window.TOOLS_CONFIG?.[bKey] !== false
+          : true;
+      if (aAvailable === bAvailable) return 0;
+      return aAvailable ? -1 : 1;
+    });
 
   const socials = [
     {
@@ -70,7 +89,7 @@ export default function Navigation({ className = "" }) {
     <header
       className={cn(
         "w-full h-16 bg-background/50 backdrop-blur-sm border-b border-border/50 py-4 relative z-50",
-        className
+        className,
       )}
     >
       <NavigationMenu className="flex max-w-auto justify-between items-center w-[calc(100vw-2rem)] lg:container mx-auto h-full [&>div]:w-full">
@@ -125,8 +144,13 @@ export default function Navigation({ className = "" }) {
                     </div>
                   </Link>
                   {tools.map((tool, index) => {
-                    const isComing = tool.isAvailable === "coming";
-                    const isDisabled = !tool.isAvailable || isComing;
+                    const toolKey =
+                      tool.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+                    const isAvailable =
+                      typeof window !== "undefined"
+                        ? (window.TOOLS_CONFIG?.[toolKey] ?? true)
+                        : true;
+                    const isDisabled = !isAvailable;
 
                     return (
                       <button
@@ -136,7 +160,7 @@ export default function Navigation({ className = "" }) {
                             toast.info(
                               rawT("not_available_warning", {
                                 type: "tool",
-                              })
+                              }),
                             );
                             return;
                           }
@@ -164,11 +188,11 @@ export default function Navigation({ className = "" }) {
                                 : rawT("new").toUpperCase()}
                             </span>
                           )}
-                          {tool.isAvailable === "coming" && (
+                          {isDisabled && (
                             <span
                               className={`text-[10px] font-bold uppercase px-2 rounded-full bg-blue-500`}
                             >
-                              {rawT("soon").toUpperCase()}
+                              {rawT("not_available").toUpperCase()}
                             </span>
                           )}
                         </div>
@@ -242,8 +266,13 @@ export default function Navigation({ className = "" }) {
               <NavigationMenuContent className="bg-[#151515] shadow-xl max-h-[90vh] overflow-auto show-scrollbar">
                 <ul className="grid w-[400px] gap-2.5 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   {tools.map((tool, index) => {
-                    const isComing = tool.isAvailable === "coming";
-                    const isDisabled = !tool.isAvailable || isComing;
+                    const toolKey =
+                      tool.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+                    const isAvailable =
+                      typeof window !== "undefined"
+                        ? (window.TOOLS_CONFIG?.[toolKey] ?? true)
+                        : true;
+                    const isDisabled = !isAvailable;
 
                     return (
                       <NavigationMenuLink
@@ -251,7 +280,7 @@ export default function Navigation({ className = "" }) {
                         onClick={() => {
                           if (isDisabled) {
                             toast.info(
-                              rawT("not_available_warning", { type: "tool" })
+                              rawT("not_available_warning", { type: "tool" }),
                             );
                             return;
                           }
@@ -276,11 +305,11 @@ export default function Navigation({ className = "" }) {
                                 : rawT("new").toUpperCase()}
                             </span>
                           )}
-                          {tool.isAvailable === "coming" && (
+                          {isDisabled && (
                             <span
                               className={`text-[10px] font-bold uppercase px-2 rounded-full bg-blue-500`}
                             >
-                              {rawT("soon").toUpperCase()}
+                              {rawT("not_available").toUpperCase()}
                             </span>
                           )}
                         </div>

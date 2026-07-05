@@ -46,9 +46,22 @@ const HeroSection = () => {
   const isRTL = dir === "rtl";
   const toolList = tools
     .getTools()
-    .sortBy("isAvailable", "desc", "boolean")
     .sortBy("isNew", "desc")
-    .sortBy("isHot", "desc");
+    .sortBy("isHot", "desc")
+    .sort((a, b) => {
+      const aKey = a.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+      const bKey = b.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+      const aAvailable =
+        typeof window !== "undefined"
+          ? window.TOOLS_CONFIG?.[aKey] !== false
+          : true;
+      const bAvailable =
+        typeof window !== "undefined"
+          ? window.TOOLS_CONFIG?.[bKey] !== false
+          : true;
+      if (aAvailable === bAvailable) return 0;
+      return aAvailable ? -1 : 1;
+    });
 
   const transitions = useTransition(isChoiceOpen, {
     from: { opacity: 0, transform: "scale(0.9)" },
@@ -192,8 +205,13 @@ const HeroSection = () => {
                   >
                     <div className="grid grid-cols-3 gap-3 p-4 max-h-[400px] overflow-y-auto">
                       {toolList.map((tool, index) => {
-                        const isComing = tool.isAvailable === "coming";
-                        const isDisabled = !tool.isAvailable || isComing;
+                        const toolKey =
+                          tool.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+                        const isAvailable =
+                          typeof window !== "undefined"
+                            ? (window.TOOLS_CONFIG?.[toolKey] ?? true)
+                            : true;
+                        const isDisabled = !isAvailable;
 
                         return (
                           <div
@@ -208,7 +226,7 @@ const HeroSection = () => {
                                 toast.info(
                                   rawT("not_available_warning", {
                                     type: "tool",
-                                  })
+                                  }),
                                 );
                                 return;
                               }
@@ -238,9 +256,7 @@ const HeroSection = () => {
 
                             {isDisabled && (
                               <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center text-xs text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity select-none">
-                                {isComing
-                                  ? rawT("coming_soon")
-                                  : rawT("not_available")}
+                                {rawT("not_available")}
                               </div>
                             )}
                           </div>
@@ -248,7 +264,7 @@ const HeroSection = () => {
                       })}
                     </div>
                   </animated.div>
-                )
+                ),
             )}
           </div>
 

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { SuccessResponse } from "@/utils";
-import { ENABLE_FACEBOOK } from "@/conf";
+import { redenv } from "@/lib/redenv";
 import { postExec } from "../postExec";
 import { handleError } from "../helper";
 import { TokenManager } from "@/lib/security";
@@ -14,9 +14,10 @@ const manager = new TokenManager();
 export async function POST(request: NextRequest) {
   let response;
   let isExpectedError = false;
+  const env = await redenv.load();
 
   try {
-    if (!ENABLE_FACEBOOK) {
+    if (env.ENABLE_FACEBOOK === 'false') {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Facebook downloading server currently unavailable" },

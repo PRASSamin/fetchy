@@ -21,7 +21,6 @@ export const frontmatter = {
     ja: "近日公開",
     ko: "곧 출시됩니다",
   },
-  isAvailable: "coming",
-  isNew: false,
+  isNew: true,
   updatedAt: "2025-09-26T17:29:01.326Z",
 };

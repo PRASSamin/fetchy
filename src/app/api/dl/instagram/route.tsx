@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { fetchInstaContentJson } from "@/lib/instagram";
 import { SuccessResponse } from "@/utils";
 
-import { ENABLE_INSTAGRAM } from "@/conf";
+import { redenv } from "@/lib/redenv";
 
 import { postExec } from "../postExec";
 import { handleError } from "../helper";
@@ -16,9 +16,10 @@ const manager = new TokenManager();
 export async function POST(request: NextRequest) {
   let response;
   let isExpectedError = false;
+  const env = await redenv.load();
 
   try {
-    if (!ENABLE_INSTAGRAM) {
+    if (env.ENABLE_INSTAGRAM === 'false') {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Instagram downloading server currently unavailable" },
