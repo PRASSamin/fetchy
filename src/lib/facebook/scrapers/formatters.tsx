@@ -31,7 +31,8 @@ export const formatGraphqlVideoJson = (data: string) => {
     return null;
   }
 
-  const response = data?.split("\n");
+  const cleanData = typeof data === "string" ? data.replace("for (;;);", "").trim() : data;
+  const response = cleanData?.split("\n");
   const d1 = JSON.parse(response[0]);
   const d2 = response.filter(
     (i) =>
@@ -108,7 +109,7 @@ export function _generateRandomId() {
 }
 
 export const formatGraphqlStoryJson = (
-  raw: string,
+  raw: string | any,
   contentId: string,
   type: "story" | "highlight"
 ) => {
@@ -116,18 +117,19 @@ export const formatGraphqlStoryJson = (
     throw new BadRequest("This post does not exist");
   }
 
-  let responseData;
-  try {
-    responseData = JSON.parse(raw.split("\n")[0]);
-  } catch (e) {
+  let responseData: any;
+  if (typeof raw === "string") {
+    try {
+      const cleanRaw = raw.replace("for (;;);", "").trim();
+      responseData = JSON.parse(cleanRaw.split("\n")[0]);
+    } catch (e) {
+      responseData = raw;
+    }
+  } else {
     responseData = raw;
   }
 
-  const _BUCKET_NAME = type === "story" ? "nodes" : "bucket";
-  const _UNIFIED_STORIES_NAME =
-    type === "story" ? "unified_stories" : "unified_stories_with_notes";
-
-  const data = responseData?.data?.[_BUCKET_NAME];
+  const data = responseData?.data?.nodes || responseData?.data?.bucket;
 
   const owner = data?.[0]?.story_bucket_owner || data?.story_bucket_owner || {};
   owner.profile_pic = owner?.profilePicture?.uri || null;
@@ -144,9 +146,10 @@ export const formatGraphqlStoryJson = (
     stories: [],
   };
 
+  const nodeData = data?.[0] || data || {};
   const edges =
-    data?.[0]?.[_UNIFIED_STORIES_NAME]?.edges ||
-    data?.[_UNIFIED_STORIES_NAME]?.edges ||
+    nodeData?.unified_stories_with_notes?.edges ||
+    nodeData?.unified_stories?.edges ||
     [];
 
   if (Array.isArray(edges) && edges.length > 0) {

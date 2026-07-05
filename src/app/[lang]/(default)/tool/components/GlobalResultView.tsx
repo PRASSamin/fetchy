@@ -5,7 +5,7 @@ import {
   BetterImage,
   BetterVersion,
   Fallback,
-  Img,
+  Image as Img,
 } from "@/components/ui/better-image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
@@ -86,9 +86,7 @@ const GlobalResultView = ({
                 >
                   {/* Main Image */}
                   <BetterImage
-                    fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
                     className="rounded-lg object-cover object-center"
                     alt={data?.id}
                     src={data?.thumbnail || ""}
@@ -145,7 +143,7 @@ const GlobalResultView = ({
                           | InstagramResource
                           | TiktokResource
                           | FacebookVideoResource,
-                        i: number
+                        i: number,
                       ) => (
                         <Dialog key={i}>
                           <DialogTrigger asChild>
@@ -238,7 +236,7 @@ const GlobalResultView = ({
                                       res?.baseURL,
                                       res?.filename,
                                       res?.type,
-                                      setIsDownloading
+                                      setIsDownloading,
                                     )
                                   }
                                   variant="default"
@@ -257,7 +255,7 @@ const GlobalResultView = ({
                                 {res?.type === "video" &&
                                   !res?.has_audio &&
                                   data?.resources?.filter(
-                                    (r) => r?.type === "audio"
+                                    (r) => r?.type === "audio",
                                   ).length > 0 && (
                                     <Button
                                       variant="outline"
@@ -266,10 +264,10 @@ const GlobalResultView = ({
                                         renderVideo(
                                           res?.baseURL,
                                           data?.resources?.filter(
-                                            (r) => r?.type === "audio"
+                                            (r) => r?.type === "audio",
                                           )[0]?.baseURL,
                                           res?.filename,
-                                          setIsRendering
+                                          setIsRendering,
                                         )
                                       }
                                       className="bg-gradient-to-r from-amber-500/90 to-orange-500/90 text-foreground border-amber-500/30 hover:from-amber-500 hover:to-orange-500  focus-visible:ring-0 transition-all duration-200 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20"
@@ -297,13 +295,12 @@ const GlobalResultView = ({
                               {res?.type === "image" ? (
                                 <BetterVersion>
                                   <Img
-                                    priority
                                     src={res?.baseURL}
                                     width={res?.width}
                                     height={res?.height}
                                     alt={res?.id}
                                   ></Img>
-                                  <Fallback className="min-h-[300px] max-h-full" />
+                                  <Fallback className="min-h-[60dvh] max-h-full" />
                                 </BetterVersion>
                               ) : res?.type === "audio" ? (
                                 <audio
@@ -323,7 +320,7 @@ const GlobalResultView = ({
                             </DialogFooter>
                           </DialogContent>
                         </Dialog>
-                      )
+                      ),
                     )}
                   </div>
                 </div>

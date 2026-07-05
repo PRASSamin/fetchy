@@ -17,17 +17,22 @@ const encodePostRequestData = (postId: string, type: InstagramContentType) => {
   const docId = isPostOrReel ? "10015901848480474" : "31842794902034649";
   const variables = isPostOrReel
     ? {
-        shortcode: postId,
-        fetch_comment_count: "null",
-        fetch_related_profile_media_count: "null",
-        parent_comment_count: "null",
-        child_comment_count: "null",
-        fetch_like_count: "null",
-        fetch_tagged_user_count: "null",
-        fetch_preview_comment_count: "null",
-        has_threaded_comments: "false",
-        hoisted_comment_id: "null",
-        hoisted_reply_id: "null",
+        shortcode: postId, 
+        fetch_comment_count: 40, 
+        fetch_related_profile_media_count: 3, 
+        parent_comment_count: 24, 
+        child_comment_count: 3, 
+        fetch_like_count: 10, 
+        fetch_tagged_user_count: null, 
+        fetch_preview_comment_count: 2, 
+        has_threaded_comments: true, 
+        hoist_extract_wni_from_comments: false 
+      }
+    : type === "story"
+    ? {
+        initial_reel_id: postId,
+        reel_ids: [postId],
+        first: 1,
       }
     : {
         initial_reel_id: `highlight:${postId}`,
@@ -35,31 +40,39 @@ const encodePostRequestData = (postId: string, type: InstagramContentType) => {
         first: 1,
       };
   const requestData = {
-    av: "0",
+    av: "17841454066911119",
     __d: "www",
-    __user: "0",
-    __a: "1",
-    __req: "3",
-    __hs: "19624.HYP:instagram_web_pkg.2.1..0.0",
-    dpr: "3",
-    __ccg: "UNKNOWN",
-    __rev: "1008824440",
-    __s: "xf44ne:zhh75g:xr51e7",
-    __hsi: "7282217488877343271",
+    __user: 0,
+    __a: 1,
+    __req: "b",
+    __hs: "20639.HYP:instagram_web_pkg.2.1...0",
+    dpr: 1,
+    __ccg: "GOOD",
+    __rev: 1042641721,
+    __s: "gx238d:cul40h:zbuf8d",
+    __hsi: "7658983823372492036",
     __dyn:
-      "7xeUmwlEnwn8K2WnFw9-2i5U4e0yoW3q32360CEbo1nEhw2nVE4W0om78b87C0yE5ufz81s8hwGwQwoEcE7O2l0Fwqo31w9a9x-0z8-U2zxe2GewGwso88cobEaU2eUlwhEe87q7-0iK2S3qazo7u1xwIw8O321LwTwKG1pg661pwr86C1mwraCg",
+      "7xeUjG1mxu1syUbFp41twpUnwgU7SbzEdF8aUco2qwJxS0k24o0B-q1ew6ywaq0yE462mcw5Mx62G5UswoEcE7O2l0Fwqo5W1yw9O1lwlE-U2zxe2GewGw9a361qw8Xxm16wa-0oa2-azo7u3C2u2J0bS1LyUaUbGwmk0zU8oC1Iwqo5p389oed6goK10xKi2K7E5y4U158KmUhw5nyEcE4y16wAwj83KwRzk",
     __csr:
-      "gZ3yFmJkillQvV6ybimnG8AmhqujGbLADgjyEOWz49z9XDlAXBJpC7Wy-vQTSvUGWGh5u8KibG44dBiigrgjDxGjU0150Q0848azk48N09C02IR0go4SaR70r8owyg9pU0V23hwiA0LQczA48S0f-x-27o05NG0fkw",
-    __comet_req: "7",
-    lsd: "AVqbxe3J_YA",
-    jazoest: "2957",
-    __spin_r: "1008824440",
+      "gCwshQILWNv6QPFqHnsX6BZiOdoFamtmykXnRcGhqjW8GJ9pGGGhox4Gpp9khfAFqizV9tiC9jSykz48oJavCBF2emZ2Vqz8S8BJ7QmiECeHWyp98OmuiEx5K5UsyoCaVd9BgCh3EKnzpEixiVEjAxm4oGbAB-S8AGAuEOq548yEFt_y8SFbgS5EGfyEmgCEC78rBCBAKexq8KcyomCyeCi18yE06aS02T600UIE8odE0S3w19Oq2nc0deKmcw2HE1l84bw3GU45wSw7FwDo2jwce1Wg6m6E1BVi05Q503Ry398nycjwKDyu265E2Ba3Bw3qm0BU7u07t403h6040U0nSw3hU3Po3qw",
+    __hsdp:
+      "gbA5rNc5kmOea8Ixmy7EzaFbmEuFIEydUSl7BBwUxgk2izOo889C1roJwpQ34w8E5K1N8h5wEyE4S14wvEuwUwg8ox60GVEeUb84J0AwhrwGzF86i8wKx68y8d8a84x0JwjEow7bwdy08dw3UEG0JU0oTw4nU6q0hK7E0MyewiE13o0zN03hE1EU5au9AhE4e0aBG",
+    __hblp:
+      "0gWw8q3rxe584Wi8BAwi85Wmu64cz8e9EKlwm8x0SwyG1ty84K7pF42u8UjwIBCwNxa1IByaxW5U88fbxzzu1gwmFEgwGwIU4xwAwAzF8OUKm68Wi1Ay99U8ohy8y3i2y1TzXyEbUowyw5rzEW2W0BomwHw51wcK3O11w6Ww6EyE2Tw1zu0Z88K363i1fwyw8a2m7Epxe0bqzE4G0T8mxC1Mw7bg1UE1fo9o28wiUO0MqwjVUCh6g4a0ju782dG0LWw",
+    __sjsp: "gbA5rOigD2Qkgzyyaaq8uycGAJqxWCOy8Tzpkdw86pCwhS",
+    __comet_req: 7,
+    fb_dtsg:
+      "NAfw5y2nm2Z6Fg9eiiFegyLX6vrll3UgrxPx485ICe2OjqiQ6EPufrA:17843671327157124:1781330384",
+    jazoest: 26332,
+    lsd: "xM_vWMRLGLIM3KGo4T5iG9",
+    __spin_r: 1042641721,
     __spin_b: "trunk",
-    __spin_t: "1695523385",
+    __spin_t: 1783246133,
+    __crn: "comet.igweb.PolarisClipsTabDesktopProfiledContentRoute",
     fb_api_caller_class: "RelayModern",
     fb_api_req_friendly_name: "PolarisPostActionLoadPostQueryQuery",
+    server_timestamps: true,
     variables: JSON.stringify(variables),
-    server_timestamps: "true",
     doc_id: docId,
   };
   const encoded = querystring.stringify(requestData);
@@ -70,15 +83,12 @@ export const fetchFromGraphQL = async (
   postId: string,
   requestedUrl: string,
   timeout: number = 0,
-  type: InstagramContentType
+  type: InstagramContentType,
 ) => {
   if (!postId) return null;
   const env = await redenv.load();
-  const isStoryOrHighlight = ["story", "highlight"].includes(type);
 
-  const API_URL = isStoryOrHighlight
-    ? "https://www.instagram.com/graphql/query"
-    : "https://www.instagram.com/api/graphql";
+  const API_URL = "https://www.instagram.com/graphql/query";
 
   const headers = {
     Accept: "*/*",
@@ -86,15 +96,16 @@ export const fetchFromGraphQL = async (
     "Content-Type": "application/x-www-form-urlencoded",
     "X-FB-Friendly-Name": "PolarisPostActionLoadPostQueryQuery",
     "X-CSRFToken": "RVDUooU5MYsBbS1CNN3CzVAuEP8oHB52",
-    "X-IG-App-ID": "1217981644879628",
-    "X-FB-LSD": "AVqbxe3J_YA",
-    "X-ASBD-ID": "129477",
+    "X-IG-App-ID": "936619743392459",
+    "X-FB-LSD": "xM_vWMRLGLIM3KGo4T5iG9",
+    "X-ASBD-ID": "359341",
+    "X-Bloks-Version-Id": "9710744400aad993bd60d4784987ff111f0f5d8a9859069ba8ae7485ed483e3f",
     "Sec-Fetch-Dest": "empty",
     "Sec-Fetch-Mode": "cors",
     "Sec-Fetch-Site": "same-origin",
     "User-Agent":
       "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36",
-    cookie: ["highlight", "story"].includes(type) ? `${env.IG_COOKIE}` : "",
+    cookie: `${env.IG_COOKIE}`,
   };
 
   const encodedData = encodePostRequestData(postId, type);
@@ -108,6 +119,7 @@ export const fetchFromGraphQL = async (
       data: encodedData,
       timeout,
     });
+    console.log(response.data);
     if (response.statusText === "error") {
       return null;
     }
@@ -136,7 +148,7 @@ export const fetchFromGraphQL = async (
 
 export const fetchIGSemiPrivateReel = async (
   url: string,
-  timeout: number = 5000
+  timeout: number = 5000,
 ): Promise<InstagramResponse | null> => {
   if (!url) return null;
   try {
@@ -158,7 +170,7 @@ export const fetchIGSemiPrivateReel = async (
           Host: api.host,
         },
         timeout,
-      }
+      },
     );
     // it will return formated json so no need to format it again
     return response.data;

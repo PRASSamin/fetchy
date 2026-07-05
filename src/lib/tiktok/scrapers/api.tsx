@@ -1,13 +1,14 @@
 import { handleScraperError } from "@/lib/facebook/scrapers/helpers";
 import { TIKTOK_CONTENT_FETCH_API } from "@/constants";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { formatTiktokJson } from "./formatters";
 import { TiktokResponse } from "@/types/api/downloader";
 import { redenv } from "@/lib/redenv";
+import { BadRequest } from "@/lib/exceptions";
 
 export const fetchTiktokContent = async (
   url: string,
-  timeout: number = 5000
+  timeout: number = 5000,
 ): Promise<TiktokResponse | null> => {
   if (!url) return null;
   try {
@@ -29,6 +30,14 @@ export const fetchTiktokContent = async (
     });
     return formatTiktokJson(response.data);
   } catch (e: any) {
+    if (
+      typeof (e as AxiosError).response?.data === "string" &&
+      ((e as AxiosError).response?.data as string)?.startsWith(
+        "Direct music links are no longer supported",
+      )
+    ) {
+      throw new BadRequest(e.response.data);
+    }
     handleScraperError(e);
     return null;
   }

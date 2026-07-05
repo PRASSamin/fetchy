@@ -5,7 +5,7 @@ import {
   BetterImage,
   BetterVersion,
   Fallback,
-  Img,
+  Image as Img,
 } from "@/components/ui/better-image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
@@ -89,9 +89,7 @@ const FBIGStoryResultView = ({
                   className="h-40 aspect-[9/16] bg-gradient-to-t from-neutral-900 to-neutral-800 rounded-lg"
                 >
                   <BetterImage
-                    fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
                     className="rounded-lg object-cover object-center"
                     alt={data?.id}
                     src={story?.thumbnail}
@@ -107,9 +105,7 @@ const FBIGStoryResultView = ({
                 >
                   {/* Main Image */}
                   <BetterImage
-                    fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
                     className="rounded-lg object-cover object-center"
                     alt={selectedStory?.id || ""}
                     src={selectedStory?.thumbnail || ""}
@@ -163,7 +159,7 @@ const FBIGStoryResultView = ({
                     {selectedStory?.resources.map(
                       (
                         res: FacebookStoryResponse["stories"][number]["resources"][number],
-                        i: number
+                        i: number,
                       ) => (
                         <Dialog key={i}>
                           <DialogTrigger asChild>
@@ -240,7 +236,7 @@ const FBIGStoryResultView = ({
                                       res?.baseURL,
                                       res?.filename,
                                       res?.type,
-                                      setIsDownloading
+                                      setIsDownloading,
                                     )
                                   }
                                   variant="default"
@@ -259,7 +255,7 @@ const FBIGStoryResultView = ({
                                 {res?.type === "video" &&
                                   !res?.has_audio &&
                                   selectedStory?.resources?.filter(
-                                    (r) => r?.type === "audio"
+                                    (r) => r?.type === "audio",
                                   ).length > 0 && (
                                     <Button
                                       variant="outline"
@@ -268,10 +264,10 @@ const FBIGStoryResultView = ({
                                         renderVideo(
                                           res?.baseURL,
                                           selectedStory?.resources?.filter(
-                                            (r) => r?.type === "audio"
+                                            (r) => r?.type === "audio",
                                           )[0]?.baseURL,
                                           res?.filename,
-                                          setIsRendering
+                                          setIsRendering,
                                         )
                                       }
                                       className="bg-gradient-to-r from-amber-500/90 to-orange-500/90 text-foreground border-amber-500/30 hover:from-amber-500 hover:to-orange-500  focus-visible:ring-0 transition-all duration-200 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20"
@@ -299,13 +295,12 @@ const FBIGStoryResultView = ({
                               {res?.type === "image" ? (
                                 <BetterVersion>
                                   <Img
-                                    priority
                                     src={res?.baseURL}
                                     width={res?.width}
                                     height={res?.height}
                                     alt={res?.id}
                                   ></Img>
-                                  <Fallback className="min-h-[300px] max-h-full" />
+                                  <Fallback className="min-h-[60dvh] max-h-full" />
                                 </BetterVersion>
                               ) : res?.type === "audio" ? (
                                 <audio
@@ -327,7 +322,7 @@ const FBIGStoryResultView = ({
                             </DialogFooter>
                           </DialogContent>
                         </Dialog>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
