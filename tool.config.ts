@@ -27,7 +27,6 @@ export const config = {
       )
       .optional()
       .or(z.string()),
-    isAvailable: z.boolean().or(z.literal("coming")).optional(),
     updatedAt: z.string().optional(),
     isNew: z.boolean().optional().default(true),
   }),

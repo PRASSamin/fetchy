@@ -5,7 +5,7 @@ import { postExec } from "../postExec";
 import { handleError } from "../helper";
 import { TokenManager } from "@/lib/security";
 import { ipAddress } from "@vercel/functions";
-import { ENABLE_TIKTOK } from "@/conf";
+import { redenv } from "@/lib/redenv";
 import { Exception } from "@/lib/exceptions";
 
 const manager = new TokenManager();
@@ -13,13 +13,14 @@ const manager = new TokenManager();
 export async function POST(request: NextRequest) {
   let response;
   let isExpectedError = false;
+  const env = await redenv.load();
 
   try {
-    if (!ENABLE_TIKTOK) {
+    if (env.ENABLE_TIKTOK === "false") {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Tiktok downloading server currently unavailable" },
-        { status: 403 }
+        { status: 403 },
       );
     }
 
@@ -39,7 +40,7 @@ export async function POST(request: NextRequest) {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Invalid API Credentials" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 

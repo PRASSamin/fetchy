@@ -100,7 +100,15 @@ export default async function DefaultRootLayout({
 }) {
   const store = await cookies();
   const locale = store.get("locale")?.value || "en";
-  await redenv.load();
+  const env = await redenv.load();
+
+  const toolsConfig = {
+    facebook: env.ENABLE_FACEBOOK !== "false",
+    tiktok: env.ENABLE_TIKTOK !== "false",
+    instagram: env.ENABLE_INSTAGRAM !== "false",
+    youtube: env.ENABLE_YOUTUBE !== "false",
+  };
+
   return (
     <TooltipProvider>
       <html
@@ -109,9 +117,16 @@ export default async function DefaultRootLayout({
         suppressHydrationWarning
         className="dark"
       >
+        <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.TOOLS_CONFIG = ${JSON.stringify(toolsConfig)};`,
+            }}
+          />
+        </head>
         <body
           className={cn(
-            `antialiased bg-background font-sans !overflow-x-hidden`
+            `antialiased bg-background font-sans !overflow-x-hidden`,
           )}
         >
           <Suspense fallback={null}>

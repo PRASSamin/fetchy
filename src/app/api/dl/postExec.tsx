@@ -1,21 +1,20 @@
 import axios from "axios";
 import type { NextResponse, NextRequest } from "next/server";
 import { Discord } from "@/lib/discord";
-import { ENABLE_LOGGER, SEND_TO_DISCORD } from "@/conf";
 import { redenv } from "@/lib/redenv";
 
 export const postExec = async (
   request: NextRequest,
   response: NextResponse
 ) => {
-  if (ENABLE_LOGGER) {
+  const env = await redenv.load();
+  if (env.ENABLE_LOGGER === true || env.ENABLE_LOGGER === "true") {
     if (!request.nextUrl.pathname.startsWith("/api/dl")) return;
-    const env = await redenv.load();
     const discord = new Discord(request, response);
 
     try {
       const payload = await discord.payload();
-      if (env.DISCORD_WEBHOOK_URL && SEND_TO_DISCORD) {
+      if (env.DISCORD_WEBHOOK_URL && (env.SEND_TO_DISCORD === true || env.SEND_TO_DISCORD === "true")) {
         await axios.post(
           env.DISCORD_WEBHOOK_URL,
           { embeds: [payload] },

@@ -17,9 +17,10 @@ export default WhyFetchy;
 
 function CompatibilityCard({ className }: { className: string }) {
   const t = useTranslations("_home");
-  const tools = toolsList
-    .getTools()
-    .filter((item) => item.isAvailable !== "coming");
+  const tools = toolsList.getTools().filter(tool => {
+    const toolKey = tool.title.toLowerCase() as keyof typeof window.TOOLS_CONFIG;
+    return typeof window !== "undefined" ? window.TOOLS_CONFIG?.[toolKey] !== false : true;
+  });
 
   const extendedTools = tools.map((tool) => ({
     ...tool,

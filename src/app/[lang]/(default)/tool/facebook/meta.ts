@@ -1,4 +1,3 @@
-import { ENABLE_FACEBOOK } from "@/conf";
 import { Facebook } from "@mui/icons-material";
 
 export const frontmatter = {
@@ -23,7 +22,6 @@ export const frontmatter = {
     ja: "Facebookの動画、リール、ストーリーズをダウンロード。",
     ko: "Facebook 동영상, 릴스 및 스토리를 다운로드하세요.",
   },
-  isAvailable: ENABLE_FACEBOOK,
   isNew: false,
   updatedAt: "2026-07-05T22:27:19.079Z",
 };

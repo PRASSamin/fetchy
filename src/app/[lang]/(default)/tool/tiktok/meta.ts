@@ -1,5 +1,4 @@
 import { TiktokIcon } from "@/components/icons/tiktok";
-import { ENABLE_TIKTOK } from "@/conf";
 
 export const frontmatter = {
   title: "Tiktok",
@@ -22,7 +21,6 @@ export const frontmatter = {
     ja: "TikTokの動画、スライドショー、音楽をダウンロード。",
     ko: "TikTok 영상, 슬라이드쇼, 음악을 다운로드하세요.",
   },
-  isAvailable: ENABLE_TIKTOK,
   isNew: true,
   updatedAt: "2026-07-05T20:44:45.408Z",
 };
