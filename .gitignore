@@ -41,7 +41,7 @@ next-env.d.ts
 
 cdn
 cdn-cleaner
-test.*
+test*
 
 .tools
 .source

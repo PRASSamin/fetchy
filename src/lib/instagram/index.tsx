@@ -2,8 +2,9 @@ import { BadRequest } from "@/lib/exceptions";
 import { fetchFromGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
 import { getTranslations } from "next-intl/server";
+import { redenv } from "@/lib/redenv";
 
-export const getPostId = async (url: string, html?: string) => {
+export const getPostId = async (url: string) => {
   const t = await getTranslations("errors");
 
   const postRegex =
@@ -39,10 +40,34 @@ export const getPostId = async (url: string, html?: string) => {
   } else if (storyCheck) {
     type = "story";
     const username = storyCheck[1]; // using index 1 is safer than at(-1)
-    const match = html?.match(/"profile_id":"(\d+)"/) || html?.match(/"user_id":"(\d+)"/) || html?.match(/"id":"(\d+)"/);
-    if (match && match[1]) {
-      postId = match[1];
-    } else {
+    try {
+      const { default: axios } = await import("axios");
+      const env = await redenv.load();
+      const res = await axios.get(
+        `https://www.instagram.com/web/search/topsearch/?query=${username}`,
+        {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+            "Accept-Language": "en-US,en;q=0.8",
+            Host: "www.instagram.com",
+            referrer: "https://www.instagram.com/",
+            Cookie: env.IG_COOKIE,
+          },
+        },
+      );
+
+      const users = res.data?.users;
+      if (users && users.length > 0) {
+        // topsearch returns a list of users, we need to find the exact username match, or just take the first one
+        const matchedUser = users.find(
+          (u: any) => u.user.username === username,
+        );
+        postId = matchedUser ? matchedUser.user.pk : users[0].user.pk;
+      } else {
+        postId = username;
+      }
+    } catch (err) {
       postId = username;
     }
   }
@@ -56,29 +81,34 @@ export const getPostId = async (url: string, html?: string) => {
 
 export const fetchInstaContentJson = async (
   url: string,
-  timeout: number = 0
+  timeout: number = 0,
 ) => {
   const t = await getTranslations("errors");
-  const { redenv } = await import("@/lib/redenv");
-  const env = await redenv.load();
 
-  const orgUrl = await resolveRedirectUrl({
-    url,
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
-      Accept:
-        "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-      "Accept-Language": "en-US,en;q=0.8",
-      Host: "www.instagram.com",
-      referrer: "https://www.instagram.com/",
-      cookie: `${env.IG_COOKIE}`,
-    },
-  });
+  let finalUrl = url;
 
-  const { id: postId, type } = await getPostId(orgUrl.url, orgUrl.html);
+  const isStory = url.match(
+    /^https:\/\/(?:www\.)?instagram\.com\/stories\/([a-zA-Z0-9._-]+)\/?/,
+  );
 
-  const apiJson = await fetchFromGraphQL(postId, orgUrl.url, timeout, type);
+  if (!isStory) {
+    const final = await resolveRedirectUrl({
+      url,
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.8",
+        Host: "www.instagram.com",
+        referrer: "https://www.instagram.com/",
+      },
+    });
+    finalUrl = final.url;
+  }
+
+  const { id: postId, type } = await getPostId(finalUrl);
+  const apiJson = await fetchFromGraphQL(postId, finalUrl, timeout, type);
   if (apiJson) return apiJson;
 
   throw new BadRequest(t("private_or_not_exist"), 404);

@@ -5,20 +5,21 @@ import { redenv } from "@/lib/redenv";
 
 export const postExec = async (
   request: NextRequest,
-  response: NextResponse
+  response: NextResponse,
 ) => {
   const env = await redenv.load();
+
   if (env.ENABLE_LOGGER === "true") {
     if (!request.nextUrl.pathname.startsWith("/api/dl")) return;
     const discord = new Discord(request, response);
 
     try {
       const payload = await discord.payload();
-      if (env.DISCORD_WEBHOOK_URL && (env.SEND_TO_DISCORD === "true")) {
+      if (env.DISCORD_WEBHOOK_URL && env.SEND_TO_DISCORD === "true") {
         await axios.post(
           env.DISCORD_WEBHOOK_URL,
           { embeds: [payload] },
-          { headers: { "Content-Type": "application/json" } }
+          { headers: { "Content-Type": "application/json" } },
         );
       }
     } catch (err) {

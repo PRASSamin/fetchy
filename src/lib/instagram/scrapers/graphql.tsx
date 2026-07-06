@@ -17,28 +17,28 @@ const encodePostRequestData = (postId: string, type: InstagramContentType) => {
   const docId = isPostOrReel ? "10015901848480474" : "31842794902034649";
   const variables = isPostOrReel
     ? {
-        shortcode: postId, 
-        fetch_comment_count: 40, 
-        fetch_related_profile_media_count: 3, 
-        parent_comment_count: 24, 
-        child_comment_count: 3, 
-        fetch_like_count: 10, 
-        fetch_tagged_user_count: null, 
-        fetch_preview_comment_count: 2, 
-        has_threaded_comments: true, 
-        hoist_extract_wni_from_comments: false 
+        shortcode: postId,
+        fetch_comment_count: 40,
+        fetch_related_profile_media_count: 3,
+        parent_comment_count: 24,
+        child_comment_count: 3,
+        fetch_like_count: 10,
+        fetch_tagged_user_count: null,
+        fetch_preview_comment_count: 2,
+        has_threaded_comments: true,
+        hoist_extract_wni_from_comments: false,
       }
     : type === "story"
-    ? {
-        initial_reel_id: postId,
-        reel_ids: [postId],
-        first: 1,
-      }
-    : {
-        initial_reel_id: `highlight:${postId}`,
-        reel_ids: [`highlight:${postId}`],
-        first: 1,
-      };
+      ? {
+          initial_reel_id: postId,
+          reel_ids: [postId],
+          first: 1,
+        }
+      : {
+          initial_reel_id: `highlight:${postId}`,
+          reel_ids: [`highlight:${postId}`],
+          first: 1,
+        };
   const requestData = {
     av: "17841454066911119",
     __d: "www",
@@ -99,12 +99,13 @@ export const fetchFromGraphQL = async (
     "X-IG-App-ID": "936619743392459",
     "X-FB-LSD": "xM_vWMRLGLIM3KGo4T5iG9",
     "X-ASBD-ID": "359341",
-    "X-Bloks-Version-Id": "9710744400aad993bd60d4784987ff111f0f5d8a9859069ba8ae7485ed483e3f",
+    "X-Bloks-Version-Id":
+      "9710744400aad993bd60d4784987ff111f0f5d8a9859069ba8ae7485ed483e3f",
     "Sec-Fetch-Dest": "empty",
     "Sec-Fetch-Mode": "cors",
     "Sec-Fetch-Site": "same-origin",
     "User-Agent":
-      "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
     cookie: `${env.IG_COOKIE}`,
   };
 
@@ -119,7 +120,7 @@ export const fetchFromGraphQL = async (
       data: encodedData,
       timeout,
     });
-    console.log(response.data);
+
     if (response.statusText === "error") {
       return null;
     }
