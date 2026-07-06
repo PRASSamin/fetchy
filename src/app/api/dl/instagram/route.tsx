@@ -8,7 +8,7 @@ import { redenv } from "@/lib/redenv";
 import { postExec } from "../postExec";
 import { handleError } from "../helper";
 import { TokenManager } from "@/lib/security";
-import { ipAddress } from "@vercel/functions";
+import { ipAddress, waitUntil } from "@vercel/functions";
 import { Exception } from "@/lib/exceptions";
 
 const manager = new TokenManager();
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const json = await fetchInstaContentJson(url, 15000).catch((err) => {
+    const json = await fetchInstaContentJson(url, 8000).catch((err) => {
       response = handleError(err);
       throw new Exception(response.body.error, response.status);
     });
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
   } finally {
     if (!isExpectedError) {
       // @ts-expect-error: response is a minimal object with {body, status} but postExec expects NextResponse
-      await postExec(request, response);
+      waitUntil(postExec(request, response, env));
     }
   }
 }
