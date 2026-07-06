@@ -2,6 +2,7 @@ import { BadRequest } from "@/lib/exceptions";
 import { fetchFromGraphQL } from "./scrapers/graphql";
 import { resolveRedirectUrl } from "@/utils";
 import { getTranslations } from "next-intl/server";
+import { redenv } from "@/lib/redenv";
 
 export const getPostId = async (url: string, html?: string) => {
   const t = await getTranslations("errors");
@@ -41,16 +42,28 @@ export const getPostId = async (url: string, html?: string) => {
     const username = storyCheck[1]; // using index 1 is safer than at(-1)
     try {
       const { default: axios } = await import("axios");
+      const env = await redenv.load();
       const res = await axios.get(
-        `https://www.instagram.com/api/v1/users/web_profile_info/?username=${username}`,
+        `https://www.instagram.com/web/search/topsearch/?query=${username}`,
         {
           headers: {
-            "x-ig-app-id": "936619743392459",
+            "User-Agent":
+              "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+            "Accept-Language": "en-US,en;q=0.8",
+            Host: "www.instagram.com",
+            referrer: "https://www.instagram.com/",
+            Cookie: env.IG_COOKIE,
           },
         },
       );
-      if (res.data?.data?.user?.id) {
-        postId = res.data.data.user.id;
+
+      const users = res.data?.users;
+      if (users && users.length > 0) {
+        // topsearch returns a list of users, we need to find the exact username match, or just take the first one
+        const matchedUser = users.find(
+          (u: any) => u.user.username === username,
+        );
+        postId = matchedUser ? matchedUser.user.pk : users[0].user.pk;
       } else {
         postId = username;
       }
@@ -84,7 +97,7 @@ export const fetchInstaContentJson = async (
       url,
       headers: {
         "User-Agent":
-          "Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36",
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
         Accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.8",
@@ -97,7 +110,7 @@ export const fetchInstaContentJson = async (
   }
 
   const { id: postId, type } = await getPostId(finalUrl, htmlData);
-
+  console.log(postId);
   const apiJson = await fetchFromGraphQL(postId, finalUrl, timeout, type);
   if (apiJson) return apiJson;
 
