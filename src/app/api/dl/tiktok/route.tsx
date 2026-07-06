@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
   } finally {
     if (!isExpectedError) {
       // @ts-expect-error: response is a minimal object with {body, status} but postExec expects NextResponse
-      waitUntil(postExec(request, response, env));
+      waitUntil(postExec(request, response));
     }
   }
 }

@@ -119,7 +119,7 @@ export const fetchFromGraphQL = async (
       data: encodedData,
       timeout,
     });
-    console.log(response.data);
+
     if (response.statusText === "error") {
       return null;
     }
