@@ -58,6 +58,7 @@ export const getPostId = async (url: string, html?: string) => {
       );
 
       const users = res.data?.users;
+      console.log(res);
       if (users && users.length > 0) {
         // topsearch returns a list of users, we need to find the exact username match, or just take the first one
         const matchedUser = users.find(
