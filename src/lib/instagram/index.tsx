@@ -4,7 +4,7 @@ import { resolveRedirectUrl } from "@/utils";
 import { getTranslations } from "next-intl/server";
 import { redenv } from "@/lib/redenv";
 
-export const getPostId = async (url: string, html?: string) => {
+export const getPostId = async (url: string) => {
   const t = await getTranslations("errors");
 
   const postRegex =
@@ -58,7 +58,6 @@ export const getPostId = async (url: string, html?: string) => {
       );
 
       const users = res.data?.users;
-      console.log(res);
       if (users && users.length > 0) {
         // topsearch returns a list of users, we need to find the exact username match, or just take the first one
         const matchedUser = users.find(
@@ -87,7 +86,6 @@ export const fetchInstaContentJson = async (
   const t = await getTranslations("errors");
 
   let finalUrl = url;
-  let htmlData = "";
 
   const isStory = url.match(
     /^https:\/\/(?:www\.)?instagram\.com\/stories\/([a-zA-Z0-9._-]+)\/?/,
@@ -107,11 +105,9 @@ export const fetchInstaContentJson = async (
       },
     });
     finalUrl = final.url;
-    htmlData = final.html;
   }
 
-  const { id: postId, type } = await getPostId(finalUrl, htmlData);
-  console.log(postId);
+  const { id: postId, type } = await getPostId(finalUrl);
   const apiJson = await fetchFromGraphQL(postId, finalUrl, timeout, type);
   if (apiJson) return apiJson;
 
