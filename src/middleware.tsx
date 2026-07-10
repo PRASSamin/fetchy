@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { tools as toolsSource } from "./lib/tools/source";
 import { geolocation, ipAddress } from "@vercel/functions";
-import axios from "axios";
 import { COLLAB_OPPORTUNITIES, collabMessage } from "./middleware/collab";
 import { BANNED_SCRAPPERS } from "./middleware/ban";
 import { isStaticPath } from "./middleware/isStatic";
@@ -34,7 +33,7 @@ export default async function middleware(request: NextRequest) {
   // next-intl setup
   // =============================
   const matchedLocale = LOCALES_INFO.find((loc) =>
-    loc.countries.includes(country ?? ""),
+    loc.countries.includes(country ?? "")
   );
   const defaultLocale = matchedLocale?.locale ?? "en";
 
@@ -73,7 +72,7 @@ export default async function middleware(request: NextRequest) {
 
   // =============================
   const locale = response.headers.get(
-    "x-middleware-request-x-next-intl-locale",
+    "x-middleware-request-x-next-intl-locale"
   );
 
   const tools = toolsSource.getTools().sortBy("isNew");
@@ -96,7 +95,7 @@ export default async function middleware(request: NextRequest) {
   ) {
     return NextResponse.json(
       { error: "Your scraper is currently banned from using our API." },
-      { status: 401 },
+      { status: 401 }
     );
   }
 
@@ -113,7 +112,7 @@ export default async function middleware(request: NextRequest) {
     tools[0].url
   ) {
     return NextResponse.redirect(
-      new URL(tools[0].url.replace("/:locale", ""), request.url),
+      new URL(tools[0].url.replace("/:locale", ""), request.url)
     );
   }
 
@@ -127,23 +126,39 @@ export default async function middleware(request: NextRequest) {
     }
 
     if (pathname.startsWith("/api")) {
-      const session = request.cookies.get("d_session")?.value;
-      if (session) {
-        try {
-          if (!securityManager.isTokenValid(session)) {
+      const env = await redenv.load();
+      const authHeader = request.headers.get("authorization");
+      let isApiAuthorized = false;
+
+      if (authHeader && authHeader.startsWith("Bearer ")) {
+        const token = authHeader.split(" ")[1];
+        if (env.FETCHY_API_KEY && token === env.FETCHY_API_KEY) {
+          isApiAuthorized = true;
+        }
+      }
+
+      if (!isApiAuthorized) {
+        const session = request.cookies.get("d_session")?.value;
+        if (session) {
+          try {
+            if (!securityManager.isTokenValid(session)) {
+              return NextResponse.json(
+                { error: "Session expired" },
+                { status: 401 }
+              );
+            }
+          } catch (err) {
             return NextResponse.json(
-              { error: "Session expired" },
-              { status: 401 },
+              { error: "Invalid session format" },
+              { status: 401 }
             );
           }
-        } catch (err) {
+        } else {
           return NextResponse.json(
-            { error: "Invalid session format" },
-            { status: 401 },
+            { error: "Invalid session" },
+            { status: 401 }
           );
         }
-      } else {
-        return NextResponse.json({ error: "Invalid session" }, { status: 401 });
       }
     }
 

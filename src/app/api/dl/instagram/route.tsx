@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   const env = await redenv.load();
 
   try {
-    if (env.ENABLE_INSTAGRAM === 'false') {
+    if (env.ENABLE_INSTAGRAM === "false") {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Instagram downloading server currently unavailable" },
@@ -39,7 +39,20 @@ export async function POST(request: NextRequest) {
       )?.trim() || "";
     const userAgent = request.headers.get("user-agent") || "";
 
-    if (!session || !manager.verifyToken({ token: session, ip, userAgent })) {
+    const authHeader = request.headers.get("authorization");
+    let isApiAuthorized = false;
+
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      const token = authHeader.split(" ")[1];
+      if (env.FETCHY_API_KEY && token === env.FETCHY_API_KEY) {
+        isApiAuthorized = true;
+      }
+    }
+
+    if (
+      !isApiAuthorized &&
+      (!session || !manager.verifyToken({ token: session, ip, userAgent }))
+    ) {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Invalid API Credentials" },
