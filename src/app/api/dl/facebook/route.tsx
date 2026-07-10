@@ -35,13 +35,25 @@ export async function POST(request: NextRequest) {
     )?.trim();
     const userAgent = request.headers.get("user-agent");
 
+    const authHeader = request.headers.get("authorization");
+    let isApiAuthorized = false;
+
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      const token = authHeader.split(" ")[1];
+      // env.FETCHY_API_KEY should be set in Upstash/Redenv for this to work
+      if (env.FETCHY_API_KEY && token === env.FETCHY_API_KEY) {
+        isApiAuthorized = true;
+      }
+    }
+
     if (
-      !session ||
-      !manager.verifyToken({
-        token: session,
-        ip: ip ?? "",
-        userAgent: userAgent ?? "",
-      })
+      !isApiAuthorized &&
+      (!session ||
+        !manager.verifyToken({
+          token: session,
+          ip: ip ?? "",
+          userAgent: userAgent ?? "",
+        }))
     ) {
       isExpectedError = true;
       return NextResponse.json(

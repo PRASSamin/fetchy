@@ -42,12 +42,10 @@ const encodeVideoRequestData = (contentId: string) => {
 const encodeStoryHighlightRequestData = (
   contentId: string,
   type: FacebookContentType,
-  dtsg: string,
+  dtsg: string
 ) => {
-  const isHighlight = type === "highlight";
-
-  const variables = isHighlight
-    ? {
+  // const isHighlight = type === "highlight";
+  const variables = {
         blur: 10,
         bucketID: contentId,
         feedbackSource: 65,
@@ -55,31 +53,15 @@ const encodeStoryHighlightRequestData = (
         focusCommentID: null,
         initialBucketID: contentId,
         initialLoad: true,
-        isStoriesArchive: false,
-        scale: 1,
-        shouldDeferLoad: false,
-        shouldEnableArmadilloStoryReply: true,
-        shouldEnableLiveInStories: true,
-        useDefaultActor: false,
-        __relay_internal__pv__StoriesIsShareToStoryEnabledrelayprovider: false,
-        __relay_internal__pv__IsWorkUserrelayprovider: false,
-      }
-    : {
-        bucketIDs: [contentId],
-        scale: 1,
-        blur: 10,
-        shouldEnableArmadilloStoryReply: true,
-        shouldEnableLiveInStories: true,
-        feedbackSource: 65,
-        useDefaultActor: false,
-        feedLocation: "COMET_MEDIA_VIEWER",
-        focusCommentID: null,
-        shouldDeferLoad: false,
-        isStoriesArchive: false,
         isFbNotesIncluded: false,
+        isStoriesArchive: false,
+        scale: 1,
+        shouldDeferLoad: false,
+        shouldEnableArmadilloStoryReply: true,
+        shouldEnableLiveInStories: true,
       };
 
-  const docId = isHighlight ? "32287746704205066" : "27432712149671089";
+  const docId = "36844158545228989";
 
   return querystring.stringify({
     doc_id: docId,
@@ -93,7 +75,7 @@ export const fetchFromFbGraphQL = async (
   type: FacebookContentType,
   contentId: string,
   requestedUrl: string,
-  timeout: number = 0,
+  timeout: number = 0
 ) => {
   if (!contentId) return null;
   const env = await redenv.load();
@@ -111,10 +93,7 @@ export const fetchFromFbGraphQL = async (
     "user-agent":
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
     "x-asbd-id": "359341",
-    "x-fb-friendly-name":
-      type === "highlight"
-        ? "CometStoryViewerHighlightsQueries"
-        : "StoriesViewerBucketPrefetcherMultiBucketsQuery",
+    "x-fb-friendly-name": "StoriesViewerBucketPrefetcherMultiBucketsQuery",
     origin: "https://www.facebook.com",
     cookie: !isVideo ? env.FB_COOKIE : null,
   };
@@ -155,7 +134,7 @@ export const fetchFromFbGraphQL = async (
     // if it is still null, then throw error
     if (json === null)
       throw new BadRequest(
-        "The requested post is either unavailable or has privacy restrictions.",
+        "The requested post is either unavailable or has privacy restrictions."
       );
 
     return json;
@@ -170,7 +149,7 @@ export const fetchFromFbGraphQL = async (
 
 export const fetchSemiPrivateVideo = async (
   url: string,
-  timeout: number = 5000,
+  timeout: number = 5000
 ): Promise<FacebookVideoResponse | null> => {
   if (!url) return null;
   try {
@@ -192,7 +171,7 @@ export const fetchSemiPrivateVideo = async (
           Host: api.host,
         },
         timeout,
-      },
+      }
     );
     // it will return formated json so no need to format it again
     return response.data;

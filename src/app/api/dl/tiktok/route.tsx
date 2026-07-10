@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Tiktok downloading server currently unavailable" },
-        { status: 403 },
+        { status: 403 }
       );
     }
 
@@ -36,11 +36,24 @@ export async function POST(request: NextRequest) {
       )?.trim() || "";
     const userAgent = request.headers.get("user-agent") || "";
 
-    if (!session || !manager.verifyToken({ token: session, ip, userAgent })) {
+    const authHeader = request.headers.get("authorization");
+    let isApiAuthorized = false;
+
+    if (authHeader && authHeader.startsWith("Bearer ")) {
+      const token = authHeader.split(" ")[1];
+      if (env.FETCHY_API_KEY && token === env.FETCHY_API_KEY) {
+        isApiAuthorized = true;
+      }
+    }
+
+    if (
+      !isApiAuthorized &&
+      (!session || !manager.verifyToken({ token: session, ip, userAgent }))
+    ) {
       isExpectedError = true;
       return NextResponse.json(
         { error: "Invalid API Credentials" },
-        { status: 401 },
+        { status: 401 }
       );
     }
 
