@@ -1,0 +1,14 @@
+{
+  "name": "cookie-sync",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync": "bun index.ts",
+    "login": "HEADLESS=false bun index.ts"
+  },
+  "dependencies": {
+    "@redenv/client": "^1.0.6",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.42.1"
+  }
+}
