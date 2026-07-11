@@ -9,6 +9,12 @@ export const postExec = async (
 ) => {
   const env = await redenv.load();
 
+  // Check for silent mode
+  const silentToken = request.headers.get("x-keep-silent");
+  if (silentToken && env.SILENT_SECRET_TOKEN && silentToken === env.SILENT_SECRET_TOKEN) {
+    return;
+  }
+
   if (env.ENABLE_LOGGER === "true") {
     if (!request.nextUrl.pathname.startsWith("/api/dl")) return;
     const discord = new Discord(request, response);
