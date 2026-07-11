@@ -42,26 +42,26 @@ const encodeVideoRequestData = (contentId: string) => {
 const encodeStoryHighlightRequestData = (
   contentId: string,
   type: FacebookContentType,
-  dtsg: string
+  dtsg: string,
 ) => {
   // const isHighlight = type === "highlight";
   const variables = {
-        blur: 10,
-        bucketID: contentId,
-        feedbackSource: 65,
-        feedLocation: "COMET_MEDIA_VIEWER",
-        focusCommentID: null,
-        initialBucketID: contentId,
-        initialLoad: true,
-        isFbNotesIncluded: false,
-        isStoriesArchive: false,
-        scale: 1,
-        shouldDeferLoad: false,
-        shouldEnableArmadilloStoryReply: true,
-        shouldEnableLiveInStories: true,
-      };
+    blur: 10,
+    bucketID: contentId,
+    feedbackSource: 65,
+    feedLocation: "COMET_MEDIA_VIEWER",
+    focusCommentID: null,
+    initialBucketID: contentId,
+    initialLoad: true,
+    isFbNotesIncluded: false,
+    isStoriesArchive: false,
+    scale: 1,
+    shouldDeferLoad: false,
+    shouldEnableArmadilloStoryReply: true,
+    shouldEnableLiveInStories: true,
+  };
 
-  const docId = "36844158545228989";
+  const docId = "27780046204945099";
 
   return querystring.stringify({
     doc_id: docId,
@@ -75,7 +75,7 @@ export const fetchFromFbGraphQL = async (
   type: FacebookContentType,
   contentId: string,
   requestedUrl: string,
-  timeout: number = 0
+  timeout: number = 0,
 ) => {
   if (!contentId) return null;
   const env = await redenv.load();
@@ -120,7 +120,6 @@ export const fetchFromFbGraphQL = async (
     return null;
   }
   if (response.statusText === "error") return null;
-  const contentType = response.headers["content-type"];
 
   const responseJson = response.data;
 
@@ -134,7 +133,7 @@ export const fetchFromFbGraphQL = async (
     // if it is still null, then throw error
     if (json === null)
       throw new BadRequest(
-        "The requested post is either unavailable or has privacy restrictions."
+        "The requested post is either unavailable or has privacy restrictions.",
       );
 
     return json;
@@ -149,7 +148,7 @@ export const fetchFromFbGraphQL = async (
 
 export const fetchSemiPrivateVideo = async (
   url: string,
-  timeout: number = 5000
+  timeout: number = 5000,
 ): Promise<FacebookVideoResponse | null> => {
   if (!url) return null;
   try {
@@ -171,7 +170,7 @@ export const fetchSemiPrivateVideo = async (
           Host: api.host,
         },
         timeout,
-      }
+      },
     );
     // it will return formated json so no need to format it again
     return response.data;
